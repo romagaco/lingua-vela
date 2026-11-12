@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="LinguaVela — Vocabulario y Pronunciación IPA con síntesis de voz y ejercicios interactivos de Terrícola a Capitán." />
+  <title>Vocabulario y Pronunciación | LinguaVela</title>
+
+  <link rel="icon" type="image/png" href="../logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="../css/styles.css" />
+</head>
+<body data-page="vocabulary">
+  <a href="#main-content" class="skip-link" data-i18n="skipLink">Saltar al contenido principal</a>
+  <div id="sr-announcer" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand-nav-group">
+        <a href="../index.html" class="brand-logo" aria-label="LinguaVela — Puerto Principal">
+          <img src="../logo.png" alt="Logo de LinguaVela" class="brand-logo-img" />
+          <span class="brand-text">LinguaVela</span>
+        </a>
+
+        <nav class="main-nav" aria-label="Navegación Principal">
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a href="../index.html" class="nav-link" data-i18n="navPort">Puerto</a>
+            </li>
+            <li class="nav-item">
+              <a href="grammar.html" class="nav-link">
+                <span data-i18n="navGrammar">Taller de Gramática</span>
+                <span class="nav-caret" aria-hidden="true">▾</span>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a href="grammar.html?level=a0" class="dropdown-link"><span data-i18n="rank1Nav">1. Terrícola (Landlubber)</span><span class="dropdown-badge">⚓</span></a></li>
+                <li><a href="grammar.html?level=a1" class="dropdown-link"><span data-i18n="rank2Nav">2. Grumete (Cabin Mate)</span><span class="dropdown-badge">🪣</span></a></li>
+                <li><a href="grammar.html?level=a2" class="dropdown-link"><span data-i18n="rank3Nav">3. Marinero de Cubierta (Deckhand)</span><span class="dropdown-badge">🪢</span></a></li>
+                <li><a href="grammar.html?level=b1" class="dropdown-link"><span data-i18n="rank4Nav">4. Marinero (Sailor)</span><span class="dropdown-badge">⛵</span></a></li>
+                <li><a href="grammar.html?level=b2" class="dropdown-link"><span data-i18n="rank5Nav">5. Contramaestre (Bosun)</span><span class="dropdown-badge">🪈</span></a></li>
+                <li><a href="grammar.html?level=c1" class="dropdown-link"><span data-i18n="rank6Nav">6. Navegante (Navigator)</span><span class="dropdown-badge">🧭</span></a></li>
+                <li><a href="grammar.html?level=c2" class="dropdown-link"><span data-i18n="rank7Nav">7. Capitán (Captain)</span><span class="dropdown-badge">☸️</span></a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a href="vocabulary.html" class="nav-link active" aria-current="page">
+                <span data-i18n="navVocab">Vocabulario y Pronunciación</span>
+                <span class="nav-caret" aria-hidden="true">▾</span>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a href="vocabulary.html?level=a0" class="dropdown-link"><span data-i18n="rank1Nav">1. Terrícola (Landlubber)</span><span class="dropdown-badge">⚓</span></a></li>
+                <li><a href="vocabulary.html?level=a1" class="dropdown-link"><span data-i18n="rank2Nav">2. Grumete (Cabin Mate)</span><span class="dropdown-badge">🪣</span></a></li>
+                <li><a href="vocabulary.html?level=a2" class="dropdown-link"><span data-i18n="rank3Nav">3. Marinero de Cubierta (Deckhand)</span><span class="dropdown-badge">🪢</span></a></li>
+                <li><a href="vocabulary.html?level=b1" class="dropdown-link"><span data-i18n="rank4Nav">4. Marinero (Sailor)</span><span class="dropdown-badge">⛵</span></a></li>
+                <li><a href="vocabulary.html?level=b2" class="dropdown-link"><span data-i18n="rank5Nav">5. Contramaestre (Bosun)</span><span class="dropdown-badge">🪈</span></a></li>
+                <li><a href="vocabulary.html?level=c1" class="dropdown-link"><span data-i18n="rank6Nav">6. Navegante (Navigator)</span><span class="dropdown-badge">🧭</span></a></li>
+                <li><a href="vocabulary.html?level=c2" class="dropdown-link"><span data-i18n="rank7Nav">7. Capitán (Captain)</span><span class="dropdown-badge">☸️</span></a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a href="listening.html" class="nav-link">
+                <span data-i18n="navListening">Comprensión Auditiva</span>
+                <span class="nav-caret" aria-hidden="true">▾</span>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a href="listening.html?level=a0" class="dropdown-link"><span data-i18n="rank1Nav">1. Terrícola (Landlubber)</span><span class="dropdown-badge">⚓</span></a></li>
+                <li><a href="listening.html?level=a1" class="dropdown-link"><span data-i18n="rank2Nav">2. Grumete (Cabin Mate)</span><span class="dropdown-badge">🪣</span></a></li>
+                <li><a href="listening.html?level=a2" class="dropdown-link"><span data-i18n="rank3Nav">3. Marinero de Cubierta (Deckhand)</span><span class="dropdown-badge">🪢</span></a></li>
+                <li><a href="listening.html?level=b1" class="dropdown-link"><span data-i18n="rank4Nav">4. Marinero (Sailor)</span><span class="dropdown-badge">⛵</span></a></li>
+                <li><a href="listening.html?level=b2" class="dropdown-link"><span data-i18n="rank5Nav">5. Contramaestre (Bosun)</span><span class="dropdown-badge">🪈</span></a></li>
+                <li><a href="listening.html?level=c1" class="dropdown-link"><span data-i18n="rank6Nav">6. Navegante (Navigator)</span><span class="dropdown-badge">🧭</span></a></li>
+                <li><a href="listening.html?level=c2" class="dropdown-link"><span data-i18n="rank7Nav">7. Capitán (Captain)</span><span class="dropdown-badge">☸️</span></a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a href="ship.html" class="nav-link">
+                <span data-i18n="navShip">Mi Barco</span>
+                <span class="nav-caret" aria-hidden="true">▾</span>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a href="ship.html?section=logbook" class="dropdown-link"><span data-i18n="subLogbook">Bitácora, Calendarios y Lecciones</span></a></li>
+                <li><a href="ship.html?section=discourse" class="dropdown-link"><span data-i18n="subDiscourse">Competencia Discursiva</span></a></li>
+                <li><a href="ship.html?section=sociolinguistic" class="dropdown-link"><span data-i18n="subSocio">Competencia Sociolingüística y Pragmática</span></a></li>
+                <li><a href="ship.html?section=strategic" class="dropdown-link"><span data-i18n="subStrategic">Competencia Estratégica</span></a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="header-actions">
+        <button type="button" id="lang-toggle-btn" class="lang-btn" aria-label="Cambiar idioma">
+          <span aria-hidden="true">🌐</span>
+          <span id="lang-code-badge" class="lang-badge">ES</span>
+          <span id="lang-btn-text">Español</span>
+        </button>
+
+        <button type="button" id="theme-toggle-btn" class="theme-btn" aria-label="Cambiar tema de color para accesibilidad" aria-pressed="false">
+          <svg class="theme-icon icon-light" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"></circle>
+            <path d="M12 2v2M12 20v2m-7.07-17.07 1.41 1.41m11.32 11.32 1.41 1.41M2 12h2m16 0h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path>
+          </svg>
+          <svg class="theme-icon icon-dark" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+          </svg>
+          <svg class="theme-icon icon-contrast" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <circle cx="12" cy="12" r="10"></circle>
+            <path d="M12 18a6 6 0 0 0 0-12v12z"></path>
+          </svg>
+          <span id="theme-label">Brisa</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content" class="container">
+    <section class="hero-section">
+      <span class="cohort-badge">
+        <span class="status-dot" aria-hidden="true"></span>
+        <span data-i18n="vocabPageEyebrow">LÉXICO, FONÉTICA IPA Y CONNECTED SPEECH</span>
+      </span>
+      <h1 class="hero-title" data-i18n="vocabPageTitle">Vocabulario y Pronunciación</h1>
+      <p class="hero-subtitle" data-i18n="vocabPageSubtitle">
+        Escucha la pronunciación nativa, practica el Flap T y resuelve el ejercicio de cada rango de la tripulación.
+      </p>
+    </section>
+
+    <!-- Crew Rank Selector Bar -->
+    <nav class="level-bar-wrapper" aria-label="Selector de rango de vocabulario y pronunciación">
+      <span class="level-bar-label" data-i18n="selectLevelLabel">Selecciona tu Rango de Tripulación:</span>
+      <div class="level-tabs" role="tablist">
+        <button type="button" class="level-tab-btn active" role="tab" data-level="a0" aria-selected="true">⚓ Nivel 1: Terrícola</button>
+        <button type="button" class="level-tab-btn" role="tab" data-level="a1" aria-selected="false">🪣 Nivel 2: Grumete</button>
+        <button type="button" class="level-tab-btn" role="tab" data-level="a2" aria-selected="false">🪢 Nivel 3: Marinero de Cubierta</button>
+        <button type="button" class="level-tab-btn" role="tab" data-level="b1" aria-selected="false">⛵ Nivel 4: Marinero</button>
+        <button type="button" class="level-tab-btn" role="tab" data-level="b2" aria-selected="false">🪈 Nivel 5: Contramaestre</button>
+        <button type="button" class="level-tab-btn" role="tab" data-level="c1" aria-selected="false">🧭 Nivel 6: Navegante</button>
+        <button type="button" class="level-tab-btn" role="tab" data-level="c2" aria-selected="false">☸️ Nivel 7: Capitán</button>
+      </div>
+    </nav>
+
+    <!-- Interactive Workspace Grid -->
+    <section class="workspace-grid" aria-live="polite">
+      <article class="card lesson-theory-card">
+        <div>
+          <div class="card-header-row">
+            <span class="card-eyebrow" data-i18n="theoryBadge">GUÍA DEL RANGO Y CONTEXTO</span>
+            <span id="level-code-badge" class="badge badge-teal">⚓ Nivel 1: Terrícola</span>
+          </div>
+
+          <div class="module-preview vocab-preview" style="margin-bottom: 1.1rem">
+            <div>
+              <div class="vocab-word-row">
+                <h2 id="vocab-target-word" class="theory-title" style="margin-bottom: 0"></h2>
+                <span id="vocab-target-ipa" class="vocab-ipa" style="font-size: 1rem"></span>
+              </div>
+              <p id="vocab-target-def" class="theory-explanation" style="margin-bottom: 0"></p>
+            </div>
+          </div>
+
+          <div class="community-actions" style="margin-bottom: 1.25rem">
+            <button type="button" id="speak-word-normal" class="btn btn-primary" data-i18n="listenNormalBtn">
+              🔊 Escuchar (1.0x)
+            </button>
+            <button type="button" id="speak-word-slow" class="btn btn-light" data-i18n="listenSlowBtn">
+              🐢 Lento (0.75x)
+            </button>
+          </div>
+
+          <div class="example-box">
+            <span class="example-box-label">IPA &amp; CONNECTED SPEECH FOCUS</span>
+            <p id="vocab-phonetic-note" style="font-size: 0.88rem; margin-bottom: 0.65rem"></p>
+            <div style="display: flex; align-items: center; justify-content: space-between; gap: 0.75rem">
+              <strong id="vocab-context-sentence" style="font-size: 0.92rem"></strong>
+              <button type="button" id="speak-sentence-btn" class="icon-circle-btn" aria-label="Escuchar oración de ejemplo">
+                🔊
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="level-nav-footer">
+          <button type="button" id="prev-level-btn" class="btn btn-light" data-i18n="prevLevelBtn">← Rango Anterior</button>
+          <button type="button" id="next-level-btn" class="btn btn-dark" data-i18n="nextLevelBtn">Siguiente Rango →</button>
+        </div>
+      </article>
+
+      <article class="card exercise-interactive-card">
+        <div>
+          <div class="card-header-row">
+            <span class="card-eyebrow" data-i18n="exerciseBadge">EJERCICIO INTERACTIVO</span>
+            <span id="exercise-counter-badge" class="badge badge-warm">1 / 4</span>
+          </div>
+
+          <div id="exercise-stepper" class="exercise-stepper" role="tablist" aria-label="Selector de ejercicios"></div>
+          <div id="exercise-question" class="exercise-prompt-box"></div>
+          <div id="exercise-options" class="options-list" role="group" aria-label="Opciones de respuesta"></div>
+          <div id="exercise-feedback" class="feedback-banner" role="status"></div>
+          <div id="exercise-nav-row"></div>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <img src="../logo.png" alt="Logo de LinguaVela" class="footer-logo-img" />
+        <strong class="footer-logo">LinguaVela</strong>
+        <span data-i18n="footerTagline">— De Terrícola a Capitán. Tu travesía en el inglés.</span>
+      </div>
+      <nav class="footer-nav">
+        <a href="../index.html" data-i18n="navPort">Puerto</a>
+        <a href="grammar.html" data-i18n="navGrammar">Taller de Gramática</a>
+        <a href="vocabulary.html" data-i18n="navVocab">Vocabulario y Pronunciación</a>
+        <a href="listening.html" data-i18n="navListening">Comprensión Auditiva</a>
+        <a href="ship.html" data-i18n="navShip">Mi Barco</a>
+      </nav>
+      <p data-i18n="footerCopy">&copy; 2026 LinguaVela. Educación de código abierto impulsada por la comunidad.</p>
+    </div>
+  </footer>
+
+  <script src="../js/main.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="LinguaVela — De Terrícola a Capitán. Tu travesía en el inglés. Plataforma abierta con rangos náuticos, recursos SLA, fonética estadounidense y laboratorios interactivos." />
+  <title>LinguaVela — Puerto Principal | De Terrícola a Capitán</title>
+
+  <link rel="icon" type="image/png" href="logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body data-page="port">
+  <!-- Skip Link for Accessibility -->
+  <a href="#main-content" class="skip-link" data-i18n="skipLink">Saltar al contenido principal</a>
+
+  <!-- Screen Reader Live Announcements -->
+  <div id="sr-announcer" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+
+  <!-- Top Navigation Header (No Login / Progress Indicators on Port) -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand-nav-group">
+        <a href="index.html" class="brand-logo" aria-label="LinguaVela — Puerto Principal">
+          <img src="logo.png" alt="Logo de LinguaVela" class="brand-logo-img" />
+          <span class="brand-text">LinguaVela</span>
+        </a>
+
+        <nav class="main-nav" aria-label="Navegación Principal">
+          <ul class="nav-list">
+            <!-- 1. Port -->
+            <li class="nav-item">
+              <a href="index.html" class="nav-link active" aria-current="page" data-i18n="navPort">Puerto</a>
+            </li>
+
+            <!-- 2. Grammar Workshop + 7 Crew Ranks -->
+            <li class="nav-item">
+              <a href="pages/grammar.html" class="nav-link">
+                <span data-i18n="navGrammar">Taller de Gramática</span>
+                <span class="nav-caret" aria-hidden="true">▾</span>
+              </a>
+              <ul class="dropdown-menu" aria-label="Rangos de Gramática">
+                <li><a href="pages/grammar.html?level=a0" class="dropdown-link"><span data-i18n="rank1Nav">1. Terrícola (Landlubber)</span><span class="dropdown-badge">⚓</span></a></li>
+                <li><a href="pages/grammar.html?level=a1" class="dropdown-link"><span data-i18n="rank2Nav">2. Grumete (Cabin Mate)</span><span class="dropdown-badge">🪣</span></a></li>
+                <li><a href="pages/grammar.html?level=a2" class="dropdown-link"><span data-i18n="rank3Nav">3. Marinero de Cubierta (Deckhand)</span><span class="dropdown-badge">🪢</span></a></li>
+                <li><a href="pages/grammar.html?level=b1" class="dropdown-link"><span data-i18n="rank4Nav">4. Marinero (Sailor)</span><span class="dropdown-badge">⛵</span></a></li>
+                <li><a href="pages/grammar.html?level=b2" class="dropdown-link"><span data-i18n="rank5Nav">5. Contramaestre (Bosun)</span><span class="dropdown-badge">🪈</span></a></li>
+                <li><a href="pages/grammar.html?level=c1" class="dropdown-link"><span data-i18n="rank6Nav">6. Navegante (Navigator)</span><span class="dropdown-badge">🧭</span></a></li>
+                <li><a href="pages/grammar.html?level=c2" class="dropdown-link"><span data-i18n="rank7Nav">7. Capitán (Captain)</span><span class="dropdown-badge">☸️</span></a></li>
+              </ul>
+            </li>
+
+            <!-- 3. Vocabulary & Pronunciation + 7 Crew Ranks -->
+            <li class="nav-item">
+              <a href="pages/vocabulary.html" class="nav-link">
+                <span data-i18n="navVocab">Vocabulario y Pronunciación</span>
+                <span class="nav-caret" aria-hidden="true">▾</span>
+              </a>
+              <ul class="dropdown-menu" aria-label="Rangos de Vocabulario y Pronunciación">
+                <li><a href="pages/vocabulary.html?level=a0" class="dropdown-link"><span data-i18n="rank1Nav">1. Terrícola (Landlubber)</span><span class="dropdown-badge">⚓</span></a></li>
+                <li><a href="pages/vocabulary.html?level=a1" class="dropdown-link"><span data-i18n="rank2Nav">2. Grumete (Cabin Mate)</span><span class="dropdown-badge">🪣</span></a></li>
+                <li><a href="pages/vocabulary.html?level=a2" class="dropdown-link"><span data-i18n="rank3Nav">3. Marinero de Cubierta (Deckhand)</span><span class="dropdown-badge">🪢</span></a></li>
+                <li><a href="pages/vocabulary.html?level=b1" class="dropdown-link"><span data-i18n="rank4Nav">4. Marinero (Sailor)</span><span class="dropdown-badge">⛵</span></a></li>
+                <li><a href="pages/vocabulary.html?level=b2" class="dropdown-link"><span data-i18n="rank5Nav">5. Contramaestre (Bosun)</span><span class="dropdown-badge">🪈</span></a></li>
+                <li><a href="pages/vocabulary.html?level=c1" class="dropdown-link"><span data-i18n="rank6Nav">6. Navegante (Navigator)</span><span class="dropdown-badge">🧭</span></a></li>
+                <li><a href="pages/vocabulary.html?level=c2" class="dropdown-link"><span data-i18n="rank7Nav">7. Capitán (Captain)</span><span class="dropdown-badge">☸️</span></a></li>
+              </ul>
+            </li>
+
+            <!-- 4. Listening + 7 Crew Ranks -->
+            <li class="nav-item">
+              <a href="pages/listening.html" class="nav-link">
+                <span data-i18n="navListening">Comprensión Auditiva</span>
+                <span class="nav-caret" aria-hidden="true">▾</span>
+              </a>
+              <ul class="dropdown-menu" aria-label="Rangos de Comprensión Auditiva">
+                <li><a href="pages/listening.html?level=a0" class="dropdown-link"><span data-i18n="rank1Nav">1. Terrícola (Landlubber)</span><span class="dropdown-badge">⚓</span></a></li>
+                <li><a href="pages/listening.html?level=a1" class="dropdown-link"><span data-i18n="rank2Nav">2. Grumete (Cabin Mate)</span><span class="dropdown-badge">🪣</span></a></li>
+                <li><a href="pages/listening.html?level=a2" class="dropdown-link"><span data-i18n="rank3Nav">3. Marinero de Cubierta (Deckhand)</span><span class="dropdown-badge">🪢</span></a></li>
+                <li><a href="pages/listening.html?level=b1" class="dropdown-link"><span data-i18n="rank4Nav">4. Marinero (Sailor)</span><span class="dropdown-badge">⛵</span></a></li>
+                <li><a href="pages/listening.html?level=b2" class="dropdown-link"><span data-i18n="rank5Nav">5. Contramaestre (Bosun)</span><span class="dropdown-badge">🪈</span></a></li>
+                <li><a href="pages/listening.html?level=c1" class="dropdown-link"><span data-i18n="rank6Nav">6. Navegante (Navigator)</span><span class="dropdown-badge">🧭</span></a></li>
+                <li><a href="pages/listening.html?level=c2" class="dropdown-link"><span data-i18n="rank7Nav">7. Capitán (Captain)</span><span class="dropdown-badge">☸️</span></a></li>
+              </ul>
+            </li>
+
+            <!-- 5. My Ship -->
+            <li class="nav-item">
+              <a href="pages/ship.html" class="nav-link">
+                <span data-i18n="navShip">Mi Barco</span>
+                <span class="nav-caret" aria-hidden="true">▾</span>
+              </a>
+              <ul class="dropdown-menu" aria-label="Secciones de Mi Barco">
+                <li><a href="pages/ship.html?section=logbook" class="dropdown-link"><span data-i18n="subLogbook">Bitácora, Calendarios y Lecciones</span></a></li>
+                <li><a href="pages/ship.html?section=discourse" class="dropdown-link"><span data-i18n="subDiscourse">Competencia Discursiva</span></a></li>
+                <li><a href="pages/ship.html?section=sociolinguistic" class="dropdown-link"><span data-i18n="subSocio">Competencia Sociolingüística y Pragmática</span></a></li>
+                <li><a href="pages/ship.html?section=strategic" class="dropdown-link"><span data-i18n="subStrategic">Competencia Estratégica</span></a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+      </div>
+
+      <!-- Right Controls: Language Switcher (ES/EN) & Accessibility Theme Switcher -->
+      <div class="header-actions">
+        <button
+          type="button"
+          id="lang-toggle-btn"
+          class="lang-btn"
+          aria-label="Cambiar idioma a Inglés (Switch to English)"
+          title="Cambiar idioma ES / EN"
+        >
+          <span aria-hidden="true">🌐</span>
+          <span id="lang-code-badge" class="lang-badge">ES</span>
+          <span id="lang-btn-text">Español</span>
+        </button>
+
+        <button
+          type="button"
+          id="theme-toggle-btn"
+          class="theme-btn"
+          aria-label="Cambiar tema de color para accesibilidad"
+          aria-pressed="false"
+          title="Cambiar tema (Brisa / Océano Oscuro / Alto Contraste)"
+        >
+          <svg class="theme-icon icon-light" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"></circle>
+            <path d="M12 2v2M12 20v2m-7.07-17.07 1.41 1.41m11.32 11.32 1.41 1.41M2 12h2m16 0h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path>
+          </svg>
+          <svg class="theme-icon icon-dark" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+          </svg>
+          <svg class="theme-icon icon-contrast" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <circle cx="12" cy="12" r="10"></circle>
+            <path d="M12 18a6 6 0 0 0 0-12v12z"></path>
+          </svg>
+          <span id="theme-label">Brisa</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content: Port (Welcome New User, Crew Ranks, Modules & SLA Resources) -->
+  <main id="main-content" class="container">
+    <!-- Hero Section: Hello New User (No login/progress shown) -->
+    <section class="hero-section" aria-labelledby="hero-heading">
+      <div class="hero-badge-row">
+        <span class="cohort-badge">
+          <span class="status-dot" aria-hidden="true"></span>
+          <span data-i18n="heroTaglineBadge">De Terrícola a Capitán • Tu travesía en el inglés</span>
+        </span>
+      </div>
+
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <h1 id="hero-heading" class="hero-title">
+            <span data-i18n="heroHelloNewUser">¡Hola, </span><em class="highlight-name" data-i18n="heroNewUserHighlight">nuevo usuario</em>!<br />
+            <span data-i18n="heroReadySub">De Terrícola a Capitán. Tu travesía en el inglés.</span>
+          </h1>
+          <p class="hero-subtitle" data-i18n="heroSubtitle">
+            Aprende inglés de forma abierta, sin necesidad de cuenta ni muros de pago. Explora nuestros rangos de tripulación, recursos de Adquisición de Segundas Lenguas (SLA) y laboratorios interactivos.
+          </p>
+        </div>
+
+        <div class="community-actions">
+          <a href="#crew-ranks-section" class="btn btn-primary" data-i18n="startExploringBtn">
+            Explorar Rangos de Tripulación ↓
+          </a>
+          <a href="#resources-section" class="btn btn-dark" data-i18n="openResourcesBtn">
+            Ver Recursos y Guía PDF →
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Crew Ranks Section: From Landlubber to Captain (1 to 7) -->
+    <section id="crew-ranks-section" class="ranks-section" aria-labelledby="ranks-heading">
+      <div class="section-header">
+        <div>
+          <span class="section-eyebrow" data-i18n="ranksEyebrow">SISTEMA DE RANGOS DE LA TRIPULACIÓN</span>
+          <h2 id="ranks-heading" class="section-title" data-i18n="ranksHeading">De Terrícola a Capitán: ¿Qué puede hacer cada rango?</h2>
+        </div>
+        <p class="section-meta" data-i18n="ranksMeta">7 rangos náuticos progresivos con insignias propias</p>
+      </div>
+
+      <!-- Populated dynamically by js/main.js in ES or EN -->
+      <div id="crew-ranks-container" class="ranks-grid"></div>
+    </section>
+
+    <!-- Core Modules & Laboratories (Clean, no progress bars) -->
+    <section class="modules-section" aria-labelledby="modules-heading">
+      <div class="section-header">
+        <div>
+          <span class="section-eyebrow" data-i18n="modulesEyebrow">DISCIPLINAS DE NAVEGACIÓN</span>
+          <h2 id="modules-heading" class="section-title" data-i18n="modulesHeading">Módulos Principales y Laboratorios</h2>
+        </div>
+        <p class="section-meta" data-i18n="modulesMeta">Acceso libre a todos los niveles sin registro previo</p>
+      </div>
+
+      <div class="modules-grid">
+        <!-- 1. Grammar Workshop Card -->
+        <article class="card module-card">
+          <div>
+            <div class="module-top">
+              <span class="module-icon" aria-hidden="true">📖</span>
+              <span class="badge badge-neutral" data-i18n="modGrammarBadge">7 RANGOS</span>
+            </div>
+
+            <h3 class="module-title" data-i18n="modGrammarTitle">Taller de Gramática</h3>
+            <p class="module-desc" data-i18n="modGrammarDesc">
+              Domina la claridad oracional, el inglés corporativo de EE. UU., el subjuntivo mandativo y las inversiones estilísticas con un ejercicio por rango.
+            </p>
+
+            <div class="level-pills-mini" aria-label="Rangos de Gramática">
+              <a href="pages/grammar.html?level=a0" class="level-pill-link">1. Landlubber ⚓</a>
+              <a href="pages/grammar.html?level=a1" class="level-pill-link">2. Cabin Mate 🪣</a>
+              <a href="pages/grammar.html?level=a2" class="level-pill-link">3. Deckhand 🪢</a>
+              <a href="pages/grammar.html?level=b1" class="level-pill-link">4. Sailor ⛵</a>
+              <a href="pages/grammar.html?level=b2" class="level-pill-link">5. Bosun 🪈</a>
+              <a href="pages/grammar.html?level=c1" class="level-pill-link">6. Navigator 🧭</a>
+              <a href="pages/grammar.html?level=c2" class="level-pill-link">7. Captain ☸️</a>
+            </div>
+
+            <div class="module-preview grammar-preview">
+              <div class="grammar-line incorrect">
+                <span class="mark-icon incorrect-icon" aria-hidden="true">✕</span>
+                <del>If we would have set sail earlier, we had avoided the storm.</del>
+              </div>
+              <div class="grammar-line correct">
+                <span class="mark-icon correct-icon" aria-hidden="true">✓</span>
+                <span>Had we set sail earlier, we would have avoided the storm entirely.</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="module-footer">
+            <div class="module-stat">
+              <span class="module-stat-label" data-i18n="modGrammarStatLabel">RUTA COMPLETA</span>
+              <strong class="module-stat-val" data-i18n="modGrammarStatVal">De Terrícola a Capitán</strong>
+            </div>
+            <a href="pages/grammar.html" class="module-link" data-i18n="modGrammarLink">Abrir Taller →</a>
+          </div>
+        </article>
+
+        <!-- 2. Vocabulary & Pronunciation Card -->
+        <article class="card module-card">
+          <div>
+            <div class="module-top">
+              <span class="module-icon" aria-hidden="true">🗣️</span>
+              <span class="badge badge-teal" data-i18n="modVocabBadge">IPA + CONNECTED SPEECH</span>
+            </div>
+
+            <h3 class="module-title" data-i18n="modVocabTitle">Vocabulario y Pronunciación</h3>
+            <p class="module-desc" data-i18n="modVocabDesc">
+              Practica el Flap T estadounidense, enlaces fonéticos (linking), Sentence Mining (Regla 1T) y síntesis de voz en tiempo real.
+            </p>
+
+            <div class="level-pills-mini" aria-label="Rangos de Vocabulario">
+              <a href="pages/vocabulary.html?level=a0" class="level-pill-link">1. Landlubber ⚓</a>
+              <a href="pages/vocabulary.html?level=a1" class="level-pill-link">2. Cabin Mate 🪣</a>
+              <a href="pages/vocabulary.html?level=a2" class="level-pill-link">3. Deckhand 🪢</a>
+              <a href="pages/vocabulary.html?level=b1" class="level-pill-link">4. Sailor ⛵</a>
+              <a href="pages/vocabulary.html?level=b2" class="level-pill-link">5. Bosun 🪈</a>
+              <a href="pages/vocabulary.html?level=c1" class="level-pill-link">6. Navigator 🧭</a>
+              <a href="pages/vocabulary.html?level=c2" class="level-pill-link">7. Captain ☸️</a>
+            </div>
+
+            <div class="module-preview vocab-preview">
+              <div>
+                <div class="vocab-word-row">
+                  <strong class="vocab-word">Equivocal</strong>
+                  <span class="vocab-ipa">/ɪˈkwɪv.ə.kəl/</span>
+                </div>
+                <p class="vocab-def" data-i18n="modVocabDef">adj. Ambiguo; abierto a más de una interpretación.</p>
+              </div>
+              <button type="button" id="speak-vocab-btn" class="icon-circle-btn" aria-label="Escuchar pronunciación de Equivocal">
+                🔊
+              </button>
+            </div>
+          </div>
+
+          <div class="module-footer">
+            <div class="module-stat">
+              <span class="module-stat-label" data-i18n="modVocabStatLabel">LABORATORIO FONÉTICO</span>
+              <strong class="module-stat-val" data-i18n="modVocabStatVal">Audio Nativo + IPA</strong>
+            </div>
+            <a href="pages/vocabulary.html" class="module-link" data-i18n="modVocabLink">Practicar Vocabulario →</a>
+          </div>
+        </article>
+
+        <!-- 3. Listening Comprehension Card -->
+        <article class="card module-card">
+          <div>
+            <div class="module-top">
+              <span class="module-icon" aria-hidden="true">🎧</span>
+              <span class="badge badge-neutral" data-i18n="modListenBadge">ESCUCHA EN 3 CAPAS</span>
+            </div>
+
+            <h3 class="module-title" data-i18n="modListenTitle">Comprensión Auditiva (Listening)</h3>
+            <p class="module-desc" data-i18n="modListenDesc">
+              Entrena con Micro-Listening, escucha estratificada y sobrecarga de velocidad desde diálogos básicos hasta debates diplomáticos.
+            </p>
+
+            <div class="level-pills-mini" aria-label="Rangos de Listening">
+              <a href="pages/listening.html?level=a0" class="level-pill-link">1. Landlubber ⚓</a>
+              <a href="pages/listening.html?level=a1" class="level-pill-link">2. Cabin Mate 🪣</a>
+              <a href="pages/listening.html?level=a2" class="level-pill-link">3. Deckhand 🪢</a>
+              <a href="pages/listening.html?level=b1" class="level-pill-link">4. Sailor ⛵</a>
+              <a href="pages/listening.html?level=b2" class="level-pill-link">5. Bosun 🪈</a>
+              <a href="pages/listening.html?level=c1" class="level-pill-link">6. Navigator 🧭</a>
+              <a href="pages/listening.html?level=c2" class="level-pill-link">7. Captain ☸️</a>
+            </div>
+
+            <div class="module-preview audio-preview">
+              <button type="button" id="audio-play-btn" class="audio-play-btn" aria-label="Reproducir muestra de audio" aria-pressed="false">
+                <span id="audio-play-icon" aria-hidden="true">▶</span>
+              </button>
+              <div class="waveform" id="audio-waveform" aria-hidden="true">
+                <span></span><span></span><span></span><span></span><span></span>
+                <span></span><span></span><span></span><span></span><span></span>
+                <span></span><span></span><span></span><span></span>
+              </div>
+              <span class="audio-time" id="audio-timer">00:42</span>
+            </div>
+          </div>
+
+          <div class="module-footer">
+            <div class="module-stat">
+              <span class="module-stat-label" data-i18n="modListenStatLabel">ENTRENAMIENTO AUDITIVO</span>
+              <strong class="module-stat-val" data-i18n="modListenStatVal">Velocidad 1.0x y 0.75x</strong>
+            </div>
+            <a href="pages/listening.html" class="module-link" data-i18n="modListenLink">Ir a Listening →</a>
+          </div>
+        </article>
+
+        <!-- 4. My Ship Card -->
+        <article class="card module-card">
+          <div>
+            <div class="module-top">
+              <span class="module-icon" aria-hidden="true">⛵</span>
+              <span class="badge badge-warm" data-i18n="modShipBadge">BITÁCORA Y COMPETENCIAS</span>
+            </div>
+
+            <h3 class="module-title" data-i18n="modShipTitle">Mi Barco y Competencias</h3>
+            <p class="module-desc" data-i18n="modShipDesc">
+              Explora el perfil de tripulante, calendario mensual y semanal de estudio, resumen de lecciones y competencias comunicativas.
+            </p>
+
+            <div class="level-pills-mini" aria-label="Secciones de Mi Barco">
+              <a href="pages/ship.html?section=logbook" class="level-pill-link" data-i18n="subLogbook">Bitácora, Calendarios y Lecciones</a>
+              <a href="pages/ship.html?section=discourse" class="level-pill-link" data-i18n="subDiscourse">Competencia Discursiva</a>
+              <a href="pages/ship.html?section=sociolinguistic" class="level-pill-link" data-i18n="subSocio">Sociolingüística y Pragmática</a>
+              <a href="pages/ship.html?section=strategic" class="level-pill-link" data-i18n="subStrategic">Competencia Estratégica</a>
+            </div>
+          </div>
+
+          <div class="module-footer">
+            <div class="module-stat">
+              <span class="module-stat-label" data-i18n="modShipStatLabel">ÁREAS DE PRÁCTICA</span>
+              <strong class="module-stat-val" data-i18n="modShipStatVal">Calendarios + 3 Competencias</strong>
+            </div>
+            <a href="pages/ship.html" class="module-link" data-i18n="modShipLink">Ver Mi Barco →</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Project Resources & SLA Methodology Section (Using new files in /resources & context.md) -->
+    <section id="resources-section" class="resources-section" aria-labelledby="resources-heading">
+      <div class="section-header">
+        <div>
+          <span class="section-eyebrow" data-i18n="resEyebrow">RECURSOS DEL PROYECTO Y METODOLOGÍA SLA</span>
+          <h2 id="resources-heading" class="section-title" data-i18n="resHeading">Dominio Operativo del Inglés Estadounidense</h2>
+        </div>
+        <p class="section-meta" data-i18n="resMeta">Basado en principios neurobiológicos de Adquisición de Segundas Lenguas (SLA)</p>
+      </div>
+
+      <!-- Featured Blueprint Image + PDF Guide Card -->
+      <article class="card blueprint-showcase-card">
+        <div class="blueprint-img-wrapper">
+          <a href="resources/Mastering_US_English_Blueprint.png" target="_blank" rel="noopener noreferrer">
+            <img
+              src="resources/Mastering_US_English_Blueprint.png"
+              alt="Mastering US English: The Complete Practical Blueprint Infographic"
+              class="blueprint-img"
+            />
+          </a>
+        </div>
+
+        <div>
+          <span class="badge badge-teal" data-i18n="resBlueprintBadge">INFOGRAFÍA + DOCUMENTO PDF</span>
+          <h3 class="lesson-title" style="margin-top: 0.65rem" data-i18n="resBlueprintTitle">
+            Mastering US English: The Complete Practical Blueprint
+          </h3>
+          <p class="lesson-desc" data-i18n="resBlueprintDesc">
+            Consulta e imprime el plano visual completo y descarga el manual técnico en PDF sobre Input Comprensible (i+1), Repetición Espaciada (Regla 1T), Protocolo de Shadowing en 4 fases, Connected Speech estadounidense y comunicación corporativa.
+          </p>
+
+          <div class="community-actions">
+            <a
+              href="resources/Dominio_Operativo_del_Inglés_Estadounidense.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-primary"
+              data-i18n="resDownloadPdfBtn"
+            >
+              📄 Abrir Guía Completa PDF
+            </a>
+            <a
+              href="resources/Mastering_US_English_Blueprint.png"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-light"
+              data-i18n="resViewImageBtn"
+            >
+              🖼️ Ver Infografía en Tamaño Completo
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 3 SLA & Phonetics Pillars from context.md -->
+      <div class="resources-pillars-grid">
+        <article class="pillar-card">
+          <span class="badge badge-warm" data-i18n="p1Badge">PILAR 1 • NEUROBIOLOGÍA SLA</span>
+          <h3 class="pillar-title" data-i18n="p1Title">Input Comprensible, SRS y Shadowing</h3>
+          <ul class="pillar-list">
+            <li data-i18n="p1Item1">Input Comprensible (i+1): Exposición a material donde comprendes el 70%–80%, asimilando gramática de forma implícita.</li>
+            <li data-i18n="p1Item2">Sentence Mining (Regla 1T): Tarjetas SRS con oraciones completas que contienen solo 1 término desconocido.</li>
+            <li data-i18n="p1Item3">Shadowing en 4 Fases: Escucha activa, repetición con texto, shadowing a ciegas y grabación comparativa.</li>
+          </ul>
+        </article>
+
+        <article class="pillar-card">
+          <span class="badge badge-teal" data-i18n="p2Badge">PILAR 2 • FONÉTICA DE EE. UU.</span>
+          <h3 class="pillar-title" data-i18n="p2Title">Connected Speech, Flap T y Escucha en 3 Capas</h3>
+          <ul class="pillar-list">
+            <li data-i18n="p2Item1">Flap T Estadounidense: /t/ o /d/ intervocálica suena como 'r' suave española (water → wah-der, city → sih-dee).</li>
+            <li data-i18n="p2Item2">Linking y Reducciones: Enlace consonante-vocal (hold on → hol-don) y parada glótica (button → /bʌʔ.n/).</li>
+            <li data-i18n="p2Item3">Sobrecarga Auditiva: Escuchar a 1.25x–1.5x por 5 minutos para que 1.0x se perciba claro y pausado.</li>
+          </ul>
+        </article>
+
+        <article class="pillar-card">
+          <span class="badge badge-neutral" data-i18n="p3Badge">PILAR 3 • LECTURA Y EXPRESIÓN ORAL</span>
+          <h3 class="pillar-title" data-i18n="p3Title">Lectura Escalonada y Solo Speaking</h3>
+          <ul class="pillar-list">
+            <li data-i18n="p3Item1">Skimming, Scanning e Intensive Reading: Barrido de tesis central en 2 minutos y análisis de conectores.</li>
+            <li data-i18n="p3Item2">Sumarización Marginal: Condensar cada sección técnica en una nota al margen de máximo 10 palabras en inglés.</li>
+            <li data-i18n="p3Item3">Storytelling en 3 Tiempos: 1) The reason we ran into this issue... 2) What I ended up doing... 3) The key takeaway is...</li>
+          </ul>
+        </article>
+      </div>
+
+      <!-- US Workplace Communication Contrast & Hedging Table -->
+      <article class="card">
+        <span class="section-eyebrow" data-i18n="hedgingEyebrow">COMUNICACIÓN PROFESIONAL EN EE. UU.</span>
+        <h3 class="card-serif-title" data-i18n="hedgingTitle">Mitigación Diplomática (Hedging) y Convenciones Laborales</h3>
+        <p class="card-subtext" style="margin-top: 0.35rem; margin-bottom: 0.75rem" data-i18n="hedgingDesc">
+          En entornos técnicos y corporativos de EE. UU. se prefiere el Past Simple con 'just/already/yet' (I just got home), el Subjuntivo Mandativo (I recommend that he be present) y el reencuadre diplomático:
+        </p>
+
+        <div class="hedging-table-wrapper">
+          <table class="hedging-table">
+            <thead>
+              <tr>
+                <th data-i18n="thGoal">Objetivo Comunicativo</th>
+                <th data-i18n="thDirect">Frase Literal / Directa (Evitar)</th>
+                <th data-i18n="thStandard">Estándar Profesional en EE. UU. (Hedging)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td data-i18n="tdGoal1">Expresar desacuerdo técnico</td>
+                <td class="hedging-direct">“That's completely wrong.”</td>
+                <td class="hedging-diplomatic">“I have a slightly different perspective on this.”</td>
+              </tr>
+              <tr>
+                <td data-i18n="tdGoal2">Consultar disponibilidad (Bandwidth)</td>
+                <td class="hedging-direct">“Do you have time for this?”</td>
+                <td class="hedging-diplomatic">“Do you have the bandwidth for this?”</td>
+              </tr>
+              <tr>
+                <td data-i18n="tdGoal3">Priorizar una tarea urgente</td>
+                <td class="hedging-direct">“Do this right now.”</td>
+                <td class="hedging-diplomatic">“Could you prioritize this ticket when you have a moment?”</td>
+              </tr>
+              <tr>
+                <td data-i18n="tdGoal4">Alinear al equipo en un proyecto</td>
+                <td class="hedging-direct">“We need to agree.”</td>
+                <td class="hedging-diplomatic">“We need to get on the same page.”</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </article>
+    </section>
+
+    <aside class="quote-section" aria-label="Cita literaria">
+      <blockquote class="literary-quote">
+        <p data-i18n="quoteText">“Tener otro idioma es poseer una segunda alma.”</p>
+        <footer data-i18n="quoteAuthor">— CARLOMAGNO</footer>
+      </blockquote>
+    </aside>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <img src="logo.png" alt="Logo de LinguaVela" class="footer-logo-img" />
+        <strong class="footer-logo">LinguaVela</strong>
+        <span data-i18n="footerTagline">— De Terrícola a Capitán. Tu travesía en el inglés.</span>
+      </div>
+
+      <nav class="footer-nav" aria-label="Enlaces del pie de página">
+        <a href="index.html" data-i18n="navPort">Puerto</a>
+        <a href="pages/grammar.html" data-i18n="navGrammar">Taller de Gramática</a>
+        <a href="pages/vocabulary.html" data-i18n="navVocab">Vocabulario y Pronunciación</a>
+        <a href="pages/listening.html" data-i18n="navListening">Comprensión Auditiva</a>
+        <a href="pages/ship.html" data-i18n="navShip">Mi Barco</a>
+      </nav>
+
+      <p data-i18n="footerCopy">&copy; 2026 LinguaVela. Educación de código abierto impulsada por la comunidad.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js" defer></script>
+</body>
+</html>

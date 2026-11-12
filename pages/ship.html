@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="LinguaVela — Mi Barco: Foto de perfil, calendario mensual (rojo, verde, azul), resumen de lecciones completadas, calendario semanal y competencias." />
+  <title>Mi Barco (Perfil, Calendarios y Lecciones) | LinguaVela</title>
+
+  <link rel="icon" type="image/png" href="../logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="../css/styles.css" />
+</head>
+<body data-page="ship">
+  <a href="#main-content" class="skip-link" data-i18n="skipLink">Saltar al contenido principal</a>
+  <div id="sr-announcer" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand-nav-group">
+        <a href="../index.html" class="brand-logo" aria-label="LinguaVela — Puerto Principal">
+          <img src="../logo.png" alt="Logo de LinguaVela" class="brand-logo-img" />
+          <span class="brand-text">LinguaVela</span>
+        </a>
+
+        <nav class="main-nav" aria-label="Navegación Principal">
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a href="../index.html" class="nav-link" data-i18n="navPort">Puerto</a>
+            </li>
+            <li class="nav-item">
+              <a href="grammar.html" class="nav-link">
+                <span data-i18n="navGrammar">Taller de Gramática</span>
+                <span class="nav-caret" aria-hidden="true">▾</span>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a href="grammar.html?level=a0" class="dropdown-link"><span data-i18n="rank1Nav">1. Terrícola (Landlubber)</span><span class="dropdown-badge">⚓</span></a></li>
+                <li><a href="grammar.html?level=a1" class="dropdown-link"><span data-i18n="rank2Nav">2. Grumete (Cabin Mate)</span><span class="dropdown-badge">🪣</span></a></li>
+                <li><a href="grammar.html?level=a2" class="dropdown-link"><span data-i18n="rank3Nav">3. Marinero de Cubierta (Deckhand)</span><span class="dropdown-badge">🪢</span></a></li>
+                <li><a href="grammar.html?level=b1" class="dropdown-link"><span data-i18n="rank4Nav">4. Marinero (Sailor)</span><span class="dropdown-badge">⛵</span></a></li>
+                <li><a href="grammar.html?level=b2" class="dropdown-link"><span data-i18n="rank5Nav">5. Contramaestre (Bosun)</span><span class="dropdown-badge">🪈</span></a></li>
+                <li><a href="grammar.html?level=c1" class="dropdown-link"><span data-i18n="rank6Nav">6. Navegante (Navigator)</span><span class="dropdown-badge">🧭</span></a></li>
+                <li><a href="grammar.html?level=c2" class="dropdown-link"><span data-i18n="rank7Nav">7. Capitán (Captain)</span><span class="dropdown-badge">☸️</span></a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a href="vocabulary.html" class="nav-link">
+                <span data-i18n="navVocab">Vocabulario y Pronunciación</span>
+                <span class="nav-caret" aria-hidden="true">▾</span>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a href="vocabulary.html?level=a0" class="dropdown-link"><span data-i18n="rank1Nav">1. Terrícola (Landlubber)</span><span class="dropdown-badge">⚓</span></a></li>
+                <li><a href="vocabulary.html?level=a1" class="dropdown-link"><span data-i18n="rank2Nav">2. Grumete (Cabin Mate)</span><span class="dropdown-badge">🪣</span></a></li>
+                <li><a href="vocabulary.html?level=a2" class="dropdown-link"><span data-i18n="rank3Nav">3. Marinero de Cubierta (Deckhand)</span><span class="dropdown-badge">🪢</span></a></li>
+                <li><a href="vocabulary.html?level=b1" class="dropdown-link"><span data-i18n="rank4Nav">4. Marinero (Sailor)</span><span class="dropdown-badge">⛵</span></a></li>
+                <li><a href="vocabulary.html?level=b2" class="dropdown-link"><span data-i18n="rank5Nav">5. Contramaestre (Bosun)</span><span class="dropdown-badge">🪈</span></a></li>
+                <li><a href="vocabulary.html?level=c1" class="dropdown-link"><span data-i18n="rank6Nav">6. Navegante (Navigator)</span><span class="dropdown-badge">🧭</span></a></li>
+                <li><a href="vocabulary.html?level=c2" class="dropdown-link"><span data-i18n="rank7Nav">7. Capitán (Captain)</span><span class="dropdown-badge">☸️</span></a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a href="listening.html" class="nav-link">
+                <span data-i18n="navListening">Comprensión Auditiva</span>
+                <span class="nav-caret" aria-hidden="true">▾</span>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a href="listening.html?level=a0" class="dropdown-link"><span data-i18n="rank1Nav">1. Terrícola (Landlubber)</span><span class="dropdown-badge">⚓</span></a></li>
+                <li><a href="listening.html?level=a1" class="dropdown-link"><span data-i18n="rank2Nav">2. Grumete (Cabin Mate)</span><span class="dropdown-badge">🪣</span></a></li>
+                <li><a href="listening.html?level=a2" class="dropdown-link"><span data-i18n="rank3Nav">3. Marinero de Cubierta (Deckhand)</span><span class="dropdown-badge">🪢</span></a></li>
+                <li><a href="listening.html?level=b1" class="dropdown-link"><span data-i18n="rank4Nav">4. Marinero (Sailor)</span><span class="dropdown-badge">⛵</span></a></li>
+                <li><a href="listening.html?level=b2" class="dropdown-link"><span data-i18n="rank5Nav">5. Contramaestre (Bosun)</span><span class="dropdown-badge">🪈</span></a></li>
+                <li><a href="listening.html?level=c1" class="dropdown-link"><span data-i18n="rank6Nav">6. Navegante (Navigator)</span><span class="dropdown-badge">🧭</span></a></li>
+                <li><a href="listening.html?level=c2" class="dropdown-link"><span data-i18n="rank7Nav">7. Capitán (Captain)</span><span class="dropdown-badge">☸️</span></a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a href="ship.html" class="nav-link active" aria-current="page">
+                <span data-i18n="navShip">Mi Barco</span>
+                <span class="nav-caret" aria-hidden="true">▾</span>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a href="ship.html?section=logbook" class="dropdown-link"><span data-i18n="subLogbook">Bitácora, Calendarios y Lecciones</span></a></li>
+                <li><a href="ship.html?section=discourse" class="dropdown-link"><span data-i18n="subDiscourse">Competencia Discursiva</span></a></li>
+                <li><a href="ship.html?section=sociolinguistic" class="dropdown-link"><span data-i18n="subSocio">Competencia Sociolingüística y Pragmática</span></a></li>
+                <li><a href="ship.html?section=strategic" class="dropdown-link"><span data-i18n="subStrategic">Competencia Estratégica</span></a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="header-actions">
+        <button type="button" id="lang-toggle-btn" class="lang-btn" aria-label="Cambiar idioma">
+          <span aria-hidden="true">🌐</span>
+          <span id="lang-code-badge" class="lang-badge">ES</span>
+          <span id="lang-btn-text">Español</span>
+        </button>
+
+        <button type="button" id="theme-toggle-btn" class="theme-btn" aria-label="Cambiar tema de color para accesibilidad" aria-pressed="false">
+          <svg class="theme-icon icon-light" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"></circle>
+            <path d="M12 2v2M12 20v2m-7.07-17.07 1.41 1.41m11.32 11.32 1.41 1.41M2 12h2m16 0h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path>
+          </svg>
+          <svg class="theme-icon icon-dark" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+          </svg>
+          <svg class="theme-icon icon-contrast" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <circle cx="12" cy="12" r="10"></circle>
+            <path d="M12 18a6 6 0 0 0 0-12v12z"></path>
+          </svg>
+          <span id="theme-label">Brisa</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content" class="container">
+    <!-- 1. Learner Profile Banner with Profile Photo, Rank & Tagline -->
+    <section class="card ship-profile-banner" aria-labelledby="ship-profile-heading">
+      <div class="ship-profile-left">
+        <div class="profile-photo-container">
+          <img
+            id="ship-profile-img"
+            src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'%3E%3Crect width='120' height='120' fill='%2300526c'/%3E%3Ccircle cx='60' cy='46' r='22' fill='%23f6efe6'/%3E%3Cpath d='M24 108c6-22 22-34 36-34s30 12 36 34' fill='%23ff6433'/%3E%3Cpath d='M36 30l24-12 24 12-6 8H42z' fill='%23ffffff'/%3E%3C/svg%3E"
+            alt="Foto de perfil del tripulante"
+            class="profile-photo-img"
+          />
+        </div>
+
+        <div>
+          <span class="cohort-badge" style="margin-bottom: 0.45rem">
+            <span class="status-dot" aria-hidden="true"></span>
+            <span data-i18n="shipPageEyebrow">PERFIL DEL TRIPULANTE Y BITÁCORA DE NAVEGACIÓN</span>
+          </span>
+          <h1 id="ship-profile-heading" class="theory-title" style="margin-bottom: 0.2rem" data-i18n="shipCurrentRankTitle">
+            Nivel 2: Grumete (Cabin Mate)
+          </h1>
+          <p class="rank-meaning" data-i18n="shipCurrentRankSub">
+            De las primeras palabras a conversaciones simples
+          </p>
+          <p class="ship-tagline" data-i18n="shipTagline">
+            De Terrícola a Capitán. Tu travesía en el inglés.
+          </p>
+        </div>
+      </div>
+
+      <div class="profile-photo-actions">
+        <input type="file" id="profile-photo-input" accept="image/*" class="sr-only" aria-label="Subir foto de perfil" />
+        <button type="button" id="upload-photo-btn" class="btn btn-light" data-i18n="uploadPhotoBtn">
+          📷 Cambiar Foto de Perfil
+        </button>
+      </div>
+    </section>
+
+    <!-- My Ship Sub-Tabs -->
+    <nav class="level-bar-wrapper" aria-label="Secciones de Mi Barco">
+      <span class="level-bar-label" data-i18n="selectCompetenceLabel">Secciones de Mi Barco:</span>
+      <div class="level-tabs" role="tablist">
+        <button type="button" class="level-tab-btn active" role="tab" data-section="logbook" aria-selected="true" data-i18n="subLogbook">
+          Bitácora, Calendarios y Lecciones
+        </button>
+        <button type="button" class="level-tab-btn" role="tab" data-section="discourse" aria-selected="false" data-i18n="subDiscourse">
+          Competencia Discursiva
+        </button>
+        <button type="button" class="level-tab-btn" role="tab" data-section="sociolinguistic" aria-selected="false" data-i18n="subSocio">
+          Competencia Sociolingüística y Pragmática
+        </button>
+        <button type="button" class="level-tab-btn" role="tab" data-section="strategic" aria-selected="false" data-i18n="subStrategic">
+          Competencia Estratégica
+        </button>
+      </div>
+    </nav>
+
+    <!-- View 1: Logbook (Month Calendar, Resume of Lessons Completed & Week Calendar) -->
+    <div id="ship-logbook-view">
+      <section class="ship-dashboard-grid" aria-label="Calendario mensual y resumen de lecciones">
+        <!-- 2. Month Calendar (Red = Missed, Green = Worked, Blue = Goal Reached + Prev/Next Month) -->
+        <article class="card">
+          <span class="section-eyebrow" data-i18n="monthCalEyebrow">REGISTRO MENSUAL DE CONSTANCIA</span>
+          <div class="month-cal-header" style="margin-top: 0.35rem">
+            <h2 id="month-cal-title" class="month-cal-title">Noviembre 2026</h2>
+            <div class="month-nav-btns">
+              <button type="button" id="prev-month-btn" class="btn btn-light" style="padding: 0.4rem 0.75rem; font-size: 0.78rem" data-i18n="prevMonthBtn">
+                ← Mes Anterior
+              </button>
+              <button type="button" id="next-month-btn" class="btn btn-light" style="padding: 0.4rem 0.75rem; font-size: 0.78rem" data-i18n="nextMonthBtn">
+                Mes Siguiente →
+              </button>
+            </div>
+          </div>
+
+          <div class="cal-weekdays" aria-hidden="true">
+            <span>Lun</span><span>Mar</span><span>Mié</span><span>Jue</span><span>Vie</span><span>Sáb</span><span>Dom</span>
+          </div>
+
+          <div id="month-calendar-grid" class="cal-days-grid" role="grid" aria-label="Días del mes"></div>
+
+          <p id="month-cal-summary" style="font-size: 0.8rem; color: var(--text-secondary); margin-top: 0.85rem; font-weight: 600"></p>
+
+          <div class="cal-legend">
+            <span class="legend-item">
+              <span class="legend-swatch swatch-blue" aria-hidden="true"></span>
+              <span data-i18n="legendBlue">Azul: Meta diaria alcanzada</span>
+            </span>
+            <span class="legend-item">
+              <span class="legend-swatch swatch-green" aria-hidden="true"></span>
+              <span data-i18n="legendGreen">Verde: Día trabajado</span>
+            </span>
+            <span class="legend-item">
+              <span class="legend-swatch swatch-red" aria-hidden="true"></span>
+              <span data-i18n="legendRed">Rojo: Día perdido</span>
+            </span>
+          </div>
+        </article>
+
+        <!-- 3. Resume of Lessons Completed -->
+        <article class="card">
+          <div class="card-header-row" style="margin-bottom: 0.5rem">
+            <div>
+              <span class="section-eyebrow" data-i18n="resumeEyebrow">BITÁCORA DE PROGRESO</span>
+              <h2 class="card-serif-title" data-i18n="resumeTitle">Resumen de Lecciones Completadas</h2>
+            </div>
+            <span id="lessons-completed-count" class="badge badge-warm">6 Lecciones Completadas</span>
+          </div>
+
+          <p class="card-subtext" style="margin-bottom: 1rem" data-i18n="resumeSub">
+            Historial de lecciones dominadas por rango y módulo
+          </p>
+
+          <div id="lessons-completed-list" class="lessons-resume-list"></div>
+        </article>
+      </section>
+
+      <!-- 4. Week Calendar Showing Lessons Worked On -->
+      <section class="card week-calendar-card" aria-labelledby="week-cal-heading">
+        <span class="section-eyebrow" data-i18n="weekCalEyebrow">PLANIFICADOR DE LA SEMANA ACTUAL</span>
+        <h2 id="week-cal-heading" class="card-serif-title" data-i18n="weekCalTitle">
+          Calendario Semanal de Lecciones Trabajadas
+        </h2>
+        <p class="card-subtext" style="margin-bottom: 0.5rem" data-i18n="weekCalSub">
+          Detalle de las lecciones y ejercicios practicados cada día de esta semana
+        </p>
+
+        <div id="week-lessons-grid" class="week-grid"></div>
+      </section>
+    </div>
+
+    <!-- View 2: Communicative Competences (Discourse, Sociolinguistic/Pragmatic, Strategic) -->
+    <section id="ship-competence-view" class="workspace-grid" style="display: none" aria-live="polite">
+      <article class="card lesson-theory-card">
+        <div>
+          <div class="card-header-row">
+            <span id="ship-comp-badge" class="card-eyebrow">COHESIÓN Y COHERENCIA</span>
+            <span class="badge badge-teal">Mi Barco</span>
+          </div>
+
+          <h2 id="ship-comp-title" class="theory-title">Competencia Discursiva</h2>
+          <p id="ship-comp-explanation" class="theory-explanation"></p>
+
+          <div class="example-box">
+            <span class="example-box-label" data-i18n="exampleLabel">EJEMPLO EN CONTEXTO</span>
+            <p id="ship-comp-example" style="font-size: 0.9rem; font-weight: 500"></p>
+          </div>
+        </div>
+      </article>
+
+      <article class="card exercise-interactive-card">
+        <div>
+          <div class="card-header-row">
+            <span class="card-eyebrow" data-i18n="exerciseBadge">EJERCICIO INTERACTIVO</span>
+            <span id="exercise-counter-badge" class="badge badge-warm">1 / 4</span>
+          </div>
+
+          <div id="exercise-stepper" class="exercise-stepper" role="tablist" aria-label="Selector de ejercicios"></div>
+          <div id="exercise-question" class="exercise-prompt-box"></div>
+          <div id="exercise-options" class="options-list" role="group" aria-label="Opciones de competencia"></div>
+          <div id="exercise-feedback" class="feedback-banner" role="status"></div>
+          <div id="exercise-nav-row"></div>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <img src="../logo.png" alt="Logo de LinguaVela" class="footer-logo-img" />
+        <strong class="footer-logo">LinguaVela</strong>
+        <span data-i18n="footerTagline">— De Terrícola a Capitán. Tu travesía en el inglés.</span>
+      </div>
+      <nav class="footer-nav">
+        <a href="../index.html" data-i18n="navPort">Puerto</a>
+        <a href="grammar.html" data-i18n="navGrammar">Taller de Gramática</a>
+        <a href="vocabulary.html" data-i18n="navVocab">Vocabulario y Pronunciación</a>
+        <a href="listening.html" data-i18n="navListening">Comprensión Auditiva</a>
+        <a href="ship.html" data-i18n="navShip">Mi Barco</a>
+      </nav>
+      <p data-i18n="footerCopy">&copy; 2026 LinguaVela. Educación de código abierto impulsada por la comunidad.</p>
+    </div>
+  </footer>
+
+  <script src="../js/main.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,1764 @@
+/* ==========================================================================
+   LinguaVela — Global Styles, Nautical Sahara Aesthetic & Accessibility Themes
+   Pure Vanilla CSS3 (No Preprocessors / Frameworks)
+   ========================================================================== */
+
+:root,
+[data-theme="light"] {
+  /* Sahara & Ocean Light Palette (Default) */
+  --bg-page: #fdfaf5;
+  --bg-card: #f6efe6;
+  --bg-card-gradient: linear-gradient(135deg, #f6efe6 0%, #efe2d1 100%);
+  --bg-surface: #ffffff;
+  --bg-pill: #f1e8dc;
+  --bg-badge-neutral: #e7ddd1;
+  --bg-badge-warm: #f7dfd4;
+  --bg-badge-teal: #dcecf0;
+  --bg-badge-alert: #f8dede;
+
+  --text-primary: #1c1917;
+  --text-secondary: #5f554c;
+  --text-muted: #84776c;
+
+  --accent-primary: #c85223;
+  --accent-primary-hover: #a84017;
+  --accent-text: #c85223;
+  --accent-teal: #00526c;
+  --accent-teal-hover: #003d52;
+
+  --btn-dark-bg: #004359;
+  --btn-dark-hover: #002f40;
+  --btn-dark-text: #ffffff;
+
+  --border-subtle: #eadfd2;
+  --border-strong: #d5c4b0;
+  --ring-track: #e6d8c8;
+
+  --status-success: #1f7a4c;
+  --status-success-bg: #e3f5ec;
+  --status-error: #c0392b;
+  --status-error-bg: #fdeaea;
+  --status-goal-blue: #0b6bcb;
+  --status-goal-blue-bg: #dff0ff;
+  --focus-ring: #00526c;
+
+  --shadow-card: 0 2px 10px rgba(30, 25, 20, 0.04);
+  --shadow-dropdown: 0 12px 32px rgba(20, 18, 15, 0.12);
+}
+
+/* Midnight Ocean Dark Theme (Low-glare Reading & Accessibility) */
+[data-theme="dark"] {
+  --bg-page: #111619;
+  --bg-card: #182026;
+  --bg-card-gradient: linear-gradient(135deg, #182026 0%, #1f2a33 100%);
+  --bg-surface: #202b33;
+  --bg-pill: #232f38;
+  --bg-badge-neutral: #2a3742;
+  --bg-badge-warm: #3d261e;
+  --bg-badge-teal: #173845;
+  --bg-badge-alert: #3e2222;
+
+  --text-primary: #f2f5f7;
+  --text-secondary: #b6c2c9;
+  --text-muted: #8898a3;
+
+  --accent-primary: #ff6b3d;
+  --accent-primary-hover: #ff825c;
+  --accent-text: #ff794f;
+  --accent-teal: #4fc3e8;
+  --accent-teal-hover: #75d2f0;
+
+  --btn-dark-bg: #f2f5f7;
+  --btn-dark-hover: #ffffff;
+  --btn-dark-text: #111619;
+
+  --border-subtle: #283640;
+  --border-strong: #3c4f5e;
+  --ring-track: #2b3945;
+
+  --status-success: #4cd98c;
+  --status-success-bg: #153826;
+  --status-error: #ff7369;
+  --status-error-bg: #3b1b19;
+  --status-goal-blue: #58b4ff;
+  --status-goal-blue-bg: #122d47;
+  --focus-ring: #4fc3e8;
+
+  --shadow-card: 0 4px 16px rgba(0, 0, 0, 0.35);
+  --shadow-dropdown: 0 12px 32px rgba(0, 0, 0, 0.6);
+}
+
+/* WCAG AAA High-Contrast Theme */
+[data-theme="contrast"] {
+  --bg-page: #000000;
+  --bg-card: #0a0a0a;
+  --bg-card-gradient: none;
+  --bg-surface: #141414;
+  --bg-pill: #1c1c1c;
+  --bg-badge-neutral: #222222;
+  --bg-badge-warm: #2b1d00;
+  --bg-badge-teal: #002633;
+  --bg-badge-alert: #330f0f;
+
+  --text-primary: #ffffff;
+  --text-secondary: #f2f2f2;
+  --text-muted: #d9d9d9;
+
+  --accent-primary: #ffae00;
+  --accent-primary-hover: #ffc44d;
+  --accent-text: #ffae00;
+  --accent-teal: #00e5ff;
+  --accent-teal-hover: #66f0ff;
+
+  --btn-dark-bg: #ffffff;
+  --btn-dark-hover: #e6e6e6;
+  --btn-dark-text: #000000;
+
+  --border-subtle: #808080;
+  --border-strong: #ffffff;
+  --ring-track: #444444;
+
+  --status-success: #00ff9d;
+  --status-success-bg: #002b19;
+  --status-error: #ff6b6b;
+  --status-error-bg: #330000;
+  --status-goal-blue: #00e5ff;
+  --status-goal-blue-bg: #002433;
+  --focus-ring: #00e5ff;
+
+  --shadow-card: none;
+  --shadow-dropdown: none;
+}
+
+/* ==========================================================================
+   Reset & Base Typography
+   ========================================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  background-color: var(--bg-page);
+  color: var(--text-primary);
+  font-family: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 1rem;
+  z-index: 1000;
+  padding: 0.75rem 1.25rem;
+  background: var(--accent-primary);
+  color: #fff;
+  font-weight: 700;
+  border-radius: 0.5rem;
+  transition: top 0.2s ease;
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
+.container {
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* ==========================================================================
+   Header, Navigation & Dropdowns
+   ========================================================================== */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  background-color: var(--bg-page);
+  border-bottom: 1px solid var(--border-subtle);
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 4.6rem;
+  gap: 1rem;
+}
+
+.brand-nav-group {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.brand-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: "Newsreader", Georgia, serif;
+  font-weight: 600;
+  font-size: 1.4rem;
+  letter-spacing: -0.02em;
+  flex-shrink: 0;
+}
+
+.brand-logo-img {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+  border-radius: 6px;
+}
+
+.nav-list {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  list-style: none;
+}
+
+.nav-item {
+  position: relative;
+}
+
+.nav-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.5rem;
+  font-size: 0.84rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  transition: color 0.15s ease, background-color 0.15s ease;
+  white-space: nowrap;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--accent-text);
+  background-color: var(--bg-pill);
+  font-weight: 600;
+}
+
+.nav-caret {
+  font-size: 0.65rem;
+  opacity: 0.75;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: calc(100% + 2px);
+  left: 0;
+  min-width: 255px;
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-strong);
+  border-radius: 0.75rem;
+  padding: 0.45rem;
+  box-shadow: var(--shadow-dropdown);
+  list-style: none;
+  display: none;
+  z-index: 300;
+}
+
+.nav-item:hover .dropdown-menu,
+.nav-item:focus-within .dropdown-menu {
+  display: block;
+}
+
+.dropdown-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.48rem 0.75rem;
+  border-radius: 0.45rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.dropdown-link:hover,
+.dropdown-link:focus-visible {
+  background-color: var(--bg-pill);
+  color: var(--accent-text);
+}
+
+.dropdown-badge {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.68rem;
+  font-weight: 600;
+  padding: 0.1rem 0.4rem;
+  border-radius: 4px;
+  background-color: var(--bg-badge-teal);
+  color: var(--accent-teal);
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  flex-shrink: 0;
+}
+
+.lang-btn,
+.theme-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.8rem;
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-strong);
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  box-shadow: var(--shadow-card);
+  transition: transform 0.15s ease, border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.lang-btn:hover,
+.theme-btn:hover {
+  border-color: var(--accent-primary);
+  transform: translateY(-1px);
+}
+
+.lang-badge {
+  background-color: var(--bg-badge-teal);
+  color: var(--accent-teal);
+  padding: 0.1rem 0.38rem;
+  border-radius: 999px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.7rem;
+}
+
+.theme-icon {
+  display: none;
+  color: var(--accent-text);
+}
+
+[data-theme="light"] .icon-light {
+  display: inline-block;
+}
+[data-theme="dark"] .icon-dark {
+  display: inline-block;
+}
+[data-theme="contrast"] .icon-contrast {
+  display: inline-block;
+}
+
+/* ==========================================================================
+   Hero Section & System Tagline
+   ========================================================================== */
+
+.hero-section {
+  padding: 2.25rem 0 1.75rem;
+}
+
+.cohort-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.3rem 0.8rem;
+  background-color: var(--bg-pill);
+  border: 1px solid var(--border-subtle);
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--accent-primary);
+  display: inline-block;
+}
+
+.hero-grid {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.hero-copy {
+  max-width: 720px;
+}
+
+.hero-title {
+  font-family: "Newsreader", Georgia, serif;
+  font-size: clamp(2.1rem, 3.8vw, 3rem);
+  font-weight: 400;
+  line-height: 1.14;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.75rem;
+}
+
+.highlight-name {
+  color: var(--accent-text);
+  font-style: italic;
+}
+
+.hero-subtitle {
+  font-size: 0.98rem;
+  color: var(--text-secondary);
+  max-width: 640px;
+}
+
+/* ==========================================================================
+   Cards, Badges & Buttons
+   ========================================================================== */
+
+.card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 1.15rem;
+  padding: 1.65rem;
+  box-shadow: var(--shadow-card);
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.card-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 1.1rem;
+  flex-wrap: wrap;
+}
+
+.card-eyebrow,
+.section-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--accent-text);
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.25rem 0.65rem;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.badge-warm {
+  background-color: var(--bg-badge-warm);
+  color: var(--accent-text);
+}
+
+.badge-teal {
+  background-color: var(--bg-badge-teal);
+  color: var(--accent-teal);
+  font-family: "JetBrains Mono", monospace;
+}
+
+.badge-neutral {
+  background-color: var(--bg-badge-neutral);
+  color: var(--text-secondary);
+  font-family: "JetBrains Mono", monospace;
+}
+
+.badge-outline {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  color: var(--accent-text);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.72rem 1.25rem;
+  border-radius: 0.6rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: background-color 0.18s ease, transform 0.15s ease, border-color 0.18s ease;
+}
+
+.btn:active {
+  transform: scale(0.99);
+}
+
+.btn-primary {
+  background-color: var(--accent-primary);
+  color: #ffffff;
+}
+
+[data-theme="contrast"] .btn-primary {
+  color: #000000;
+}
+
+.btn-primary:hover {
+  background-color: var(--accent-primary-hover);
+}
+
+.btn-dark {
+  background-color: var(--btn-dark-bg);
+  color: var(--btn-dark-text);
+}
+
+.btn-dark:hover {
+  background-color: var(--btn-dark-hover);
+}
+
+.btn-light {
+  background-color: var(--bg-surface);
+  color: var(--text-primary);
+  border: 1px solid var(--border-strong);
+}
+
+.btn-light:hover {
+  border-color: var(--accent-primary);
+}
+
+.btn-full {
+  width: 100%;
+}
+
+/* ==========================================================================
+   Crew Ranks System (7 Ranks from Landlubber to Captain)
+   ========================================================================== */
+
+.ranks-section {
+  margin: 1rem 0 3rem;
+}
+
+.ranks-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(295px, 1fr));
+  gap: 1.15rem;
+}
+
+.rank-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 1rem;
+  padding: 1.35rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 0.9rem;
+  transition: transform 0.15s ease, border-color 0.2s ease;
+}
+
+.rank-card:hover {
+  border-color: var(--accent-primary);
+  transform: translateY(-2px);
+}
+
+.rank-card-top {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.rank-badge-icon {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 0.8rem;
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-strong);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.rank-level-num {
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent-text);
+  display: block;
+}
+
+.rank-name-title {
+  font-family: "Newsreader", Georgia, serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.rank-meaning {
+  font-size: 0.83rem;
+  font-weight: 600;
+  color: var(--accent-teal);
+}
+
+.rank-can-do-list {
+  list-style: disc;
+  padding-left: 1.15rem;
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  display: flex;
+  flex-direction: column;
+  gap: 0.28rem;
+}
+
+.rank-example-quote {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-left: 3px solid var(--accent-primary);
+  border-radius: 0.5rem;
+  padding: 0.6rem 0.8rem;
+  font-size: 0.8rem;
+  font-style: italic;
+  color: var(--text-primary);
+}
+
+.rank-card-actions {
+  display: flex;
+  gap: 0.45rem;
+  flex-wrap: wrap;
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--border-subtle);
+}
+
+/* ==========================================================================
+   Resources & SLA Blueprint Section (Port Tab)
+   ========================================================================== */
+
+.resources-section {
+  margin-bottom: 3.25rem;
+}
+
+.blueprint-showcase-card {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 1.75rem;
+  align-items: center;
+  margin-bottom: 1.35rem;
+  background: var(--bg-card-gradient);
+}
+
+.blueprint-img-wrapper {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-strong);
+  border-radius: 0.85rem;
+  padding: 0.5rem;
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+}
+
+.blueprint-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 0.55rem;
+}
+
+.resources-pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+  gap: 1.2rem;
+  margin-bottom: 1.35rem;
+}
+
+.pillar-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 1rem;
+  padding: 1.4rem;
+}
+
+.pillar-title {
+  font-family: "Newsreader", Georgia, serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0.4rem 0 0.55rem;
+}
+
+.pillar-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  font-size: 0.83rem;
+  color: var(--text-secondary);
+}
+
+.pillar-list li strong {
+  color: var(--text-primary);
+}
+
+/* US Workplace Hedging Contrast Table */
+.hedging-table-wrapper {
+  overflow-x: auto;
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 0.85rem;
+  margin-top: 0.85rem;
+}
+
+.hedging-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.83rem;
+  text-align: left;
+}
+
+.hedging-table th,
+.hedging-table td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.hedging-table th {
+  background-color: var(--bg-pill);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-secondary);
+}
+
+.hedging-direct {
+  color: var(--status-error);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.78rem;
+}
+
+.hedging-diplomatic {
+  color: var(--status-success);
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   Level Selector Bar (Crew Ranks Bar & Ship Competence Tabs)
+   ========================================================================== */
+
+.level-bar-wrapper {
+  margin: 0.5rem 0 2rem;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 1rem;
+  padding: 0.75rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.level-bar-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+}
+
+.level-tabs {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  flex-wrap: wrap;
+  list-style: none;
+}
+
+.level-tab-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.48rem 0.85rem;
+  border-radius: 0.6rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+  transition: all 0.15s ease;
+}
+
+.level-tab-btn:hover {
+  border-color: var(--accent-primary);
+  color: var(--text-primary);
+}
+
+.level-tab-btn.active {
+  background-color: var(--accent-primary);
+  border-color: var(--accent-primary);
+  color: #ffffff;
+}
+
+[data-theme="contrast"] .level-tab-btn.active {
+  color: #000000;
+}
+
+/* ==========================================================================
+   Modules 2x2 Grid
+   ========================================================================== */
+
+.modules-section {
+  margin-bottom: 3rem;
+}
+
+.section-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.35rem;
+  flex-wrap: wrap;
+}
+
+.section-title {
+  font-family: "Newsreader", Georgia, serif;
+  font-size: 1.65rem;
+  font-weight: 500;
+  margin-top: 0.2rem;
+}
+
+.section-meta {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.modules-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.35rem;
+}
+
+.module-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.module-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.module-icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 0.65rem;
+  background-color: var(--bg-badge-warm);
+  color: var(--accent-text);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.module-title {
+  font-family: "Newsreader", Georgia, serif;
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+}
+
+.module-desc {
+  font-size: 0.84rem;
+  color: var(--text-secondary);
+  margin-bottom: 1.1rem;
+}
+
+.level-pills-mini {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-bottom: 1.15rem;
+}
+
+.level-pill-link {
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 0.24rem 0.58rem;
+  border-radius: 0.4rem;
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+  transition: all 0.15s ease;
+}
+
+.level-pill-link:hover {
+  border-color: var(--accent-primary);
+  color: var(--accent-text);
+  transform: translateY(-1px);
+}
+
+.module-preview {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 0.75rem;
+  padding: 0.95rem 1.1rem;
+  margin-bottom: 1.25rem;
+}
+
+.grammar-preview {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  font-size: 0.82rem;
+}
+
+.grammar-line {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.grammar-line.incorrect {
+  color: var(--text-muted);
+}
+
+.incorrect-icon {
+  color: var(--status-error);
+  font-weight: 700;
+}
+
+.correct-icon {
+  color: var(--status-success);
+  font-weight: 700;
+}
+
+.grammar-line.correct {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.vocab-preview {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.vocab-word-row {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  margin-bottom: 0.2rem;
+  flex-wrap: wrap;
+}
+
+.vocab-word {
+  font-family: "Newsreader", Georgia, serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+.vocab-ipa {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.78rem;
+  color: var(--accent-teal);
+}
+
+.vocab-def {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+}
+
+.icon-circle-btn {
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 50%;
+  background-color: var(--bg-pill);
+  color: var(--accent-text);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background-color 0.15s ease, transform 0.15s ease;
+}
+
+.icon-circle-btn:hover {
+  background-color: var(--bg-badge-warm);
+  transform: scale(1.05);
+}
+
+.audio-preview {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.audio-play-btn {
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: 50%;
+  background-color: var(--accent-primary);
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  flex-shrink: 0;
+}
+
+[data-theme="contrast"] .audio-play-btn {
+  color: #000;
+}
+
+.waveform {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex: 1;
+  height: 28px;
+}
+
+.waveform span {
+  display: inline-block;
+  width: 3px;
+  border-radius: 99px;
+  background-color: var(--accent-teal);
+  transition: height 0.2s ease;
+}
+
+.waveform span:nth-child(odd) {
+  height: 45%;
+}
+.waveform span:nth-child(even) {
+  height: 80%;
+}
+.waveform span:nth-child(3n) {
+  height: 100%;
+  background-color: var(--accent-primary);
+}
+.waveform span:nth-child(4n) {
+  height: 30%;
+}
+
+.waveform.playing span {
+  animation: pulseWave 0.55s infinite ease-in-out alternate;
+}
+
+@keyframes pulseWave {
+  0% {
+    height: 25%;
+  }
+  100% {
+    height: 100%;
+  }
+}
+
+.audio-time {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.module-footer {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  border-top: 1px solid var(--border-subtle);
+  padding-top: 0.9rem;
+}
+
+.module-stat {
+  display: flex;
+  flex-direction: column;
+}
+
+.module-stat-label {
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+.module-stat-val {
+  font-size: 0.84rem;
+  font-weight: 700;
+}
+
+.module-link {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--accent-text);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.module-link:hover {
+  text-decoration: underline;
+}
+
+/* ==========================================================================
+   Interactive Exercise Layout (Grammar, Vocabulary, Listening, My Ship)
+   ========================================================================== */
+
+.workspace-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.lesson-theory-card,
+.exercise-interactive-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.theory-title {
+  font-family: "Newsreader", Georgia, serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 0.35rem;
+}
+
+.rank-subtitle-banner {
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: var(--accent-teal);
+  margin-bottom: 0.8rem;
+}
+
+.theory-explanation {
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+  margin-bottom: 1.2rem;
+  line-height: 1.65;
+}
+
+.example-box {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-left: 4px solid var(--accent-teal);
+  border-radius: 0.65rem;
+  padding: 1rem 1.15rem;
+  margin-bottom: 1.25rem;
+}
+
+.example-box-label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent-teal);
+  margin-bottom: 0.45rem;
+  display: block;
+}
+
+.exercise-prompt-box {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-strong);
+  border-radius: 0.8rem;
+  padding: 1.15rem;
+  margin-bottom: 1.15rem;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.options-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  margin-bottom: 1.25rem;
+}
+
+.option-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+  text-align: left;
+  padding: 0.85rem 1.1rem;
+  background-color: var(--bg-surface);
+  border: 2px solid var(--border-subtle);
+  border-radius: 0.75rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.15s ease;
+}
+
+.option-btn:hover {
+  border-color: var(--accent-primary);
+}
+
+.option-btn.selected-correct {
+  border-color: var(--status-success);
+  background-color: var(--status-success-bg);
+  font-weight: 600;
+}
+
+.option-btn.selected-wrong {
+  border-color: var(--status-error);
+  background-color: var(--status-error-bg);
+}
+
+.option-letter {
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 50%;
+  background-color: var(--bg-pill);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.75rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.feedback-banner {
+  padding: 0.95rem 1.1rem;
+  border-radius: 0.75rem;
+  font-size: 0.86rem;
+  margin-bottom: 1.15rem;
+  display: none;
+}
+
+.feedback-banner.visible {
+  display: block;
+}
+
+.feedback-banner.success {
+  background-color: var(--status-success-bg);
+  border: 1px solid var(--status-success);
+  color: var(--text-primary);
+}
+
+.feedback-banner.error {
+  background-color: var(--status-error-bg);
+  border: 1px solid var(--status-error);
+  color: var(--text-primary);
+}
+
+.level-nav-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.transcript-box {
+  background-color: var(--bg-surface);
+  border: 1px dashed var(--border-strong);
+  border-radius: 0.75rem;
+  padding: 1rem;
+  margin-top: 0.9rem;
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  display: none;
+}
+
+.transcript-box.open {
+  display: block;
+}
+
+/* ==========================================================================
+   Exercise Stepper (Multi-Exercise Controls for Every Level & Topic)
+   ========================================================================== */
+
+.exercise-stepper {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.exercise-step-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.36rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.76rem;
+  font-weight: 600;
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+  transition: all 0.15s ease;
+  cursor: pointer;
+}
+
+.exercise-step-btn:hover {
+  border-color: var(--accent-primary);
+  color: var(--text-primary);
+}
+
+.exercise-step-btn.active {
+  background-color: var(--accent-primary);
+  border-color: var(--accent-primary);
+  color: #ffffff;
+}
+
+[data-theme="contrast"] .exercise-step-btn.active {
+  color: #000000;
+}
+
+.exercise-step-btn.completed {
+  border-color: var(--status-success);
+}
+
+.step-check-icon {
+  font-size: 0.75rem;
+  color: var(--status-success);
+  display: none;
+}
+
+.exercise-step-btn.completed .step-check-icon {
+  display: inline;
+}
+
+.exercise-step-btn.active .step-check-icon {
+  color: #ffffff;
+}
+
+[data-theme="contrast"] .exercise-step-btn.active .step-check-icon {
+  color: #000000;
+}
+
+.exercise-next-btn {
+  margin-top: 0.85rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   My Ship: Profile Photo, Monthly Calendar, Weekly Calendar & Lesson Resume
+   ========================================================================== */
+
+.ship-profile-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
+  margin-bottom: 2rem;
+  background: var(--bg-card-gradient);
+}
+
+.ship-profile-left {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.profile-photo-container {
+  position: relative;
+  width: 104px;
+  height: 104px;
+  border-radius: 50%;
+  border: 3px solid var(--accent-primary);
+  background-color: var(--bg-surface);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-card);
+  flex-shrink: 0;
+}
+
+.profile-photo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profile-photo-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.ship-tagline {
+  font-family: "Newsreader", Georgia, serif;
+  font-style: italic;
+  font-size: 1.1rem;
+  color: var(--accent-teal);
+  margin-top: 0.2rem;
+}
+
+.ship-dashboard-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+/* Monthly Calendar (Red = Missed, Green = Worked, Blue = Goal Reached) */
+.month-cal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.month-cal-title {
+  font-family: "Newsreader", Georgia, serif;
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.month-nav-btns {
+  display: flex;
+  gap: 0.45rem;
+}
+
+.cal-weekdays,
+.cal-days-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0.45rem;
+  text-align: center;
+}
+
+.cal-weekdays {
+  margin-bottom: 0.45rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+.cal-day-cell {
+  aspect-ratio: 1;
+  border-radius: 0.6rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.82rem;
+  font-weight: 700;
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  position: relative;
+}
+
+.cal-day-cell.empty {
+  background: transparent;
+  border-color: transparent;
+}
+
+/* Red: Days Missed */
+.cal-day-cell.day-missed {
+  background-color: var(--status-error-bg);
+  border: 2px solid var(--status-error);
+  color: var(--status-error);
+}
+
+/* Green: Days Worked */
+.cal-day-cell.day-worked {
+  background-color: var(--status-success-bg);
+  border: 2px solid var(--status-success);
+  color: var(--status-success);
+}
+
+/* Blue: Days with Goal Reached */
+.cal-day-cell.day-goal {
+  background-color: var(--status-goal-blue-bg);
+  border: 2px solid var(--status-goal-blue);
+  color: var(--status-goal-blue);
+}
+
+.cal-legend {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 1.15rem;
+  padding-top: 0.9rem;
+  border-top: 1px solid var(--border-subtle);
+  font-size: 0.76rem;
+  font-weight: 600;
+}
+
+.legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.legend-swatch {
+  width: 12px;
+  height: 12px;
+  border-radius: 3px;
+  display: inline-block;
+}
+
+.swatch-blue {
+  background-color: var(--status-goal-blue);
+}
+.swatch-green {
+  background-color: var(--status-success);
+}
+.swatch-red {
+  background-color: var(--status-error);
+}
+
+/* Resume of Lessons Completed */
+.lessons-resume-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  max-height: 390px;
+  overflow-y: auto;
+}
+
+.lesson-resume-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.8rem 1rem;
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 0.75rem;
+}
+
+.lesson-resume-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.lesson-resume-title {
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+.lesson-resume-meta {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+/* Weekly Calendar Showing Lessons Worked On */
+.week-calendar-card {
+  margin-bottom: 2.5rem;
+}
+
+.week-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.week-day-card {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-top: 4px solid var(--accent-teal);
+  border-radius: 0.75rem;
+  padding: 0.9rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 0.65rem;
+}
+
+.week-day-card.day-goal-border {
+  border-top-color: var(--status-goal-blue);
+}
+.week-day-card.day-worked-border {
+  border-top-color: var(--status-success);
+}
+.week-day-card.day-missed-border {
+  border-top-color: var(--status-error);
+  opacity: 0.85;
+}
+
+.week-day-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+.week-lesson-name {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.35;
+}
+
+.week-lesson-module {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--accent-text);
+}
+
+/* ==========================================================================
+   Quote & Footer
+   ========================================================================== */
+
+.quote-section {
+  text-align: center;
+  padding: 1rem 0 3rem;
+}
+
+.literary-quote p {
+  font-family: "Newsreader", Georgia, serif;
+  font-style: italic;
+  font-size: 1.22rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.4rem;
+}
+
+.literary-quote footer {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--text-muted);
+}
+
+.site-footer {
+  border-top: 1px solid var(--border-subtle);
+  padding: 1.65rem 0;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.footer-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.footer-logo-img {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+}
+
+.footer-logo {
+  font-family: "Newsreader", Georgia, serif;
+  font-size: 0.98rem;
+  color: var(--text-primary);
+}
+
+.footer-nav {
+  display: flex;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.footer-nav a:hover {
+  color: var(--accent-text);
+  text-decoration: underline;
+}
+
+/* ==========================================================================
+   Responsive Design
+   ========================================================================== */
+
+@media (max-width: 1024px) {
+  .blueprint-showcase-card,
+  .modules-grid,
+  .workspace-grid,
+  .ship-dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .week-grid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
+
+  .header-inner {
+    flex-wrap: wrap;
+    padding: 0.75rem 1.25rem;
+  }
+
+  .nav-list {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 560px) {
+  .footer-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
