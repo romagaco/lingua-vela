@@ -1839,6 +1839,576 @@ button {
 }
 
 /* ==========================================================================
+   Lesson Pages (js/lessons.js) — Theory, Interactive Audio & Practice
+   ========================================================================== */
+
+.lesson-root {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 0 auto 4rem;
+}
+
+.routine-strip {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0.75rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.routine-strip li {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.85rem 1rem;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 14px;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.routine-icon {
+  font-size: 1.4rem;
+}
+
+.lesson-overview {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+}
+
+.lesson-overview-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding: 1.25rem 1.4rem;
+  background: var(--bg-card-gradient);
+  border: 1px solid var(--border-subtle);
+  border-radius: 16px;
+  color: var(--text-primary);
+  text-decoration: none;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.lesson-overview-card:hover,
+.lesson-overview-card:focus-visible {
+  border-color: var(--accent-primary);
+  transform: translateY(-2px);
+}
+
+.lesson-overview-num {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.85rem;
+  color: var(--accent-text);
+}
+
+.lesson-overview-title {
+  font-family: "Newsreader", Georgia, serif;
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.lesson-overview-meta {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.lesson-card {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  scroll-margin-top: 90px;
+}
+
+.lesson-card-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.can-do-box,
+.lesson-quiz {
+  padding: 1.25rem 1.4rem;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 14px;
+}
+
+.can-do-box ul,
+.check-list,
+.tip-list {
+  margin: 0.5rem 0 0;
+  padding-left: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  color: var(--text-secondary);
+}
+
+.check-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.check-list li::before {
+  content: "✓ ";
+  color: var(--status-success);
+  font-weight: 700;
+}
+
+.lesson-step {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+}
+
+.lesson-step-title {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-family: "Newsreader", Georgia, serif;
+  font-size: 1.35rem;
+  color: var(--text-primary);
+}
+
+.lesson-step-num {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--accent-primary);
+  color: #fff;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.85rem;
+}
+
+/* Alphabet grid */
+.alphabet-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(88px, 1fr));
+  gap: 0.6rem;
+}
+
+.letter-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.15rem;
+  padding: 0.7rem 0.4rem;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  color: var(--text-primary);
+  cursor: pointer;
+  font: inherit;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.letter-btn:hover,
+.letter-btn:focus-visible {
+  border-color: var(--accent-primary);
+  background: var(--bg-badge-warm);
+}
+
+.letter-big {
+  font-family: "Newsreader", Georgia, serif;
+  font-size: 1.8rem;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.letter-say {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--accent-text);
+}
+
+.letter-ipa,
+.ipa-cell {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+/* Tables */
+.table-wrap {
+  overflow-x: auto;
+}
+
+.lesson-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--bg-surface);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.lesson-table th,
+.lesson-table td {
+  padding: 0.65rem 0.9rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border-subtle);
+  vertical-align: middle;
+}
+
+.lesson-table th {
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  background: var(--bg-pill);
+}
+
+.letters-cell,
+.symbol-cell {
+  font-family: "JetBrains Mono", monospace;
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--text-primary);
+}
+
+/* Speak buttons */
+.speak-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.5rem 0.9rem;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-strong);
+  border-radius: 999px;
+  color: var(--text-primary);
+  font: inherit;
+  cursor: pointer;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.speak-btn:hover,
+.speak-btn:focus-visible {
+  border-color: var(--accent-teal);
+  background: var(--bg-badge-teal);
+}
+
+.speak-btn-sm {
+  padding: 0.25rem 0.65rem;
+  font-size: 0.88rem;
+}
+
+.speak-btn-line {
+  text-align: left;
+  border-radius: 14px;
+}
+
+/* Dialogue */
+.dialogue {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.dialogue-line {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.dialogue-b {
+  padding-left: 2rem;
+}
+
+.dialogue-who {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--btn-dark-bg);
+  color: var(--btn-dark-text);
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.dialogue-b .dialogue-who {
+  background: var(--accent-primary);
+  color: #fff;
+}
+
+.phrase-list,
+.pair-list {
+  list-style: none;
+  padding: 0;
+  margin: 0.4rem 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.phrase-list {
+  flex-direction: column;
+}
+
+.phrase-translation {
+  margin-left: 0.4rem;
+  font-size: 0.88rem;
+  color: var(--text-muted);
+}
+
+.pair-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem;
+  background: var(--bg-pill);
+  border-radius: 999px;
+}
+
+.pair-arrow {
+  color: var(--text-muted);
+}
+
+.email-example code {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 1.05rem;
+  color: var(--text-primary);
+}
+
+/* Spelling trainer */
+.spelling-trainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.spelling-trainer input,
+.dictation-form input {
+  flex: 1 1 220px;
+  padding: 0.7rem 0.9rem;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-strong);
+  border-radius: 10px;
+  color: var(--text-primary);
+  font: inherit;
+}
+
+.spelling-trainer input:focus-visible,
+.dictation-form input:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 2px;
+}
+
+.spelling-output {
+  min-height: 1.5rem;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 1.05rem;
+  color: var(--accent-text);
+  word-break: break-word;
+}
+
+/* Compare & technique cards */
+.compare-grid,
+.technique-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0.85rem;
+}
+
+.compare-box,
+.technique-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding: 1.1rem 1.2rem;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 14px;
+}
+
+.compare-box {
+  align-items: center;
+  text-align: center;
+}
+
+.compare-box-accent {
+  border-color: var(--accent-primary);
+}
+
+.compare-label {
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.compare-big {
+  font-family: "Newsreader", Georgia, serif;
+  font-size: 2.6rem;
+  font-weight: 600;
+  line-height: 1;
+  color: var(--accent-text);
+}
+
+.technique-icon {
+  font-size: 1.8rem;
+}
+
+.technique-card h4 {
+  font-size: 1.05rem;
+  color: var(--text-primary);
+}
+
+.technique-card p {
+  font-size: 0.9rem;
+}
+
+.micro-practice {
+  padding: 1.5rem;
+  background: var(--status-success-bg);
+  border: 1px solid var(--border-subtle);
+  border-radius: 14px;
+}
+
+/* Quiz */
+.quiz-header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.quiz-title {
+  font-family: "Newsreader", Georgia, serif;
+  font-size: 1.45rem;
+  color: var(--text-primary);
+}
+
+.quiz-score {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.quiz-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.quiz-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px dashed var(--border-subtle);
+}
+
+.quiz-prompt {
+  display: flex;
+  gap: 0.6rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.quiz-num {
+  flex-shrink: 0;
+  font-family: "JetBrains Mono", monospace;
+  color: var(--accent-text);
+}
+
+.quiz-audio-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.quiz-transcript summary {
+  cursor: pointer;
+  font-size: 0.88rem;
+  color: var(--text-muted);
+}
+
+.quiz-transcript span {
+  margin-left: 0.5rem;
+  font-family: "JetBrains Mono", monospace;
+  color: var(--text-primary);
+}
+
+.dictation-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.quiz-warning {
+  margin-bottom: 1rem;
+  padding: 0.6rem 0.9rem;
+  background: var(--bg-badge-alert);
+  border-radius: 10px;
+  font-size: 0.9rem;
+}
+
+/* Resources */
+.resource-figure {
+  display: block;
+  border: 1px solid var(--border-subtle);
+  border-radius: 14px;
+  overflow: hidden;
+  text-decoration: none;
+}
+
+.resource-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.resource-caption {
+  display: block;
+  padding: 0.6rem 1rem;
+  background: var(--bg-surface);
+  font-size: 0.88rem;
+  color: var(--accent-text);
+}
+
+.resource-more a {
+  color: var(--accent-teal);
+  font-weight: 600;
+}
+
+.lesson-back-row {
+  display: flex;
+  justify-content: center;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lesson-overview-card {
+    transition: none;
+  }
+
+  .lesson-overview-card:hover,
+  .lesson-overview-card:focus-visible {
+    transform: none;
+  }
+}
+
+/* ==========================================================================
    Responsive Design
    ========================================================================== */
 
