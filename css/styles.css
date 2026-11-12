@@ -1731,6 +1731,114 @@ button {
 }
 
 /* ==========================================================================
+   Hub Menus (Lessons / Practice) — Large Icon Cards & Coming Soon
+   ========================================================================== */
+
+.hub-hero {
+  text-align: center;
+}
+
+.hub-hero .hero-subtitle {
+  margin-inline: auto;
+}
+
+.hub-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.25rem;
+  max-width: 1000px;
+  margin: 1.5rem auto 4rem;
+}
+
+.hub-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.75rem;
+  padding: 2.25rem 1.5rem;
+  background: var(--bg-card-gradient);
+  border: 1px solid var(--border-subtle);
+  border-radius: 20px;
+  box-shadow: var(--shadow-card);
+  color: var(--text-primary);
+  text-decoration: none;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.hub-card:hover,
+.hub-card:focus-visible {
+  transform: translateY(-4px);
+  border-color: var(--accent-primary);
+  box-shadow: var(--shadow-dropdown);
+}
+
+.hub-card:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 3px;
+}
+
+.hub-icon {
+  display: grid;
+  place-items: center;
+  width: 104px;
+  height: 104px;
+  font-size: 3.5rem;
+  line-height: 1;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 50%;
+}
+
+.hub-title {
+  font-family: "Newsreader", Georgia, serif;
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.hub-desc {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+.coming-soon-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  max-width: 640px;
+  margin: 1.5rem auto 4rem;
+  padding: 3rem 2rem;
+  text-align: center;
+}
+
+.coming-soon-icon {
+  font-size: 4rem;
+  line-height: 1;
+}
+
+.coming-soon-title {
+  font-family: "Newsreader", Georgia, serif;
+  font-size: 2rem;
+  color: var(--accent-text);
+}
+
+.coming-soon-text {
+  color: var(--text-secondary);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hub-card {
+    transition: none;
+  }
+
+  .hub-card:hover,
+  .hub-card:focus-visible {
+    transform: none;
+  }
+}
+
+/* ==========================================================================
    Responsive Design
    ========================================================================== */
 

@@ -22,10 +22,14 @@ Goal: make language learning accessible and easy to contribute to.
 ├── js/
 │   └── main.js              # Main JavaScript logic, bilingual i18n (ES/EN) & exercises
 ├── assets/                  # Images, icons, audio, etc.
-├── pages/                   # Separate HTML pages for each main tab
+├── pages/                   # Separate HTML pages (top nav: Port, Lessons, Practice, Books, My Ship)
+│   ├── lessons.html         # Lessons hub — large icon menu of the 7 levels
+│   ├── lesson-a0.html … lesson-c2.html  # One page per level (coming soon)
+│   ├── practice.html        # Practice hub — large icon menu (Grammar, Vocabulary, Listening)
 │   ├── grammar.html         # Grammar Workshop (Pre A/A0 - C2)
 │   ├── vocabulary.html      # Vocabulary & Pronunciation (Pre A/A0 - C2)
 │   ├── listening.html       # Listening (Pre A/A0 - C2)
+│   ├── books.html           # Extensive readings, not by level (coming soon)
 │   └── ship.html            # My Ship (User profile, Competences & Streaks)
 ├── AGENTS.md
 ├── README.md
