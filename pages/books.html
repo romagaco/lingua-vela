@@ -90,11 +90,12 @@
       <p class="hero-subtitle" data-i18n="booksSubtitle">Lecturas largas para practicar la comprensión lectora, sin separación por niveles.</p>
     </section>
 
-    <section class="card coming-soon-card" aria-labelledby="coming-soon-heading">
-      <div class="coming-soon-icon" aria-hidden="true">📚</div>
-      <h2 id="coming-soon-heading" class="coming-soon-title" data-i18n="comingSoonTitle">Próximamente</h2>
-      <p class="coming-soon-text" data-i18n="comingSoonBooksText">Pronto añadiremos lecturas extensas para practicar. ¡Vuelve pronto!</p>
-    </section>
+    <!-- Illustrated Stories rendered by js/books.js (ES / EN) -->
+    <div id="books-root" class="books-root">
+      <noscript>
+        <p class="card coming-soon-card">Activa JavaScript para leer las historias. / Enable JavaScript to read the stories.</p>
+      </noscript>
+    </div>
   </main>
 
   <footer class="site-footer">
@@ -116,5 +117,6 @@
   </footer>
 
   <script src="../js/main.js" defer></script>
+  <script src="../js/books.js" defer></script>
 </body>
 </html>
