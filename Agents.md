@@ -22,6 +22,7 @@ Goal: make language learning accessible and easy to contribute to.
 ├── js/
 │   ├── main.js              # Main JavaScript logic, bilingual i18n (ES/EN) & exercises
 │   ├── lessons.js           # Lesson block module (Level 1 Pre-A1)
+│   ├── lesson-a1.js         # Lesson module (Level 2 A1 Cabin Mate — 33 topics & routine)
 │   ├── books.js             # Books reader logic
 │   └── vocabulary-animals.js # Animals flashcards (40 animals, click-to-reveal)
 ├── assets/                  # Images, icons, audio, etc.
