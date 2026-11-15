@@ -742,6 +742,12 @@
      State & Utilities
      ========================================================================== */
 
+  // Populate image paths from resources/vocabulary/animals/icon_<slug>.png
+  ANIMALS_DATA.forEach((a) => {
+    const slug = a.name.toLowerCase().replace(/[\s-]+/g, "_");
+    a.image = `../resources/vocabulary/animals/icon_${slug}.png`;
+  });
+
   // Set of animal IDs that are currently flipped (revealing information)
   const flippedIds = new Set();
   let searchTerm = "";
@@ -848,7 +854,16 @@
             </div>
 
             <div class="flashcard-body">
-              <span class="flashcard-icon" aria-hidden="true">${animal.icon}</span>
+              <div class="flashcard-image-wrap">
+                <img
+                  src="${animal.image}"
+                  alt="${animal.name}"
+                  class="flashcard-image"
+                  loading="lazy"
+                  onerror="this.style.display='none'; if(this.nextElementSibling) this.nextElementSibling.style.display='block';"
+                />
+                <span class="flashcard-icon" style="display: none;" aria-hidden="true">${animal.icon}</span>
+              </div>
               <h3 class="flashcard-title">${animal.name}</h3>
               ${
                 isEs
@@ -870,7 +885,14 @@
             <div class="flashcard-header">
               <span class="flashcard-number">#${animal.id}</span>
               <div class="flashcard-back-title-wrap">
-                <span class="flashcard-back-icon" aria-hidden="true">${animal.icon}</span>
+                <img
+                  src="${animal.image}"
+                  alt=""
+                  class="flashcard-back-image"
+                  aria-hidden="true"
+                  onerror="this.style.display='none'; if(this.nextElementSibling) this.nextElementSibling.style.display='inline-block';"
+                />
+                <span class="flashcard-back-icon" style="display: none;" aria-hidden="true">${animal.icon}</span>
                 <span class="flashcard-back-title">${animal.name}</span>
               </div>
               <button
