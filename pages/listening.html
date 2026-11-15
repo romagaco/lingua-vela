@@ -31,7 +31,14 @@
               <a href="../index.html" class="nav-link" data-i18n="navPort">Puerto</a>
             </li>
             <li class="nav-item">
-              <a href="lessons.html" class="nav-link" data-i18n="navLessons">Lecciones</a>
+              <a href="lessons.html" class="nav-link">
+                <span data-i18n="navLessons">Lecciones</span>
+                <span class="nav-caret" aria-hidden="true">▾</span>
+              </a>
+              <ul class="dropdown-menu" aria-label="Secciones de Lecciones">
+                <li><a href="lessons.html" class="dropdown-link"><span data-i18n="subLessonRanks">7 Rangos (Terrícola a Capitán)</span></a></li>
+                <li><a href="lessons-vocabulary.html" class="dropdown-link"><span data-i18n="subLessonVocab">Vocabulario (Vocabulary)</span></a></li>
+              </ul>
             </li>
             <li class="nav-item">
               <a href="practice.html" class="nav-link active" aria-current="page" data-i18n="navPractice">Práctica</a>

@@ -20,10 +20,14 @@ Goal: make language learning accessible and easy to contribute to.
 ├── css/
 │   └── styles.css           # Global styles & accessibility themes
 ├── js/
-│   └── main.js              # Main JavaScript logic, bilingual i18n (ES/EN) & exercises
+│   ├── main.js              # Main JavaScript logic, bilingual i18n (ES/EN) & exercises
+│   ├── lessons.js           # Lesson block module (Level 1 Pre-A1)
+│   ├── books.js             # Books reader logic
+│   └── vocabulary-animals.js # Animals flashcards (40 animals, click-to-reveal)
 ├── assets/                  # Images, icons, audio, etc.
 ├── pages/                   # Separate HTML pages (top nav: Port, Lessons, Practice, Books, My Ship)
-│   ├── lessons.html         # Lessons hub — large icon menu of the 7 levels
+│   ├── lessons.html         # Lessons hub — categories & large icon menu of the 7 levels
+│   ├── lessons-vocabulary.html # Category under Lessons: Vocabulary & Animals flashcards
 │   ├── lesson-a0.html … lesson-c2.html  # One page per level (coming soon)
 │   ├── practice.html        # Practice hub — large icon menu (Grammar, Vocabulary, Listening)
 │   ├── grammar.html         # Grammar Workshop (Pre A/A0 - C2)

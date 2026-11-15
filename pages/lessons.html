@@ -31,7 +31,14 @@
               <a href="../index.html" class="nav-link" data-i18n="navPort">Puerto</a>
             </li>
             <li class="nav-item">
-              <a href="lessons.html" class="nav-link active" aria-current="page" data-i18n="navLessons">Lecciones</a>
+              <a href="lessons.html" class="nav-link active" aria-current="page">
+                <span data-i18n="navLessons">Lecciones</span>
+                <span class="nav-caret" aria-hidden="true">▾</span>
+              </a>
+              <ul class="dropdown-menu" aria-label="Secciones de Lecciones">
+                <li><a href="lessons.html" class="dropdown-link"><span data-i18n="subLessonRanks">7 Rangos (Terrícola a Capitán)</span></a></li>
+                <li><a href="lessons-vocabulary.html" class="dropdown-link"><span data-i18n="subLessonVocab">Vocabulario (Vocabulary)</span></a></li>
+              </ul>
             </li>
             <li class="nav-item">
               <a href="practice.html" class="nav-link" data-i18n="navPractice">Práctica</a>
@@ -84,49 +91,76 @@
     <section class="hero-section hub-hero">
       <span class="cohort-badge">
         <span class="status-dot" aria-hidden="true"></span>
-        <span data-i18n="lessonsEyebrow">LECCIONES • 7 RANGOS</span>
+        <span data-i18n="lessonsEyebrow">LECCIONES • PROGRAMA GENERAL</span>
       </span>
       <h1 class="hero-title" data-i18n="lessonsTitle">Lecciones</h1>
-      <p class="hero-subtitle" data-i18n="lessonsSubtitle">Elige tu rango para estudiar la gramática y las lecciones de cada nivel.</p>
+      <p class="hero-subtitle" data-i18n="lessonsSubtitle">Explora el vocabulario interactivo por categorías y las lecciones por rango de tripulación.</p>
     </section>
 
-    <nav class="hub-grid" aria-label="Niveles de lecciones">
-      <a href="lesson-a0.html" class="hub-card">
-        <span class="hub-icon" aria-hidden="true">⚓</span>
-        <span class="hub-title" data-i18n="rank1Nav">1. Terrícola (Landlubber)</span>
-        <span class="hub-desc" data-i18n="lessonsCardMeta">Gramática y lecciones</span>
-      </a>
-      <a href="lesson-a1.html" class="hub-card">
-        <span class="hub-icon" aria-hidden="true">🪣</span>
-        <span class="hub-title" data-i18n="rank2Nav">2. Grumete (Cabin Mate)</span>
-        <span class="hub-desc" data-i18n="lessonsCardMeta">Gramática y lecciones</span>
-      </a>
-      <a href="lesson-a2.html" class="hub-card">
-        <span class="hub-icon" aria-hidden="true">🪢</span>
-        <span class="hub-title" data-i18n="rank3Nav">3. Marinero de Cubierta (Deckhand)</span>
-        <span class="hub-desc" data-i18n="lessonsCardMeta">Gramática y lecciones</span>
-      </a>
-      <a href="lesson-b1.html" class="hub-card">
-        <span class="hub-icon" aria-hidden="true">⛵</span>
-        <span class="hub-title" data-i18n="rank4Nav">4. Marinero (Sailor)</span>
-        <span class="hub-desc" data-i18n="lessonsCardMeta">Gramática y lecciones</span>
-      </a>
-      <a href="lesson-b2.html" class="hub-card">
-        <span class="hub-icon" aria-hidden="true">🪈</span>
-        <span class="hub-title" data-i18n="rank5Nav">5. Contramaestre (Bosun)</span>
-        <span class="hub-desc" data-i18n="lessonsCardMeta">Gramática y lecciones</span>
-      </a>
-      <a href="lesson-c1.html" class="hub-card">
-        <span class="hub-icon" aria-hidden="true">🧭</span>
-        <span class="hub-title" data-i18n="rank6Nav">6. Navegante (Navigator)</span>
-        <span class="hub-desc" data-i18n="lessonsCardMeta">Gramática y lecciones</span>
-      </a>
-      <a href="lesson-c2.html" class="hub-card">
-        <span class="hub-icon" aria-hidden="true">☸️</span>
-        <span class="hub-title" data-i18n="rank7Nav">7. Capitán (Captain)</span>
-        <span class="hub-desc" data-i18n="lessonsCardMeta">Gramática y lecciones</span>
-      </a>
-    </nav>
+    <!-- Category Section: Vocabulary -->
+    <section class="lessons-category-group" aria-labelledby="cat-vocab-heading">
+      <div class="lessons-category-header">
+        <h2 id="cat-vocab-heading" class="lessons-category-title" data-i18n="lessonsCategoryHeading">Categorías de Lecciones</h2>
+        <p class="lessons-category-desc" data-i18n="lessonsCategorySubtitle">Práctica temática estructurada por áreas de aprendizaje.</p>
+      </div>
+
+      <div class="hub-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
+        <a href="lessons-vocabulary.html" class="hub-card hub-card-featured">
+          <span class="hub-icon" aria-hidden="true">🐾</span>
+          <span class="hub-title" data-i18n="lessonsVocabTitle">Vocabulario (Vocabulary)</span>
+          <span class="badge badge-warm" style="align-self: flex-start; margin: 0.25rem 0;" data-i18n="badgeVocabAnimals">🐾 40 Flashcards de Animales</span>
+          <span class="hub-desc" data-i18n="lessonsVocabCardDesc">Aprende léxico por categorías con tarjetas interactivas: 40 animales, datos curiosos, países y poblaciones.</span>
+        </a>
+      </div>
+    </section>
+
+    <hr class="lessons-section-divider" />
+
+    <!-- Crew Rank Lessons -->
+    <section class="lessons-category-group" aria-labelledby="ranks-heading">
+      <div class="lessons-category-header">
+        <h2 id="ranks-heading" class="lessons-category-title" data-i18n="lessonsRanksTitle">Lecciones por Rango de Tripulación</h2>
+        <p class="lessons-category-desc" data-i18n="lessonsRanksDesc">Elige tu rango para estudiar la gramática y las lecciones de cada nivel (1 a 7).</p>
+      </div>
+
+      <nav class="hub-grid" aria-label="Niveles de lecciones">
+        <a href="lesson-a0.html" class="hub-card">
+          <span class="hub-icon" aria-hidden="true">⚓</span>
+          <span class="hub-title" data-i18n="rank1Nav">1. Terrícola (Landlubber)</span>
+          <span class="hub-desc" data-i18n="lessonsCardMeta">Gramática y lecciones</span>
+        </a>
+        <a href="lesson-a1.html" class="hub-card">
+          <span class="hub-icon" aria-hidden="true">🪣</span>
+          <span class="hub-title" data-i18n="rank2Nav">2. Grumete (Cabin Mate)</span>
+          <span class="hub-desc" data-i18n="lessonsCardMeta">Gramática y lecciones</span>
+        </a>
+        <a href="lesson-a2.html" class="hub-card">
+          <span class="hub-icon" aria-hidden="true">🪢</span>
+          <span class="hub-title" data-i18n="rank3Nav">3. Marinero de Cubierta (Deckhand)</span>
+          <span class="hub-desc" data-i18n="lessonsCardMeta">Gramática y lecciones</span>
+        </a>
+        <a href="lesson-b1.html" class="hub-card">
+          <span class="hub-icon" aria-hidden="true">⛵</span>
+          <span class="hub-title" data-i18n="rank4Nav">4. Marinero (Sailor)</span>
+          <span class="hub-desc" data-i18n="lessonsCardMeta">Gramática y lecciones</span>
+        </a>
+        <a href="lesson-b2.html" class="hub-card">
+          <span class="hub-icon" aria-hidden="true">🪈</span>
+          <span class="hub-title" data-i18n="rank5Nav">5. Contramaestre (Bosun)</span>
+          <span class="hub-desc" data-i18n="lessonsCardMeta">Gramática y lecciones</span>
+        </a>
+        <a href="lesson-c1.html" class="hub-card">
+          <span class="hub-icon" aria-hidden="true">🧭</span>
+          <span class="hub-title" data-i18n="rank6Nav">6. Navegante (Navigator)</span>
+          <span class="hub-desc" data-i18n="lessonsCardMeta">Gramática y lecciones</span>
+        </a>
+        <a href="lesson-c2.html" class="hub-card">
+          <span class="hub-icon" aria-hidden="true">☸️</span>
+          <span class="hub-title" data-i18n="rank7Nav">7. Capitán (Captain)</span>
+          <span class="hub-desc" data-i18n="lessonsCardMeta">Gramática y lecciones</span>
+        </a>
+      </nav>
+    </section>
   </main>
 
   <footer class="site-footer">
