@@ -6,6 +6,8 @@ Simple, lightweight, accessible, and beginner-friendly.
 Built with pure **HTML5**, **CSS3**, and **vanilla JavaScript**.  
 No frameworks. No complexity. Ready for **GitHub Pages**.
 
+🌐 **Live Site:** https://romagaco.github.io/lingua-vela/
+
 ## Features
 
 - **Bilingual Interface (`ES` / `EN`)**: Default in Spanish with a header language toggle to switch the entire application to full English.
