@@ -3164,3 +3164,254 @@ button {
   }
 }
 
+/* ==========================================================================
+   Enhanced Responsive Design — Tablet (<= 1024px) & Phone (<= 768px / 480px)
+   ========================================================================== */
+
+html,
+body {
+  overflow-x: clip;
+}
+
+.speak-btn,
+.vocab-chip,
+.option-btn,
+.level-tab-btn {
+  max-width: 100%;
+  white-space: normal;
+  text-align: left;
+}
+
+.table-wrap {
+  max-width: 100%;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Tablet screens (<= 1024px) */
+@media (max-width: 1024px) {
+  .container {
+    padding: 0 1.25rem;
+  }
+
+  .story-hero-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hub-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+
+  .flashcards-grid {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  }
+}
+
+/* Small tablets & large phones (<= 768px) */
+@media (max-width: 768px) {
+  .header-inner {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 0.75rem 1rem;
+    gap: 0.65rem;
+  }
+
+  .brand-nav-group {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.65rem;
+    width: 100%;
+  }
+
+  .main-nav {
+    width: 100%;
+  }
+
+  .nav-list {
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 0.3rem;
+  }
+
+  .nav-link {
+    padding: 0.45rem 0.65rem;
+    font-size: 0.85rem;
+  }
+
+  .dropdown-menu {
+    max-width: calc(100vw - 2rem);
+  }
+
+  .header-actions {
+    width: 100%;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .hero-section {
+    padding: 2rem 0 1.5rem;
+  }
+
+  .hero-title {
+    font-size: clamp(1.7rem, 6vw, 2.35rem);
+    line-height: 1.18;
+  }
+
+  .hero-subtitle {
+    font-size: 0.98rem;
+  }
+
+  .community-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .community-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .section-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.35rem;
+  }
+
+  .card,
+  .lesson-card,
+  .coming-soon-card {
+    padding: 1.25rem 1rem;
+  }
+
+  .ranks-grid,
+  .modules-grid,
+  .books-library,
+  .lesson-overview,
+  .compare-grid,
+  .technique-grid,
+  .routine-strip {
+    grid-template-columns: 1fr;
+  }
+
+  .hub-grid {
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    gap: 0.9rem;
+  }
+
+  .hub-card {
+    padding: 1.5rem 1rem;
+  }
+
+  .hub-icon {
+    width: 82px;
+    height: 82px;
+    font-size: 2.75rem;
+  }
+
+  .dialogue-b {
+    padding-left: 0.85rem;
+  }
+
+  .level-tabs {
+    gap: 0.4rem;
+  }
+
+  .level-tab-btn {
+    padding: 0.45rem 0.75rem;
+    font-size: 0.82rem;
+  }
+
+  .lesson-table th,
+  .lesson-table td {
+    padding: 0.5rem 0.65rem;
+    font-size: 0.88rem;
+  }
+
+  .animals-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .animals-search-box {
+    min-width: 0;
+    width: 100%;
+  }
+
+  .flashcards-grid {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  }
+}
+
+/* Standard phones (<= 560px) */
+@media (max-width: 560px) {
+  .container {
+    padding: 0 0.9rem;
+  }
+
+  .hub-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .flashcards-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .flashcard-container {
+    height: 360px;
+  }
+
+  .flashcard-info-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .alphabet-grid {
+    grid-template-columns: repeat(auto-fill, minmax(72px, 1fr));
+    gap: 0.45rem;
+  }
+
+  .calendar-weekdays,
+  .calendar-grid {
+    gap: 0.25rem;
+  }
+
+  .calendar-day {
+    font-size: 0.78rem;
+    padding: 0.35rem 0.15rem;
+    min-height: 36px;
+  }
+
+  .week-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .quiz-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .spelling-trainer,
+  .dictation-form {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .spelling-trainer input,
+  .dictation-form input {
+    flex: 1 1 auto;
+    width: 100%;
+  }
+
+  .story-body {
+    padding: 1rem;
+  }
+
+  .story-en {
+    font-size: 1.08rem;
+  }
+
+  .footer-nav {
+    flex-wrap: wrap;
+    gap: 0.65rem 1rem;
+  }
+}
+
