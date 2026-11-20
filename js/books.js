@@ -375,7 +375,68 @@
         },
       ],
     },
+    ...(Array.isArray(window.LINGUAVELA_EXTENDED_BOOKS)
+      ? window.LINGUAVELA_EXTENDED_BOOKS
+      : []),
   ];
+
+  /* ==========================================================================
+     Markdown Renderer & Plain-Text Helper (for full-length books)
+     ========================================================================== */
+
+  function escapeHtml(str) {
+    return str
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;");
+  }
+
+  function formatInlineMarkdown(str) {
+    return escapeHtml(str).replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
+  }
+
+  function parseBookMarkdown(markdown, storyId) {
+    const lines = markdown.replace(/\r\n/g, "\n").split("\n");
+    const toc = [];
+    const htmlParts = [];
+    let chapterIdx = 0;
+
+    for (let i = 0; i < lines.length; i++) {
+      const line = lines[i].trim();
+      if (!line) continue;
+
+      if (line.startsWith("# ") && i < 3) {
+        // Skip duplicate top H1 since reader header already displays the title
+        continue;
+      } else if (line.startsWith("## ") && i < 4 && !line.includes(":")) {
+        // Subtitle right below H1
+        htmlParts.push(`<p class="story-book-subtitle">${formatInlineMarkdown(line.slice(3))}</p>`);
+      } else if (line.startsWith("## ")) {
+        const headingText = line.slice(3).trim();
+        const anchorId = `${storyId}-sec-${chapterIdx++}`;
+        toc.push({ id: anchorId, title: headingText });
+        htmlParts.push(`<h3 id="${anchorId}" class="story-h2">${formatInlineMarkdown(headingText)}</h3>`);
+      } else if (line.startsWith("### ")) {
+        htmlParts.push(`<h4 class="story-h3">${formatInlineMarkdown(line.slice(4).trim())}</h4>`);
+      } else {
+        htmlParts.push(`<p class="story-en">${formatInlineMarkdown(line)}</p>`);
+      }
+    }
+
+    return { toc, html: htmlParts.join("\n") };
+  }
+
+  function getStoryPlainText(story) {
+    if (story.markdown) {
+      return story.markdown
+        .replace(/^#{1,4}\s+/gm, "")
+        .replace(/\*\*(.+?)\*\*/g, "$1")
+        .replace(/\s+/g, " ")
+        .trim();
+    }
+    return (story.paragraphs || []).map((p) => p.en).join(" ");
+  }
 
   /* ==========================================================================
      State
@@ -421,7 +482,7 @@
                 ${isDone ? `<span class="book-done-badge">✓ ${L("Completada", "Completed")}</span>` : ""}
               </div>
               <div class="book-card-body">
-                <span class="book-meta">${s.readTime[lang()]}</span>
+                <span class="book-meta">${s.readTime[lang()]} · ${s.questions.length} ${L("preguntas", "questions")}</span>
                 <h2 class="book-card-title">${s.title[lang()]}</h2>
                 <p class="book-card-sub">${s.subtitle[lang()]}</p>
               </div>
@@ -434,19 +495,40 @@
 
   function renderActiveReader() {
     const story = STORIES.find((s) => s.id === activeStoryId) || STORIES[0];
-    const fullEnglishText = story.paragraphs.map((p) => p.en).join(" ");
     const storyAnswers = quizAnswers[story.id] || {};
     const letters = ["A", "B", "C", "D"];
+    const supportsSpanish = story.hasSpanish !== false;
 
-    const paragraphsHtml = story.paragraphs
-      .map(
-        (p) => `
-        <div class="story-paragraph-block">
-          <p class="story-en">${p.en}</p>
-          ${showSpanish ? `<p class="story-es">${p.es}</p>` : ""}
-        </div>`
-      )
-      .join("");
+    let bodyHtml = "";
+    let tocHtml = "";
+
+    if (story.markdown) {
+      const parsed = parseBookMarkdown(story.markdown, story.id);
+      bodyHtml = parsed.html;
+      if (parsed.toc.length > 0) {
+        tocHtml = `
+          <nav class="book-toc" aria-label="${L("Índice de capítulos", "Table of contents")}">
+            <span class="book-toc-label">${L("IR A SECCIÓN:", "JUMP TO SECTION:")}</span>
+            <div class="book-toc-links">
+              ${parsed.toc
+                .map((item) => `<a href="#${item.id}" class="book-toc-link">${escapeHtml(item.title)}</a>`)
+                .join("")}
+              <a href="#book-quiz-section" class="book-toc-link book-toc-quiz">📝 ${L("Ir a las 20 preguntas", "Jump to 20 questions")}</a>
+            </div>
+          </nav>
+        `;
+      }
+    } else {
+      bodyHtml = (story.paragraphs || [])
+        .map(
+          (p) => `
+          <div class="story-paragraph-block">
+            <p class="story-en">${p.en}</p>
+            ${showSpanish ? `<p class="story-es">${p.es}</p>` : ""}
+          </div>`
+        )
+        .join("");
+    }
 
     const vocabHtml = story.vocab
       .map(
@@ -481,7 +563,7 @@
         if (state) {
           feedback = state.correct
             ? `<div class="feedback-banner visible success" role="status">✓ ${q.feedback[lang()]}</div>`
-            : `<div class="feedback-banner visible error" role="status">✕ ${L("No es esa. Relee la historia e inténtalo de nuevo.", "Not quite. Re-read the story and try again.")}</div>`;
+            : `<div class="feedback-banner visible error" role="status">✕ ${L("No es esa. Relee el libro e inténtalo de nuevo.", "Not quite. Re-read the book and try again.")}</div>`;
         }
 
         return `
@@ -503,26 +585,36 @@
           </div>
 
           <div class="story-header-info">
-            <span class="card-eyebrow">${L("LECTURA EXTENSA • SIN NIVELES", "EXTENSIVE READING • ALL LEVELS")}</span>
+            <span class="card-eyebrow">${
+              story.isLongBook
+                ? L("LIBRO COMPLETO • PRÁCTICA AVANZADA EN INGLÉS", "FULL BLOG BOOK • ADVANCED ENGLISH PRACTICE")
+                : L("LECTURA EXTENSA • SIN NIVELES", "EXTENSIVE READING • ALL LEVELS")
+            }</span>
             <h2 id="active-story-title" class="theory-title">${story.title[lang()]}</h2>
             <p class="theory-explanation">${story.subtitle[lang()]}</p>
 
             <div class="story-controls">
               ${
                 speechSupported
-                  ? `<button type="button" class="btn btn-primary" data-speak-story="${story.id}">🔊 ${L("Escuchar historia", "Listen to story")}</button>
+                  ? `<button type="button" class="btn btn-primary" data-speak-story="${story.id}">🔊 ${L("Escuchar lectura", "Listen")}</button>
                      <button type="button" class="btn btn-light" data-stop-speech="true">⏹ ${L("Detener audio", "Stop")}</button>`
                   : ""
               }
-              <button type="button" class="btn btn-dark" data-toggle-translation="true" aria-pressed="${showSpanish}">
-                ${showSpanish ? L("Ocultar traducción (ES)", "Hide Spanish translation") : L("Ver traducción (ES)", "Show Spanish translation")}
-              </button>
+              ${
+                supportsSpanish
+                  ? `<button type="button" class="btn btn-dark" data-toggle-translation="true" aria-pressed="${showSpanish}">
+                      ${showSpanish ? L("Ocultar traducción (ES)", "Hide Spanish translation") : L("Ver traducción (ES)", "Show Spanish translation")}
+                    </button>`
+                  : `<span class="badge badge-teal book-badge-immersive">📘 ${L("Lectura inmersiva en inglés", "Immersive English Edition")}</span>`
+              }
             </div>
           </div>
         </div>
 
-        <div class="story-body" lang="en">
-          ${paragraphsHtml}
+        ${tocHtml}
+
+        <div class="story-body ${story.isLongBook ? "story-body-long" : ""}" lang="en">
+          ${bodyHtml}
         </div>
 
         <div class="lesson-step">
@@ -530,11 +622,11 @@
           <div class="vocab-chips">${vocabHtml}</div>
         </div>
 
-        <div class="lesson-quiz">
+        <div id="book-quiz-section" class="lesson-quiz">
           <div class="quiz-header">
             <div>
               <span class="card-eyebrow">${L("COMPRENSIÓN LECTORA", "READING CHECK")}</span>
-              <h3 class="quiz-title">${L("Preguntas sobre la historia", "Questions about the story")}</h3>
+              <h3 class="quiz-title">${L("Preguntas sobre la lectura", "Questions about the reading")}</h3>
             </div>
             <div class="quiz-score" aria-live="polite">
               <span class="badge badge-teal">${L("Correctas", "Correct")}: ${correctCount} / ${story.questions.length}</span>
@@ -573,7 +665,7 @@
     const speakStoryBtn = event.target.closest("[data-speak-story]");
     if (speakStoryBtn) {
       const story = STORIES.find((s) => s.id === speakStoryBtn.dataset.speakStory);
-      if (story) speak(story.paragraphs.map((p) => p.en).join(" "), 0.88);
+      if (story) speak(getStoryPlainText(story), 0.9);
       return;
     }
 
