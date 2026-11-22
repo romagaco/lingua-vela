@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/styles.css?v=2" />
 </head>
 <body data-page="port">
   <!-- Skip Link for Accessibility -->
@@ -133,6 +133,134 @@
           </a>
           <a href="#resources-section" class="btn btn-dark" data-i18n="openResourcesBtn">
             Ver Recursos y Guía PDF →
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Community, Collaboration & Social Updates Banner (Top of Port) -->
+    <section id="community-section" class="community-collab-section" aria-labelledby="community-heading">
+      <div class="card community-collab-shell">
+        <div class="community-collab-intro">
+          <span class="cohort-badge">
+            <span class="status-dot" aria-hidden="true"></span>
+            <span data-i18n="collabEyebrow">COMUNIDAD ABIERTA • COLABORA CON LINGUAVELA</span>
+          </span>
+          <h2 id="community-heading" class="section-title community-collab-title" data-i18n="collabHeading">
+            Construyamos juntos el futuro de LinguaVela
+          </h2>
+          <p class="community-collab-lead" data-i18n="collabLead">
+            LinguaVela es un proyecto abierto hecho para aprender en comunidad. Tus comentarios, ideas y sugerencias nos ayudan a mejorar cada lección y ejercicio. ¡Comparte tu feedback con nosotros y síguenos en YouTube e Instagram para mantenerte al día!
+          </p>
+        </div>
+
+        <div class="social-collab-grid">
+          <!-- YouTube Card -->
+          <a
+            href="https://www.youtube.com/@LinguaVela"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="social-collab-card"
+            aria-label="YouTube — LinguaVela"
+          >
+            <div class="social-card-head">
+              <div class="social-icon-frame">
+                <img
+                  src="resources/youtube_icon_cutout.png"
+                  alt="Icono de YouTube"
+                  class="social-cutout-icon"
+                  width="44"
+                  height="44"
+                />
+              </div>
+              <div>
+                <span class="social-platform-tag">YouTube</span>
+                <h3 class="social-card-title">LinguaVela</h3>
+              </div>
+            </div>
+            <p class="social-card-desc" data-i18n="collabYoutubeDesc">
+              Videos de pronunciación, guías paso a paso y todas las novedades del proyecto.
+            </p>
+            <span class="social-card-cta" data-i18n="collabYoutubeCta">Seguir en YouTube ↗</span>
+          </a>
+
+          <!-- Instagram Card -->
+          <a
+            href="https://www.instagram.com/linguavela/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="social-collab-card"
+            aria-label="Instagram — LinguaVela"
+          >
+            <div class="social-card-head">
+              <div class="social-icon-frame">
+                <img
+                  src="resources/instagram_icon_cutout.png"
+                  alt="Icono de Instagram"
+                  class="social-cutout-icon"
+                  width="44"
+                  height="44"
+                />
+              </div>
+              <div>
+                <span class="social-platform-tag">Instagram</span>
+                <h3 class="social-card-title">LinguaVela</h3>
+              </div>
+            </div>
+            <p class="social-card-desc" data-i18n="collabInstaDesc">
+              Vocabulario visual, tips diarios de inglés y anuncios rápidos para la tripulación.
+            </p>
+            <span class="social-card-cta" data-i18n="collabInstaCta">Seguir en Instagram ↗</span>
+          </a>
+
+          <!-- Contact & Feedback Card -->
+          <div class="social-collab-card social-contact-card">
+            <div class="social-card-head">
+              <div class="social-icon-frame">
+                <img
+                  src="resources/email_icon_cutout.png"
+                  alt="Icono de correo electrónico"
+                  class="social-cutout-icon"
+                  width="44"
+                  height="44"
+                />
+              </div>
+              <div>
+                <span class="social-platform-tag" data-i18n="collabContactTag">Contacto y Feedback</span>
+                <h3 class="social-card-title" data-i18n="collabContactTitle">Escríbenos y Colabora</h3>
+              </div>
+            </div>
+            <p class="social-card-desc" data-i18n="collabContactDesc">
+              Envíanos sugerencias, reportes de errores o propuestas de colaboración:
+            </p>
+            <div class="contact-email-list">
+              <a href="mailto:LinguaVelaCommunityproject@gmail.com" class="contact-email-pill">
+                LinguaVelaCommunityproject@gmail.com
+              </a>
+              <a href="mailto:roberde26@gmail.com" class="contact-email-pill">
+                roberde26@gmail.com
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Companion Farm Game Banner -->
+        <div class="companion-game-banner">
+          <div class="companion-game-copy">
+            <span class="badge badge-teal" data-i18n="farmGameBadge">🌱 JUEGO INTERACTIVO</span>
+            <h3 class="companion-game-title" data-i18n="farmGameTitle">Juego Granja — LinguaVela</h3>
+            <p class="companion-game-desc" data-i18n="farmGameDesc">
+              Practica inglés de forma divertida explorando nuestro juego interactivo de granja en el navegador.
+            </p>
+          </div>
+          <a
+            href="https://romagaco.github.io/Juego-Granja---LinguaVela/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-primary"
+            data-i18n="farmGameCta"
+          >
+            Jugar Granja LinguaVela ↗
           </a>
         </div>
       </div>
@@ -461,110 +589,6 @@
       </article>
     </section>
 
-    <!-- Community, Collaboration & Social Updates Section -->
-    <section id="community-section" class="community-collab-section" aria-labelledby="community-heading">
-      <div class="card community-collab-shell">
-        <div class="community-collab-intro">
-          <span class="cohort-badge">
-            <span class="status-dot" aria-hidden="true"></span>
-            <span data-i18n="collabEyebrow">COMUNIDAD ABIERTA • COLABORA CON LINGUAVELA</span>
-          </span>
-          <h2 id="community-heading" class="section-title community-collab-title" data-i18n="collabHeading">
-            Construyamos juntos el futuro de LinguaVela
-          </h2>
-          <p class="community-collab-lead" data-i18n="collabLead">
-            LinguaVela es un proyecto abierto hecho para aprender en comunidad. Tus comentarios, ideas y sugerencias nos ayudan a mejorar cada lección y ejercicio. ¡Comparte tu feedback con nosotros y síguenos en YouTube e Instagram para mantenerte al día!
-          </p>
-        </div>
-
-        <div class="social-collab-grid">
-          <!-- YouTube Card -->
-          <a
-            href="https://www.youtube.com/@LinguaVela"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="social-collab-card"
-            aria-label="YouTube — LinguaVela"
-          >
-            <div class="social-icon-frame">
-              <img src="resources/youtube_icon_cutout.png" alt="Icono de YouTube" class="social-cutout-icon" loading="lazy" />
-            </div>
-            <div class="social-card-content">
-              <span class="social-platform-tag">YouTube</span>
-              <h3 class="social-card-title">LinguaVela</h3>
-              <p class="social-card-desc" data-i18n="collabYoutubeDesc">
-                Videos de pronunciación, guías paso a paso y todas las novedades del proyecto.
-              </p>
-              <span class="social-card-cta" data-i18n="collabYoutubeCta">Seguir en YouTube ↗</span>
-            </div>
-          </a>
-
-          <!-- Instagram Card -->
-          <a
-            href="https://www.instagram.com/linguavela/"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="social-collab-card"
-            aria-label="Instagram — LinguaVela"
-          >
-            <div class="social-icon-frame">
-              <img src="resources/instagram_icon_cutout.png" alt="Icono de Instagram" class="social-cutout-icon" loading="lazy" />
-            </div>
-            <div class="social-card-content">
-              <span class="social-platform-tag">Instagram</span>
-              <h3 class="social-card-title">LinguaVela</h3>
-              <p class="social-card-desc" data-i18n="collabInstaDesc">
-                Vocabulario visual, tips diarios de inglés y anuncios rápidos para la tripulación.
-              </p>
-              <span class="social-card-cta" data-i18n="collabInstaCta">Seguir en Instagram ↗</span>
-            </div>
-          </a>
-
-          <!-- Contact & Feedback Card -->
-          <div class="social-collab-card social-contact-card">
-            <div class="social-icon-frame">
-              <img src="resources/email_icon_cutout.png" alt="Icono de correo electrónico" class="social-cutout-icon" loading="lazy" />
-            </div>
-            <div class="social-card-content">
-              <span class="social-platform-tag" data-i18n="collabContactTag">Contacto y Feedback</span>
-              <h3 class="social-card-title" data-i18n="collabContactTitle">Escríbenos y Colabora</h3>
-              <p class="social-card-desc" data-i18n="collabContactDesc">
-                Envíanos sugerencias, reportes de errores o propuestas de colaboración:
-              </p>
-              <div class="contact-email-list">
-                <a href="mailto:LinguaVelaCommunityproject@gmail.com" class="contact-email-pill">
-                  LinguaVelaCommunityproject@gmail.com
-                </a>
-                <a href="mailto:roberde26@gmail.com" class="contact-email-pill">
-                  roberde26@gmail.com
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Companion Farm Game Banner -->
-        <div class="companion-game-banner">
-          <div class="companion-game-copy">
-            <span class="badge badge-teal" data-i18n="farmGameBadge">🌱 JUEGO INTERACTIVO</span>
-            <h3 class="companion-game-title" data-i18n="farmGameTitle">Juego Granja — LinguaVela</h3>
-            <p class="companion-game-desc" data-i18n="farmGameDesc">
-              Practica inglés de forma divertida explorando nuestro juego interactivo de granja en el navegador.
-            </p>
-          </div>
-          <a
-            href="https://romagaco.github.io/Juego-Granja---LinguaVela/"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="btn btn-primary"
-            data-i18n="farmGameCta"
-          >
-            Jugar Granja LinguaVela ↗
-          </a>
-        </div>
-      </div>
-    </section>
-
     <aside class="quote-section" aria-label="Cita literaria">
       <blockquote class="literary-quote">
         <p data-i18n="quoteText">“Tener otro idioma es poseer una segunda alma.”</p>
@@ -594,6 +618,6 @@
     </div>
   </footer>
 
-  <script src="js/main.js" defer></script>
+  <script src="js/main.js?v=2" defer></script>
 </body>
 </html>
