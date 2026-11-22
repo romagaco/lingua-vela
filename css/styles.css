@@ -3834,5 +3834,177 @@ a.social-collab-card:focus-visible {
   }
 }
 
+/* ==========================================================================
+   Extra Listening Sections: Micro-Dictation & Interactive Dialogue
+   ========================================================================== */
+
+.listening-speed-controls {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.dictation-cloze-box {
+  font-family: "Newsreader", Georgia, serif;
+  font-size: 1.32rem;
+  line-height: 1.65;
+  padding: 1.1rem 1.25rem;
+  border-radius: 12px;
+  background: var(--bg-pill);
+  border: 1.5px solid var(--border-strong);
+  color: var(--text-primary);
+}
+
+.dictation-blank-pill {
+  display: inline-block;
+  min-width: 96px;
+  padding: 0.1rem 0.65rem;
+  margin: 0 0.2rem;
+  border-radius: 8px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 1.02rem;
+  font-weight: 700;
+  text-align: center;
+  background: var(--bg-surface);
+  border: 2px dashed var(--accent-primary);
+  color: var(--accent-text);
+}
+
+.dictation-blank-pill.is-filled {
+  border-style: solid;
+}
+
+.dictation-blank-pill.is-correct {
+  border-style: solid;
+  border-color: var(--status-success);
+  background: var(--status-success-bg);
+  color: var(--status-success);
+}
+
+.dictation-blank-pill.is-wrong {
+  border-style: solid;
+  border-color: var(--status-error);
+  background: var(--status-error-bg);
+  color: var(--status-error);
+}
+
+.dictation-input-row {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  flex-wrap: wrap;
+}
+
+.dictation-text-input {
+  flex: 1 1 240px;
+  padding: 0.72rem 1rem;
+  border-radius: 10px;
+  border: 1.5px solid var(--border-strong);
+  background: var(--bg-surface);
+  color: var(--text-primary);
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 0.96rem;
+}
+
+.dictation-text-input:focus {
+  outline: 2px solid var(--focus-ring);
+  border-color: var(--accent-primary);
+}
+
+.dictation-wordbank-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.dictation-wordbank-label {
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.dictation-wordbank-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.dictation-chip-btn {
+  padding: 0.48rem 0.95rem;
+  border-radius: 999px;
+  background: var(--bg-pill);
+  border: 1.5px solid var(--border-strong);
+  color: var(--text-primary);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.15s ease, border-color 0.15s ease, background 0.15s ease;
+}
+
+.dictation-chip-btn:hover,
+.dictation-chip-btn:focus-visible {
+  transform: translateY(-2px);
+  border-color: var(--accent-primary);
+}
+
+.dictation-chip-btn.chip-correct {
+  border-color: var(--status-success);
+  background: var(--status-success-bg);
+  color: var(--status-success);
+}
+
+.dictation-chip-btn.chip-wrong {
+  border-color: var(--status-error);
+  background: var(--status-error-bg);
+  color: var(--status-error);
+}
+
+.dialogue-speaker-bubble {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 1.15rem 1.25rem;
+  border-radius: 14px;
+  background: var(--bg-pill);
+  border: 1.5px solid var(--border-strong);
+}
+
+.dialogue-speaker-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+
+.dialogue-speaker-label {
+  font-size: 0.86rem;
+  font-weight: 700;
+  color: var(--accent-text);
+}
+
+.dialogue-speaker-text {
+  margin: 0;
+  font-family: "Newsreader", Georgia, serif;
+  font-size: 1.18rem;
+  line-height: 1.6;
+}
+
+.dialogue-speaker-text.is-hidden {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 0.92rem;
+  font-style: italic;
+  color: var(--text-secondary);
+}
+
+.dialogue-hear-reply-btn {
+  margin-top: 0.6rem;
+  font-size: 0.84rem;
+  padding: 0.45rem 0.85rem;
+}
+
+
 
 

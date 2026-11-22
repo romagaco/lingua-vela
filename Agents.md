@@ -28,6 +28,9 @@ Goal: make language learning accessible and easy to contribute to.
 │   ├── practice-extra.js    # Dedicated Extra Practice Bank renderer (Grammar & Vocabulary)
 │   ├── practice-extra-grammar.js # 70 extra Grammar exercises (10 per level, a0–c2)
 │   ├── practice-extra-vocab.js   # 70 extra Vocabulary exercises (10 per level, a0–c2)
+│   ├── listening-extra.js        # Renderer for the 2 extra Listening sections
+│   ├── listening-extra-dictation.js # 70 Micro-Dictation & Connected Speech Cloze exercises
+│   ├── listening-extra-dialogue.js  # 70 Interactive Dialogue & Next-Reply exercises
 │   └── vocabulary-animals.js # Animals flashcards (40 animals, click-to-reveal)
 ├── assets/                  # Images, icons, audio, etc.
 ├── pages/                   # Separate HTML pages (top nav: Port, Lessons, Practice, Books, My Ship)

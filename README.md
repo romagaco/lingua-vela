@@ -51,6 +51,9 @@ LinguaVela is an open community project — feedback, bug reports, and ideas are
 │   ├── practice-extra.js             # Extra Practice Bank renderer (Grammar & Vocabulary)
 │   ├── practice-extra-grammar.js     # 70 extra Grammar exercises (10 per level)
 │   ├── practice-extra-vocab.js       # 70 extra Vocabulary exercises (10 per level)
+│   ├── listening-extra.js            # Renderer for the 2 extra Listening sections
+│   ├── listening-extra-dictation.js  # 70 Micro-Dictation & Connected Speech Cloze exercises
+│   ├── listening-extra-dialogue.js   # 70 Interactive Dialogue & Next-Reply exercises
 │   └── vocabulary-animals.js         # 40 Animals interactive flashcards
 ├── pages/
 │   ├── lessons.html                  # Lessons hub (7 ranks + thematic vocabulary)
