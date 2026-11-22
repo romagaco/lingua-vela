@@ -344,6 +344,26 @@ const UI_TEXT = {
     tdGoal2: "Consultar disponibilidad (Bandwidth)",
     tdGoal3: "Priorizar una tarea urgente",
     tdGoal4: "Alinear al equipo en un proyecto",
+    /* Community, Collaboration & Social Updates on Port */
+    collabEyebrow: "COMUNIDAD ABIERTA • COLABORA CON LINGUAVELA",
+    collabHeading: "Construyamos juntos el futuro de LinguaVela",
+    collabLead:
+      "LinguaVela es un proyecto abierto hecho para aprender en comunidad. Tus comentarios, ideas y sugerencias nos ayudan a mejorar cada lección y ejercicio. ¡Comparte tu feedback con nosotros y síguenos en YouTube e Instagram para mantenerte al día!",
+    collabYoutubeDesc:
+      "Videos de pronunciación, guías paso a paso y todas las novedades del proyecto.",
+    collabYoutubeCta: "Seguir en YouTube ↗",
+    collabInstaDesc:
+      "Vocabulario visual, tips diarios de inglés y anuncios rápidos para la tripulación.",
+    collabInstaCta: "Seguir en Instagram ↗",
+    collabContactTag: "Contacto y Feedback",
+    collabContactTitle: "Escríbenos y Colabora",
+    collabContactDesc:
+      "Envíanos sugerencias, reportes de errores o propuestas de colaboración:",
+    farmGameBadge: "🌱 JUEGO INTERACTIVO",
+    farmGameTitle: "Juego Granja — LinguaVela",
+    farmGameDesc:
+      "Practica inglés de forma divertida explorando nuestro juego interactivo de granja en el navegador.",
+    farmGameCta: "Jugar Granja LinguaVela ↗",
     quoteText: "“Tener otro idioma es poseer una segunda alma.”",
     quoteAuthor: "— CARLOMAGNO",
     footerTagline: "— De Terrícola a Capitán. Tu travesía en el inglés.",
@@ -541,6 +561,26 @@ const UI_TEXT = {
     tdGoal2: "Checking Capacity (Bandwidth)",
     tdGoal3: "Prioritizing an Urgent Task",
     tdGoal4: "Project Alignment",
+    /* Community, Collaboration & Social Updates on Port */
+    collabEyebrow: "OPEN COMMUNITY • COLLABORATE WITH LINGUAVELA",
+    collabHeading: "Let's Build the Future of LinguaVela Together",
+    collabLead:
+      "LinguaVela is an open community project crafted for learners everywhere. Your feedback, ideas, and suggestions help us improve every lesson and exercise. Share your thoughts with us and follow LinguaVela on YouTube and Instagram to stay up to date!",
+    collabYoutubeDesc:
+      "Pronunciation videos, step-by-step guides, and all the latest project updates.",
+    collabYoutubeCta: "Follow on YouTube ↗",
+    collabInstaDesc:
+      "Visual vocabulary, daily English tips, and quick updates for the crew.",
+    collabInstaCta: "Follow on Instagram ↗",
+    collabContactTag: "Contact & Feedback",
+    collabContactTitle: "Reach Out & Collaborate",
+    collabContactDesc:
+      "Send us suggestions, bug reports, or collaboration ideas:",
+    farmGameBadge: "🌱 INTERACTIVE GAME",
+    farmGameTitle: "LinguaVela Farm Game",
+    farmGameDesc:
+      "Practice English while having fun in our interactive browser farm game.",
+    farmGameCta: "Play LinguaVela Farm Game ↗",
     quoteText: "“To have another language is to possess a second soul.”",
     quoteAuthor: "— CHARLEMAGNE",
     footerTagline: "— From Landlubber to Captain. Your journey in English.",

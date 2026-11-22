@@ -3631,4 +3631,205 @@ body {
   }
 }
 
+/* ==========================================================================
+   Port Community, Collaboration & Social Updates Section
+   ========================================================================== */
+
+.community-collab-section {
+  margin: 3.25rem 0 2.75rem;
+}
+
+.community-collab-shell {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 2.25rem;
+  background: var(--bg-card-gradient);
+  border: 1.5px solid var(--border-strong);
+  border-radius: 24px;
+}
+
+.community-collab-intro {
+  max-width: 760px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.community-collab-title {
+  margin: 0;
+}
+
+.community-collab-lead {
+  margin: 0;
+  font-size: 1.02rem;
+  line-height: 1.65;
+  color: var(--text-secondary);
+}
+
+.social-collab-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+.social-collab-card {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1.45rem;
+  background: var(--bg-surface);
+  border: 1.5px solid var(--border-subtle);
+  border-radius: 18px;
+  text-decoration: none;
+  color: var(--text-primary);
+  box-shadow: var(--shadow-card);
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+a.social-collab-card:hover,
+a.social-collab-card:focus-visible {
+  transform: translateY(-4px);
+  border-color: var(--accent-primary);
+  box-shadow: var(--shadow-dropdown);
+}
+
+a.social-collab-card:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 2px;
+}
+
+.social-icon-frame {
+  width: 64px;
+  height: 64px;
+  border-radius: 16px;
+  background: var(--bg-pill);
+  border: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.45rem;
+}
+
+.social-cutout-icon {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  display: block;
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.08));
+}
+
+.social-card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  flex: 1;
+}
+
+.social-platform-tag {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.74rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--accent-text);
+}
+
+.social-card-title {
+  margin: 0;
+  font-family: "Newsreader", Georgia, serif;
+  font-size: 1.35rem;
+  line-height: 1.25;
+  color: var(--text-primary);
+}
+
+.social-card-desc {
+  margin: 0;
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: var(--text-secondary);
+}
+
+.social-card-cta {
+  margin-top: auto;
+  padding-top: 0.75rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--accent-primary);
+}
+
+.contact-email-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  margin-top: 0.55rem;
+}
+
+.contact-email-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.45rem 0.75rem;
+  border-radius: 10px;
+  background: var(--bg-pill);
+  border: 1px solid var(--border-strong);
+  color: var(--text-primary);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.78rem;
+  text-decoration: none;
+  word-break: break-all;
+  transition: border-color 0.15s ease, background 0.15s ease, color 0.15s ease;
+}
+
+.contact-email-pill:hover,
+.contact-email-pill:focus-visible {
+  border-color: var(--accent-primary);
+  background: var(--bg-badge-teal);
+  color: var(--accent-text);
+}
+
+.companion-game-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  padding: 1.25rem 1.5rem;
+  border-radius: 16px;
+  background: var(--bg-surface);
+  border: 1.5px dashed var(--border-strong);
+}
+
+.companion-game-copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.35rem;
+  max-width: 620px;
+}
+
+.companion-game-title {
+  margin: 0.15rem 0 0;
+  font-family: "Newsreader", Georgia, serif;
+  font-size: 1.25rem;
+  color: var(--text-primary);
+}
+
+.companion-game-desc {
+  margin: 0;
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+}
+
+@media (max-width: 960px) {
+  .social-collab-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .community-collab-shell {
+    padding: 1.5rem;
+  }
+}
+
+
 

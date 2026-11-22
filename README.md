@@ -1,39 +1,68 @@
 # LinguaVela ⛵
 
-Open-source web application for learning English (Pre-A0 to C2).  
-Simple, lightweight, accessible, and beginner-friendly.
+Open-source web application for learning English from **Landlubber (Pre-A1)** to **Captain (C2)**.  
+Simple, lightweight, accessible, and beginner-friendly — no login walls, no frameworks, ready for **GitHub Pages**.
 
-Built with pure **HTML5**, **CSS3**, and **vanilla JavaScript**.  
-No frameworks. No complexity. Ready for **GitHub Pages**.
+Built with pure **HTML5**, **CSS3**, and **vanilla JavaScript**.
 
-🌐 **Live Site:** https://romagaco.github.io/lingua-vela/
+- 🌐 **Live Site:** https://romagaco.github.io/lingua-vela/
+- 🌱 **Interactive Companion Game (Juego Granja — LinguaVela):** https://romagaco.github.io/Juego-Granja---LinguaVela/
 
 ## Features
 
-- **Bilingual Interface (`ES` / `EN`)**: Default in Spanish with a header language toggle to switch the entire application to full English.
+- **Bilingual Interface (`ES` / `EN`)**: Defaults to Spanish with an instant header toggle to switch the entire site to English.
 - **Accessibility Theme Switcher**: Switch between **Brisa / Breeze (Light)**, **Océano / Ocean (Dark)**, and **Alto Contraste / High Contrast (WCAG AAA)**.
+- **7 Nautical Crew Ranks (`Pre-A1` → `C2`)**: Progress from *Terrícola (Landlubber)* to *Capitán (Captain)* with clear Can-Do milestones.
 - **Multi-Page Curriculum Structure**:
-  - **Port (`index.html`)**: Main dashboard entry point with daily goal rhythm, active module preview, and weekly study chart.
-  - **Grammar Workshop (`pages/grammar.html`)**: Interactive grammar guides and exercises across all 7 CEFR levels (`Pre A / A0`, `A1`, `A2`, `B1`, `B2`, `C1`, `C2`).
-  - **Vocabulary & Pronunciation (`pages/vocabulary.html`)**: Interactive flashcards, IPA phonetic breakdowns, Web Speech API pronunciation (`1.0x` and `0.75x`), and exercises from `Pre A / A0` to `C2`.
-  - **Listening (`pages/listening.html`)**: Graded audio scenarios with adjustable playback speed, interactive transcripts, and comprehension exercises from `Pre A / A0` to `C2`.
-  - **My Ship (`pages/ship.html`)**: User profile and training for **Discourse Competence**, **Sociolinguistic & Pragmatic Competence**, **Strategic Competence**, and **Daily Goals & Streaks**.
+  - **Port (`index.html`)**: Main entry point featuring Crew Ranks, core module previews, SLA methodology & US English Blueprint PDF/infographic, and community collaboration links.
+  - **Lessons (`pages/lessons.html`)**: Structured lessons across all 7 ranks (`lesson-a0.html` – `lesson-c2.html`) plus thematic **Vocabulary Flashcards** (`pages/lessons-vocabulary.html`, including 40 interactive Animal flashcards).
+  - **Practice (`pages/practice.html`)**:
+    - **Grammar Workshop (`pages/grammar.html`)**: Interactive grammar guides + dedicated **Extra Practice Bank** (10 extra exercises per level, 70 total).
+    - **Vocabulary & Pronunciation (`pages/vocabulary.html`)**: IPA phonetic breakdowns, Web Speech API audio (`1.0x` and `0.75x`), US Connected Speech + dedicated **Extra Practice Bank** (10 extra exercises per level, 70 total).
+    - **Listening (`pages/listening.html`)**: Graded audio scenarios with adjustable speed, interactive transcripts, and comprehension checks (`Pre-A1` to `C2`).
+  - **Books (`pages/books.html`)**: Extensive reading collection featuring 4 illustrated beginner stories (with optional Spanish translation & audio) and 4 full-length advanced English blog books (*The Economic Mind*, *The Economic Mind II*, *The Culinary Atlas*, and *The Healthy Life*), each with a chapter Table of Contents, vocabulary chips, and **20 comprehension questions**.
+  - **My Ship (`pages/ship.html`)**: Learner logbook, monthly & weekly study calendars, and training for **Discourse**, **Sociolinguistic & Pragmatic**, and **Strategic** competences.
+
+## Community, Updates & Collaboration
+
+LinguaVela is an open community project — feedback, bug reports, and ideas are always welcome! Follow us to stay up to date:
+
+- ▶️ **YouTube:** [LinguaVela](https://www.youtube.com/@LinguaVela)
+- 📸 **Instagram:** [LinguaVela](https://www.instagram.com/linguavela/)
+- ✉️ **Contact & Feedback:**
+  - `LinguaVelaCommunityproject@gmail.com`
+  - `roberde26@gmail.com`
+- 🌱 **Play the Companion Game:** [Juego Granja — LinguaVela](https://romagaco.github.io/Juego-Granja---LinguaVela/)
 
 ## Project Structure
 
 ```text
 /
-├── index.html               # Port (Main entry point)
-├── logo.png                 # LinguaVela brand logo
+├── index.html                        # Port (Main entry point & community hub)
+├── logo.png                          # LinguaVela brand logo
 ├── css/
-│   └── styles.css           # Global styles & accessibility themes
+│   └── styles.css                    # Global styles & accessibility themes
 ├── js/
-│   └── main.js              # Curriculum data, i18n (ES/EN), speech & interactive exercises
+│   ├── main.js                       # Core curriculum, i18n (ES/EN), speech & exercises
+│   ├── lessons.js                    # Level 1 (Pre-A1) lesson module
+│   ├── lesson-a1.js … lesson-c2.js   # Level 2–7 lesson modules
+│   ├── books.js                      # Books reader (illustrated stories + Markdown books)
+│   ├── books-extended.js             # 4 full-length books + 20 comprehension questions each
+│   ├── practice-extra.js             # Extra Practice Bank renderer (Grammar & Vocabulary)
+│   ├── practice-extra-grammar.js     # 70 extra Grammar exercises (10 per level)
+│   ├── practice-extra-vocab.js       # 70 extra Vocabulary exercises (10 per level)
+│   └── vocabulary-animals.js         # 40 Animals interactive flashcards
 ├── pages/
-│   ├── grammar.html         # Grammar Workshop (Pre-A0 to C2)
-│   ├── vocabulary.html      # Vocabulary & Pronunciation (Pre-A0 to C2)
-│   ├── listening.html       # Listening Comprehension (Pre-A0 to C2)
-│   └── ship.html            # My Ship (Competences & Daily Goals)
+│   ├── lessons.html                  # Lessons hub (7 ranks + thematic vocabulary)
+│   ├── lessons-vocabulary.html       # Vocabulary flashcards hub
+│   ├── lesson-a0.html … lesson-c2.html
+│   ├── practice.html                 # Practice hub
+│   ├── grammar.html                  # Grammar Workshop + Extra Practice Bank
+│   ├── vocabulary.html               # Vocabulary & Pronunciation + Extra Practice Bank
+│   ├── listening.html                # Listening Comprehension
+│   ├── books.html                    # Extensive Reading & Full Books
+│   └── ship.html                     # My Ship (Logbook, Calendars & Competences)
+├── resources/                        # PDF guides, blueprints, book Markdown sources & icons
 ├── Agents.md
 └── README.md
 ```
@@ -43,4 +72,5 @@ No frameworks. No complexity. Ready for **GitHub Pages**.
 ```bash
 bunx serve .
 ```
+
 Or open `index.html` directly in your browser.

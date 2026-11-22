@@ -513,7 +513,7 @@
               ${parsed.toc
                 .map((item) => `<a href="#${item.id}" class="book-toc-link">${escapeHtml(item.title)}</a>`)
                 .join("")}
-              <a href="#book-quiz-section" class="book-toc-link book-toc-quiz">📝 ${L("Ir a las 20 preguntas", "Jump to 20 questions")}</a>
+              <a href="#book-quiz-section" class="book-toc-link book-toc-quiz">📝 ${L(`Ir a las ${story.questions.length} preguntas`, `Jump to ${story.questions.length} questions`)}</a>
             </div>
           </nav>
         `;
