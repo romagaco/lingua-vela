@@ -26,12 +26,20 @@
      Helpers: language, translation, audio (speech synthesis)
      ========================================================================== */
 
+  const LEVEL_ID = "b1";
   const lang = () => (document.documentElement.lang === "en" ? "en" : "es");
-  const L = (es, en) => (lang() === "es" ? es : en);
+  const L = (es, en) =>
+    window.LinguaSpanglish
+      ? window.LinguaSpanglish.pair(es, en, LEVEL_ID)
+      : lang() === "es"
+      ? es
+      : en;
 
   const t = (value) =>
-    value && typeof value === "object" && !Array.isArray(value) && "es" in value
-      ? value[lang()]
+    value && typeof value === "object" && !Array.isArray(value) && ("es" in value || "en" in value || "spanglish" in value)
+      ? window.LinguaSpanglish
+        ? window.LinguaSpanglish.resolve(value, LEVEL_ID)
+        : value[lang()]
       : value;
 
   const speechSupported = "speechSynthesis" in window;
@@ -255,6 +263,7 @@
       { id: "cohesion", label: { es: "5. Cohesión y Discurso", en: "5. Cohesion & Speech" } },
       { id: "vocab", label: { es: "6. Vocabulario B1", en: "6. B1 Vocabulary" } },
       { id: "cando", label: { es: "7. Can-Do y Práctica", en: "7. Can-Do & Quiz" } },
+      ...(window.LinguaLevelSections ? window.LinguaLevelSections.getTabDefs(LEVEL_ID) : []),
     ];
     return `
       <nav class="level-bar-wrapper" aria-label="${L("Secciones del Nivel B1", "Level B1 Sections")}">
@@ -263,7 +272,7 @@
             .map(
               (tab) => `
             <button type="button" class="level-tab-btn ${activeTab === tab.id ? "active" : ""}" role="tab" aria-selected="${activeTab === tab.id}" data-b1-tab="${tab.id}">
-              ${tab.label[lang()]}
+              ${t(tab.label)}
             </button>`
             )
             .join("")}
@@ -689,6 +698,12 @@
 
   function render() {
     const scrollY = window.scrollY;
+    const banner = window.LinguaSpanglish
+      ? window.LinguaSpanglish.renderBanner(LEVEL_ID, "lesson")
+      : "";
+    const extraAll = window.LinguaLevelSections
+      ? window.LinguaLevelSections.renderAll(LEVEL_ID)
+      : "";
     let contentHtml = "";
 
     if (activeTab === "all") {
@@ -700,6 +715,7 @@
         ${renderCohesion()}
         ${renderVocabulary()}
         ${renderCanDoAndQuiz()}
+        ${extraAll}
       `;
     } else if (activeTab === "tenses") contentHtml = renderTenses();
     else if (activeTab === "conditionals") contentHtml = renderConditionals();
@@ -708,8 +724,12 @@
     else if (activeTab === "cohesion") contentHtml = renderCohesion();
     else if (activeTab === "vocab") contentHtml = renderVocabulary();
     else if (activeTab === "cando") contentHtml = renderCanDoAndQuiz();
+    else if (window.LinguaLevelSections && activeTab.startsWith("sec-")) {
+      contentHtml = window.LinguaLevelSections.renderSection(LEVEL_ID, activeTab);
+    }
 
     root.innerHTML = `
+      ${banner}
       ${renderHeroBanner()}
       ${renderFilterTabs()}
       ${contentHtml}
@@ -727,6 +747,13 @@
      ========================================================================== */
 
   root.addEventListener("click", (event) => {
+    if (
+      window.LinguaLevelSections &&
+      window.LinguaLevelSections.handleClick(event, LEVEL_ID, render)
+    ) {
+      return;
+    }
+
     const speakEl = event.target.closest("[data-speak]");
     if (speakEl) {
       speak(speakEl.getAttribute("data-speak"));

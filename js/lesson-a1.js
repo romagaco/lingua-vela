@@ -25,12 +25,20 @@
      Helpers: language, translation, audio (speech synthesis)
      ========================================================================== */
 
+  const LEVEL_ID = "a1";
   const lang = () => (document.documentElement.lang === "en" ? "en" : "es");
-  const L = (es, en) => (lang() === "es" ? es : en);
+  const L = (es, en) =>
+    window.LinguaSpanglish
+      ? window.LinguaSpanglish.pair(es, en, LEVEL_ID)
+      : lang() === "es"
+      ? es
+      : en;
 
   const t = (value) =>
-    value && typeof value === "object" && !Array.isArray(value) && "es" in value
-      ? value[lang()]
+    value && typeof value === "object" && !Array.isArray(value) && ("es" in value || "en" in value || "spanglish" in value)
+      ? window.LinguaSpanglish
+        ? window.LinguaSpanglish.resolve(value, LEVEL_ID)
+        : value[lang()]
       : value;
 
   const speechSupported = "speechSynthesis" in window;
@@ -190,6 +198,7 @@
       { id: "pronunciation", label: { es: "🔊 Parte 4: Pronunciación (33)", en: "🔊 Part 4: Pronunciation (33)" } },
       { id: "routine", label: { es: "📅 Rutina Semanal", en: "📅 Study Routine" } },
       { id: "quiz", label: { es: "🎯 Práctica Interactiva", en: "🎯 Practice Quiz" } },
+      ...(window.LinguaLevelSections ? window.LinguaLevelSections.getTabDefs(LEVEL_ID) : []),
     ];
 
     return `
@@ -872,6 +881,13 @@
   function render() {
     const scrollY = window.scrollY;
 
+    const banner = window.LinguaSpanglish
+      ? window.LinguaSpanglish.renderBanner(LEVEL_ID, "lesson")
+      : "";
+    const extraAll = window.LinguaLevelSections
+      ? window.LinguaLevelSections.renderAll(LEVEL_ID)
+      : "";
+
     let contentHtml = "";
     if (activeTab === "all") {
       contentHtml = `
@@ -881,6 +897,7 @@
         ${renderPart4Pronunciation()}
         ${renderStudyRoutine()}
         ${renderQuiz()}
+        ${extraAll}
       `;
     } else if (activeTab === "grammar") {
       contentHtml = renderPart1Grammar();
@@ -894,9 +911,12 @@
       contentHtml = renderStudyRoutine();
     } else if (activeTab === "quiz") {
       contentHtml = renderQuiz();
+    } else if (window.LinguaLevelSections && activeTab.startsWith("sec-")) {
+      contentHtml = window.LinguaLevelSections.renderSection(LEVEL_ID, activeTab);
     }
 
     root.innerHTML = `
+      ${banner}
       ${renderHeroBanner()}
       ${renderFilterTabs()}
       ${contentHtml}
@@ -914,6 +934,13 @@
      ========================================================================== */
 
   root.addEventListener("click", (event) => {
+    if (
+      window.LinguaLevelSections &&
+      window.LinguaLevelSections.handleClick(event, LEVEL_ID, render)
+    ) {
+      return;
+    }
+
     // Audio button click
     const speakBtnEl = event.target.closest("[data-speak]");
     if (speakBtnEl) {

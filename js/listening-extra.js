@@ -28,7 +28,20 @@
   };
 
   const lang = () => (document.documentElement.lang === "en" ? "en" : "es");
-  const L = (es, en) => (lang() === "es" ? es : en);
+  const effectiveLang = () =>
+    lang() === "en" || activeLevel === "c1" || activeLevel === "c2" ? "en" : "es";
+  const L = (es, en) =>
+    window.LinguaSpanglish
+      ? window.LinguaSpanglish.pair(es, en, activeLevel)
+      : effectiveLang() === "es"
+      ? es
+      : en;
+  const T = (obj) =>
+    window.LinguaSpanglish
+      ? window.LinguaSpanglish.resolve(obj, activeLevel)
+      : obj
+      ? obj[effectiveLang()] || obj.es || obj.en || ""
+      : "";
 
   let activeLevel = getActiveLevelFromDOM();
 
@@ -194,7 +207,7 @@
     if (state.submitted) {
       feedbackHtml = state.correct
         ? `<div class="feedback-banner visible success" role="status">✓ ${escapeHtml(
-            item.feedback[lang()]
+            T(item.feedback)
           )}</div>`
         : `<div class="feedback-banner visible error" role="status">✕ ${L(
             "No coincide exactamente. Escucha de nuevo a 0.75x o elige una palabra del banco.",
@@ -220,7 +233,7 @@
             )}</p>
           </div>
           <div class="extra-practice-meta">
-            <span class="badge badge-teal">${rank.badge} ${rank[lang()]}</span>
+            <span class="badge badge-teal">${rank.badge} ${rank[effectiveLang()]}</span>
             <span class="badge badge-warm">${completedCount} / ${list.length} ${L(
               "completados",
               "completed"
@@ -260,7 +273,7 @@
               "PISTA FONÉTICA Y CONNECTED SPEECH",
               "PHONETIC & CONNECTED SPEECH CLUE"
             )}</span>
-            <p style="margin: 0; font-size: 0.9rem">${escapeHtml(item.phoneticTip[lang()])}</p>
+            <p style="margin: 0; font-size: 0.9rem">${escapeHtml(T(item.phoneticTip))}</p>
           </div>
 
           <div class="dictation-cloze-box" lang="en">
@@ -380,7 +393,7 @@
     if (state.pickedOrigIdx !== null) {
       feedbackHtml = state.correct
         ? `<div class="feedback-banner visible success" role="status">
-             <div>✓ ${escapeHtml(item.feedback[lang()])}</div>
+             <div>✓ ${escapeHtml(T(item.feedback))}</div>
              <button type="button" class="btn btn-light dialogue-hear-reply-btn" data-dial-speak-reply="${escapeHtml(
                item.options[item.correctIndex]
              )}">
@@ -411,7 +424,7 @@
             )}</p>
           </div>
           <div class="extra-practice-meta">
-            <span class="badge badge-teal">${rank.badge} ${rank[lang()]}</span>
+            <span class="badge badge-teal">${rank.badge} ${rank[effectiveLang()]}</span>
             <span class="badge badge-warm">${completedCount} / ${list.length} ${L(
               "completados",
               "completed"
@@ -433,7 +446,7 @@
         <div class="extra-question-area">
           <div class="extra-question-top">
             <span class="badge badge-warm">${L("Escenario", "Scenario")} ${idx + 1} / ${list.length}</span>
-            <span class="badge badge-teal">${escapeHtml(item.context[lang()])}</span>
+            <span class="badge badge-teal">${escapeHtml(T(item.context))}</span>
           </div>
 
           <div class="dialogue-speaker-bubble">

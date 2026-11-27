@@ -23,11 +23,19 @@
 
   const STORAGE_KEY = "linguavela-lesson-b2-scores";
 
+  const LEVEL_ID = "b2";
   const lang = () => (document.documentElement.lang === "en" ? "en" : "es");
-  const L = (es, en) => (lang() === "es" ? es : en);
+  const L = (es, en) =>
+    window.LinguaSpanglish
+      ? window.LinguaSpanglish.pair(es, en, LEVEL_ID)
+      : lang() === "es"
+      ? es
+      : en;
   const t = (value) =>
-    value && typeof value === "object" && !Array.isArray(value) && "es" in value
-      ? value[lang()]
+    value && typeof value === "object" && !Array.isArray(value) && ("es" in value || "en" in value || "spanglish" in value)
+      ? window.LinguaSpanglish
+        ? window.LinguaSpanglish.resolve(value, LEVEL_ID)
+        : value[lang()]
       : value;
 
   const speechSupported = "speechSynthesis" in window;
@@ -274,6 +282,7 @@
       { id: "quant", label: { es: "6. Cuantificadores", en: "6. Quantifiers" } },
       { id: "academic", label: { es: "7. Cohesión y Can-Do", en: "7. Cohesion & Can-Do" } },
       { id: "quiz", label: { es: "8. Checklist y Quiz", en: "8. Checklist & Quiz" } },
+      ...(window.LinguaLevelSections ? window.LinguaLevelSections.getTabDefs(LEVEL_ID) : []),
     ];
     return `
       <nav class="level-bar-wrapper" aria-label="${L("Secciones del Nivel B2", "Level B2 Sections")}">
@@ -282,7 +291,7 @@
             .map(
               (tab) => `
             <button type="button" class="level-tab-btn ${activeTab === tab.id ? "active" : ""}" role="tab" aria-selected="${activeTab === tab.id}" data-b2-tab="${tab.id}">
-              ${tab.label[lang()]}
+              ${t(tab.label)}
             </button>`
             )
             .join("")}
@@ -666,6 +675,12 @@
 
   function render() {
     const scrollY = window.scrollY;
+    const banner = window.LinguaSpanglish
+      ? window.LinguaSpanglish.renderBanner(LEVEL_ID, "lesson")
+      : "";
+    const extraAll = window.LinguaLevelSections
+      ? window.LinguaLevelSections.renderAll(LEVEL_ID)
+      : "";
     let contentHtml = "";
 
     if (activeTab === "all") {
@@ -678,6 +693,7 @@
         ${renderQuantifiers()}
         ${renderAcademicAndCanDo()}
         ${renderChecklistAndQuiz()}
+        ${extraAll}
       `;
     } else if (activeTab === "cond") contentHtml = renderConditionals();
     else if (activeTab === "passive") contentHtml = renderPassive();
@@ -687,8 +703,12 @@
     else if (activeTab === "quant") contentHtml = renderQuantifiers();
     else if (activeTab === "academic") contentHtml = renderAcademicAndCanDo();
     else if (activeTab === "quiz") contentHtml = renderChecklistAndQuiz();
+    else if (window.LinguaLevelSections && activeTab.startsWith("sec-")) {
+      contentHtml = window.LinguaLevelSections.renderSection(LEVEL_ID, activeTab);
+    }
 
     root.innerHTML = `
+      ${banner}
       ${renderHeroBanner()}
       ${renderFilterTabs()}
       ${contentHtml}
@@ -706,6 +726,13 @@
      ========================================================================== */
 
   root.addEventListener("click", (event) => {
+    if (
+      window.LinguaLevelSections &&
+      window.LinguaLevelSections.handleClick(event, LEVEL_ID, render)
+    ) {
+      return;
+    }
+
     const speakEl = event.target.closest("[data-speak]");
     if (speakEl) {
       speak(speakEl.getAttribute("data-speak"));

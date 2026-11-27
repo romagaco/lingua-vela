@@ -20,9 +20,12 @@ Goal: make language learning accessible and easy to contribute to.
 ├── css/
 │   └── styles.css           # Global styles & accessibility themes
 ├── js/
+│   ├── spanglish.js         # Progressive Spanglish-to-English immersion engine (Pre-A1 to C2)
 │   ├── main.js              # Main JavaScript logic, bilingual i18n (ES/EN) & exercises
 │   ├── lessons.js           # Lesson block module (Level 1 Pre-A1)
-│   ├── lesson-a1.js         # Lesson module (Level 2 A1 Cabin Mate — 33 topics & routine)
+│   ├── lesson-a1.js … lesson-c2.js # Lesson curriculum modules (Levels 2–7, A1–C2)
+│   ├── level-sections-data.js # Data for 3 extra sections per level (Reading, Expressions/False Friends, Roleplay)
+│   ├── level-sections.js    # Interactive renderer for the 3 extra sections on all 7 levels
 │   ├── books.js             # Books reader logic (illustrated stories + long-form Markdown books)
 │   ├── books-extended.js    # Full-length books data & 20 comprehension questions each
 │   ├── practice-extra.js    # Dedicated Extra Practice Bank renderer (Grammar & Vocabulary)

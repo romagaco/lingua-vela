@@ -32,7 +32,20 @@
   };
 
   const lang = () => (document.documentElement.lang === "en" ? "en" : "es");
-  const L = (es, en) => (lang() === "es" ? es : en);
+  const effectiveLang = () =>
+    lang() === "en" || activeLevel === "c1" || activeLevel === "c2" ? "en" : "es";
+  const L = (es, en) =>
+    window.LinguaSpanglish
+      ? window.LinguaSpanglish.pair(es, en, activeLevel)
+      : effectiveLang() === "es"
+      ? es
+      : en;
+  const T = (obj) =>
+    window.LinguaSpanglish
+      ? window.LinguaSpanglish.resolve(obj, activeLevel)
+      : obj
+      ? obj[effectiveLang()] || obj.es || obj.en || ""
+      : "";
 
   let activeLevel = getActiveLevelFromDOM();
   const activeIndices = { a0: 0, a1: 0, a2: 0, b1: 0, b2: 0, c1: 0, c2: 0 };
@@ -104,7 +117,7 @@
   function getOrderedOptions(options, level, qIdx) {
     const resolved = Array.isArray(options)
       ? options
-      : options[lang()] || options.es || [];
+      : options[effectiveLang()] || options.es || [];
     const items = resolved.map((text, origIdx) => ({ text, origIdx }));
     if (items.length <= 1) return items;
     const seed = level.charCodeAt(0) * 31 + level.charCodeAt(1) * 17 + qIdx * 13;
@@ -179,7 +192,7 @@
     let feedbackHtml = "";
     if (state) {
       feedbackHtml = state.correct
-        ? `<div class="feedback-banner visible success" role="status">✓ ${escapeHtml(ex.feedback[lang()])}</div>`
+        ? `<div class="feedback-banner visible success" role="status">✓ ${escapeHtml(T(ex.feedback))}</div>`
         : `<div class="feedback-banner visible error" role="status">✕ ${L(
             "Respuesta incorrecta. Inténtalo de nuevo.",
             "Not quite right. Try again."
@@ -230,7 +243,7 @@
             <p class="extra-practice-sub">${subtitle}</p>
           </div>
           <div class="extra-practice-meta">
-            <span class="badge badge-teal">${rank.badge} ${rank[lang()]}</span>
+            <span class="badge badge-teal">${rank.badge} ${rank[effectiveLang()]}</span>
             <span class="badge badge-warm">${completedCount} / ${list.length} ${L("completados", "completed")}</span>
             <button type="button" class="btn btn-light extra-reset-btn" data-extra-reset="true">
               ↺ ${L("Reiniciar set", "Reset set")}
@@ -257,7 +270,7 @@
             <span class="badge badge-warm">${L("Reto", "Challenge")} ${idx + 1} / ${list.length}</span>
             ${focusChipHtml}
           </div>
-          <div class="exercise-prompt-box">${escapeHtml(ex.question[lang()])}</div>
+          <div class="exercise-prompt-box">${escapeHtml(T(ex.question))}</div>
           <div class="options-list" role="group" aria-label="${L("Opciones de respuesta", "Answer options")}">
             ${optionsHtml}
           </div>

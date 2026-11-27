@@ -214,7 +214,7 @@ const UI_TEXT = {
     lessonsEyebrow: "LECCIONES • 7 RANGOS",
     lessonsTitle: "Lecciones",
     lessonsSubtitle: "Elige tu rango para estudiar la gramática y las lecciones de cada nivel.",
-    lessonsCardMeta: "Gramática y lecciones",
+    lessonsCardMeta: "Gramática, Reading, Idioms y Roleplay",
     booksEyebrow: "LIBROS • LECTURA EXTENSA",
     booksTitle: "Libros",
     booksSubtitle: "Lecturas largas para practicar la comprensión lectora, sin separación por niveles.",
@@ -222,13 +222,13 @@ const UI_TEXT = {
     comingSoonLessonText: "Estamos preparando la gramática y las lecciones de este nivel. ¡Vuelve pronto!",
     comingSoonBooksText: "Pronto añadiremos lecturas extensas para practicar. ¡Vuelve pronto!",
     backToLessons: "← Volver a Lecciones",
-    lessonA0Subtitle: "Pre-A1 Starter · Bloque 1: Alfabeto y Fonética Básica — deletreo práctico y vocales cortas y largas.",
-    lessonA1Subtitle: "Nivel A1 · Sobrevivir en inglés: frases simples, gramática esencial, vocabulario práctico, funciones comunicativas y pronunciación.",
-    lessonA2Subtitle: "Nivel A2 Elementary · Pasado Simple, Going to vs. Will, Comparativos, Present Perfect, Modales y Rutinas de estudio.",
-    lessonB1Subtitle: "Nivel B1 Intermediate · Tiempos compuestos, Condicionales, Voz Pasiva, Modales, Cohesión, Vocabulario y Can-Do.",
-    lessonB2Subtitle: "Nivel B2 Upper Intermediate · Condicionales mixtos, Pasivas avanzadas, Causativas, Modales pasados, Reporting Verbs, Gerundios, Cuantificadores y Hedging.",
-    lessonC1Subtitle: "Nivel C1 Advanced · Aspectos perfectos, Inversión, Clefts, Condicionales invertidos, Hedging, Nominalización, Participios y Colocaciones.",
-    lessonC2Subtitle: "Nivel C2 Mastery · Aspecto y actitud, Elipsis, Frases absolutas, Subjuntivo, Pragmática, Registro, Connotación y Fluidez.",
+    lessonA0Subtitle: "Pre-A1 Starter · Español con tus primeras English words: deletreo práctico, vowels, Reading, Expressions y Roleplay.",
+    lessonA1Subtitle: "Nivel A1 (Spanglish Básico) · Sobrevive con simple sentences, daily vocabulary, Reading Capsule, False Friends y Roleplay.",
+    lessonA2Subtitle: "Level A2 (Spanglish 50/50) · Past Simple, Going to vs. Will, Comparatives, Reading & News, Expressions y Situational Roleplay.",
+    lessonB1Subtitle: "Level B1 (70% English) · Compound tenses, Conditionals, Passive Voice, Reading Capsule, Idioms y Everyday Roleplay en contexto.",
+    lessonB2Subtitle: "Level B2 (85% English) · Mixed Conditionals, Advanced Passives, Reporting Verbs, News Capsule, Idioms & Diplomatic Roleplay.",
+    lessonC1Subtitle: "Level C1 Advanced (100% English Immersion) · Perfect Aspects, Inversion, Clefts, Hedging, News Analysis, Idioms & Executive Roleplay.",
+    lessonC2Subtitle: "Level C2 Mastery (100% English Immersion) · Aspect & Attitude, Subjunctive, Pragmatics, Literary Capsule, Nuance & Boardroom Roleplay.",
     rank1Nav: "1. Terrícola (Landlubber)",
     rank2Nav: "2. Grumete (Cabin Mate)",
     rank3Nav: "3. Marinero de Cubierta (Deckhand)",
@@ -3866,16 +3866,64 @@ function getExerciseProgressKey(modulePrefix, unitId, exerciseIndex) {
     : `${modulePrefix}-${unitId}-${exerciseIndex + 1}`;
 }
 
+function lsResolve(value, levelId) {
+  if (window.LinguaSpanglish && levelId) {
+    return window.LinguaSpanglish.resolve(value, levelId);
+  }
+  if (value && typeof value === "object" && !Array.isArray(value)) {
+    return value[currentLang] || value.es || value.en || "";
+  }
+  return value;
+}
+
+function lsUi(key, levelId) {
+  if (window.LinguaSpanglish && levelId) {
+    return window.LinguaSpanglish.ui(key, levelId);
+  }
+  return (UI_TEXT[currentLang] && UI_TEXT[currentLang][key]) || "";
+}
+
+function updatePracticeSpanglishUI(levelId, contextKey) {
+  if (!window.LinguaSpanglish) return;
+  const bannerSlot = document.getElementById("spanglish-banner-slot");
+  if (bannerSlot) {
+    bannerSlot.innerHTML = window.LinguaSpanglish.renderBanner(levelId, contextKey);
+  }
+
+  const bindings = [
+    ['[data-i18n="theoryBadge"]', "theoryBadge"],
+    ['[data-i18n="exampleLabel"]', "exampleLabel"],
+    ['[data-i18n="exerciseBadge"]', "exerciseBadge"],
+    ["#prev-level-btn", "prevLevelBtn"],
+    ["#next-level-btn", "nextLevelBtn"],
+    ["#speak-word-normal", "listenNormalBtn"],
+    ["#listen-play-normal", "listenNormalBtn"],
+    ["#speak-word-slow", "listenSlowBtn"],
+    ["#listen-play-slow", "listenSlowBtn"],
+    ["#toggle-transcript-btn", "toggleTranscriptBtn"],
+  ];
+
+  bindings.forEach(([selector, key]) => {
+    const el = document.querySelector(selector);
+    if (el) {
+      el.textContent = window.LinguaSpanglish.ui(key, levelId);
+    }
+  });
+}
+
 function renderExerciseStepper({
   modulePrefix,
   unitId,
   totalCount,
   activeIndex,
   onSelect,
+  levelId = null,
 }) {
   const counterBadge = document.getElementById("exercise-counter-badge");
   const stepperEl = document.getElementById("exercise-stepper");
   const navRowEl = document.getElementById("exercise-nav-row");
+  const useFullEn =
+    currentLang === "en" || levelId === "c1" || levelId === "c2";
 
   if (counterBadge) {
     counterBadge.textContent = `${activeIndex + 1} / ${totalCount}`;
@@ -3894,7 +3942,7 @@ function renderExerciseStepper({
       if (isDone) btn.classList.add("completed");
       btn.setAttribute(
         "aria-label",
-        currentLang === "es"
+        !useFullEn
           ? `Ejercicio ${i + 1} de ${totalCount}${isDone ? " (completado)" : ""}`
           : `Exercise ${i + 1} of ${totalCount}${isDone ? " (completed)" : ""}`
       );
@@ -3913,13 +3961,19 @@ function renderExerciseStepper({
     nextBtn.type = "button";
     nextBtn.className = "btn btn-secondary exercise-next-btn";
     const isLast = activeIndex >= totalCount - 1;
-    nextBtn.textContent = isLast
-      ? currentLang === "es"
-        ? "↺ Volver al Ejercicio 1"
-        : "↺ Back to Exercise 1"
-      : currentLang === "es"
-      ? "Siguiente Ejercicio →"
-      : "Next Exercise →";
+    if (levelId && window.LinguaSpanglish) {
+      nextBtn.textContent = isLast
+        ? lsUi("backToFirstBtn", levelId)
+        : lsUi("nextExerciseBtn", levelId);
+    } else {
+      nextBtn.textContent = isLast
+        ? currentLang === "es"
+          ? "↺ Volver al Ejercicio 1"
+          : "↺ Back to Exercise 1"
+        : currentLang === "es"
+        ? "Siguiente Ejercicio →"
+        : "Next Exercise →";
+    }
     nextBtn.addEventListener("click", () => {
       onSelect((activeIndex + 1) % totalCount);
     });
@@ -3933,6 +3987,7 @@ function renderOptionsAndBind({
   feedbackText,
   progressKey,
   onSuccess,
+  levelId = null,
 }) {
   const optionsContainer = document.getElementById("exercise-options");
   const feedbackEl = document.getElementById("exercise-feedback");
@@ -3945,6 +4000,10 @@ function renderOptionsAndBind({
   const letters = ["A", "B", "C", "D"];
   const resolvedOptions = Array.isArray(options)
     ? options
+    : levelId && window.LinguaSpanglish
+    ? levelId === "c1" || levelId === "c2" || currentLang === "en"
+      ? options.en || options.es || []
+      : options.es || options.en || []
     : options[currentLang] || options.es || [];
 
   resolvedOptions.forEach((optText, idx) => {
@@ -3972,7 +4031,9 @@ function renderOptionsAndBind({
         btn.classList.add("selected-wrong");
         feedbackEl.className = "feedback-banner visible error";
         const tryAgainMsg =
-          currentLang === "es"
+          levelId && window.LinguaSpanglish
+            ? lsUi("tryAgainMsg", levelId)
+            : currentLang === "es"
             ? "✕ Respuesta incorrecta. Revisa la guía del rango e inténtalo de nuevo."
             : "✕ Not quite right. Review the rank guide and try again.";
         feedbackEl.textContent = tryAgainMsg;
@@ -4038,15 +4099,22 @@ function renderGrammarLevel(levelId, exerciseIndex = null) {
   const rightEl = document.getElementById("grammar-right-ex");
   const questionEl = document.getElementById("exercise-question");
 
+  updatePracticeSpanglishUI(validId, "grammar");
+
+  const useEnRankLabel =
+    currentLang === "en" || validId === "c1" || validId === "c2";
+
   if (badgeEl && rankMeta) {
-    badgeEl.textContent = `${rankMeta.badge} ${rankMeta.shortTitle[currentLang]}`;
+    badgeEl.textContent = `${rankMeta.badge} ${
+      useEnRankLabel ? rankMeta.shortTitle.en : rankMeta.shortTitle[currentLang]
+    }`;
   }
-  if (titleEl) titleEl.textContent = item.title[currentLang];
-  if (subEl && rankMeta) subEl.textContent = rankMeta.subtitle[currentLang];
-  if (expEl) expEl.textContent = item.explanation[currentLang];
+  if (titleEl) titleEl.textContent = lsResolve(item.title, validId);
+  if (subEl && rankMeta) subEl.textContent = lsResolve(rankMeta.subtitle, validId);
+  if (expEl) expEl.textContent = lsResolve(item.explanation, validId);
   if (wrongEl) wrongEl.textContent = item.wrongExample;
   if (rightEl) rightEl.textContent = item.rightExample;
-  if (questionEl && ex) questionEl.textContent = ex.question[currentLang];
+  if (questionEl && ex) questionEl.textContent = lsResolve(ex.question, validId);
 
   const refreshStepper = () => {
     renderExerciseStepper({
@@ -4055,6 +4123,7 @@ function renderGrammarLevel(levelId, exerciseIndex = null) {
       totalCount: exercises.length,
       activeIndex: exIdx,
       onSelect: (nextIdx) => renderGrammarLevel(validId, nextIdx),
+      levelId: validId,
     });
   };
 
@@ -4063,9 +4132,10 @@ function renderGrammarLevel(levelId, exerciseIndex = null) {
     renderOptionsAndBind({
       options: ex.options,
       correctIndex: ex.correctIndex,
-      feedbackText: ex.feedback[currentLang],
+      feedbackText: lsResolve(ex.feedback, validId),
       progressKey: getExerciseProgressKey("grammar", validId, exIdx),
       onSuccess: refreshStepper,
+      levelId: validId,
     });
   }
 }
@@ -4115,16 +4185,23 @@ function renderVocabLevel(levelId, exerciseIndex = null) {
   const exEl = document.getElementById("vocab-context-sentence");
   const questionEl = document.getElementById("exercise-question");
 
+  updatePracticeSpanglishUI(validId, "vocabulary");
+
+  const useEnRankLabel =
+    currentLang === "en" || validId === "c1" || validId === "c2";
+
   if (badgeEl && rankMeta) {
-    badgeEl.textContent = `${rankMeta.badge} ${rankMeta.shortTitle[currentLang]}`;
+    badgeEl.textContent = `${rankMeta.badge} ${
+      useEnRankLabel ? rankMeta.shortTitle.en : rankMeta.shortTitle[currentLang]
+    }`;
   }
   if (item) {
     if (wordEl) wordEl.textContent = item.word;
     if (ipaEl) ipaEl.textContent = item.ipa;
-    if (defEl) defEl.textContent = item.definition[currentLang];
-    if (contrastEl) contrastEl.textContent = item.contrast[currentLang];
+    if (defEl) defEl.textContent = lsResolve(item.definition, validId);
+    if (contrastEl) contrastEl.textContent = lsResolve(item.contrast, validId);
     if (exEl) exEl.textContent = `“${item.example}”`;
-    if (questionEl) questionEl.textContent = item.question[currentLang];
+    if (questionEl) questionEl.textContent = lsResolve(item.question, validId);
   }
 
   const refreshStepper = () => {
@@ -4134,6 +4211,7 @@ function renderVocabLevel(levelId, exerciseIndex = null) {
       totalCount: exercises.length,
       activeIndex: exIdx,
       onSelect: (nextIdx) => renderVocabLevel(validId, nextIdx),
+      levelId: validId,
     });
   };
 
@@ -4142,9 +4220,10 @@ function renderVocabLevel(levelId, exerciseIndex = null) {
     renderOptionsAndBind({
       options: item.options,
       correctIndex: item.correctIndex,
-      feedbackText: item.feedback[currentLang],
+      feedbackText: lsResolve(item.feedback, validId),
       progressKey: getExerciseProgressKey("vocab", validId, exIdx),
       onSuccess: refreshStepper,
+      levelId: validId,
     });
   }
 }
@@ -4224,15 +4303,22 @@ function renderListeningLevel(levelId, exerciseIndex = null) {
   const questionEl = document.getElementById("exercise-question");
   const waveformEl = document.getElementById("listening-waveform");
 
+  updatePracticeSpanglishUI(validId, "listening");
+
+  const useEnRankLabel =
+    currentLang === "en" || validId === "c1" || validId === "c2";
+
   if (badgeEl && rankMeta) {
-    badgeEl.textContent = `${rankMeta.badge} ${rankMeta.shortTitle[currentLang]}`;
+    badgeEl.textContent = `${rankMeta.badge} ${
+      useEnRankLabel ? rankMeta.shortTitle.en : rankMeta.shortTitle[currentLang]
+    }`;
   }
   if (item) {
-    if (titleEl) titleEl.textContent = item.title[currentLang];
-    if (scenarioEl) scenarioEl.textContent = item.scenario[currentLang];
+    if (titleEl) titleEl.textContent = lsResolve(item.title, validId);
+    if (scenarioEl) scenarioEl.textContent = lsResolve(item.scenario, validId);
     if (durationEl) durationEl.textContent = item.duration;
     if (transcriptEl) transcriptEl.textContent = `“${item.audioScript}”`;
-    if (questionEl) questionEl.textContent = item.question[currentLang];
+    if (questionEl) questionEl.textContent = lsResolve(item.question, validId);
   }
   if (waveformEl) waveformEl.classList.remove("playing");
 
@@ -4243,6 +4329,7 @@ function renderListeningLevel(levelId, exerciseIndex = null) {
       totalCount: exercises.length,
       activeIndex: exIdx,
       onSelect: (nextIdx) => renderListeningLevel(validId, nextIdx),
+      levelId: validId,
     });
   };
 
@@ -4251,9 +4338,10 @@ function renderListeningLevel(levelId, exerciseIndex = null) {
     renderOptionsAndBind({
       options: item.options,
       correctIndex: item.correctIndex,
-      feedbackText: item.feedback[currentLang],
+      feedbackText: lsResolve(item.feedback, validId),
       progressKey: getExerciseProgressKey("listening", validId, exIdx),
       onSuccess: refreshStepper,
+      levelId: validId,
     });
   }
 }

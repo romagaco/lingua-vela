@@ -4008,3 +4008,334 @@ a.social-collab-card:focus-visible {
 
 
 
+
+/* ==========================================================================
+   Progressive Spanglish Immersion Banner & 3 New Level Sections
+   ========================================================================== */
+
+#spanglish-banner-slot {
+  margin: 1.15rem 0 1.5rem;
+}
+
+.spanglish-immersion-banner {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  padding: 1.1rem 1.35rem;
+  border-radius: 16px;
+  background: var(--bg-card-gradient);
+  border: 1.5px solid var(--border-strong);
+  border-left: 5px solid var(--accent-teal);
+  box-shadow: var(--shadow-card);
+}
+
+.spanglish-banner-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.spanglish-banner-title-group {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+}
+
+.spanglish-mode-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.28rem 0.75rem;
+  border-radius: 999px;
+  background: var(--bg-badge-teal);
+  color: var(--accent-text);
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.spanglish-ratio-badge {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.76rem;
+  font-weight: 600;
+  padding: 0.24rem 0.65rem;
+  border-radius: 999px;
+  background: var(--bg-pill);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+}
+
+.spanglish-meter-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.spanglish-meter-label {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.74rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.spanglish-meter-track {
+  width: 110px;
+  height: 8px;
+  border-radius: 999px;
+  background: var(--bg-pill);
+  border: 1px solid var(--border-subtle);
+  overflow: hidden;
+}
+
+.spanglish-meter-fill {
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--accent-teal), var(--accent-primary));
+  transition: width 0.3s ease;
+}
+
+.spanglish-banner-instruction {
+  margin: 0;
+  font-size: 0.94rem;
+  line-height: 1.55;
+  color: var(--text-primary);
+}
+
+/* 3 New Sections per Level (Reading, Expressions & False Friends, Roleplay) */
+.lv-feature-section {
+  border-top: 4px solid var(--accent-primary);
+}
+
+.lv-section-badge-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.lv-section-instruction {
+  margin: 0;
+  padding: 0.75rem 1rem;
+  border-radius: 12px;
+  background: var(--bg-pill);
+  border-left: 3px solid var(--accent-primary);
+  font-size: 0.93rem;
+  line-height: 1.55;
+  color: var(--text-secondary);
+}
+
+.lv-reading-article {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1.35rem 1.5rem;
+  border-radius: 16px;
+  background: var(--bg-surface);
+  border: 1.5px solid var(--border-strong);
+}
+
+.lv-reading-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  padding-bottom: 0.85rem;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.lv-reading-headline {
+  margin: 0;
+  font-family: "Newsreader", Georgia, serif;
+  font-size: 1.45rem;
+  color: var(--text-primary);
+}
+
+.lv-reading-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  font-family: "Newsreader", Georgia, serif;
+  font-size: 1.12rem;
+  line-height: 1.72;
+  color: var(--text-primary);
+}
+
+.lv-reading-body p {
+  margin: 0;
+}
+
+.lv-glossary-box {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  padding: 1.1rem 1.25rem;
+  border-radius: 14px;
+  background: var(--bg-pill);
+  border: 1px solid var(--border-subtle);
+}
+
+.lv-glossary-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.lv-glossary-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.42rem 0.85rem;
+  border-radius: 999px;
+  background: var(--bg-surface);
+  border: 1.5px solid var(--border-strong);
+  color: var(--text-primary);
+  font: inherit;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: border-color 0.15s ease, background 0.15s ease, transform 0.15s ease;
+}
+
+.lv-glossary-chip:hover,
+.lv-glossary-chip:focus-visible,
+.lv-glossary-chip.active {
+  border-color: var(--accent-primary);
+  background: var(--bg-badge-teal);
+}
+
+.lv-glossary-ipa {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.78rem;
+  font-weight: 400;
+  color: var(--text-muted);
+}
+
+.lv-glossary-detail {
+  padding: 0.65rem 0.9rem;
+  border-radius: 10px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  font-size: 0.92rem;
+  color: var(--text-primary);
+}
+
+/* Section 2: Expressions & False Friends Cards */
+.lv-expr-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+}
+
+.lv-expr-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  padding: 1.2rem 1.25rem;
+  border-radius: 16px;
+  background: var(--bg-surface);
+  border: 1.5px solid var(--border-subtle);
+  box-shadow: var(--shadow-card);
+}
+
+.lv-expr-card.is-trap {
+  border-left: 4px solid var(--accent-primary);
+}
+
+.lv-expr-card.is-idiom {
+  border-left: 4px solid var(--accent-teal);
+}
+
+.lv-expr-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.lv-expr-head {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.lv-expr-term {
+  margin: 0;
+  font-family: "Newsreader", Georgia, serif;
+  font-size: 1.35rem;
+  color: var(--text-primary);
+}
+
+.lv-expr-trap {
+  margin: 0;
+  font-size: 0.87rem;
+  line-height: 1.5;
+  color: var(--text-secondary);
+}
+
+.lv-expr-meaning {
+  margin: 0;
+  font-size: 0.92rem;
+  font-weight: 600;
+  line-height: 1.5;
+  color: var(--text-primary);
+}
+
+.lv-expr-example {
+  margin-top: auto;
+  padding: 0.65rem 0.85rem;
+  border-radius: 10px;
+  background: var(--bg-pill);
+  font-family: "Newsreader", Georgia, serif;
+  font-style: italic;
+  font-size: 0.98rem;
+  color: var(--accent-text);
+}
+
+/* Section 3: Situational Roleplay */
+.lv-roleplay-stage {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1.25rem 1.4rem;
+  border-radius: 16px;
+  background: var(--bg-surface);
+  border: 1.5px solid var(--border-subtle);
+}
+
+.lv-roleplay-header-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.lv-roleplay-goal-box {
+  padding: 0.8rem 1rem;
+  border-radius: 12px;
+  background: var(--bg-badge-teal);
+  border: 1px solid var(--border-subtle);
+  font-size: 0.94rem;
+  color: var(--text-primary);
+}
+
+@media (max-width: 640px) {
+  .lv-reading-article,
+  .lv-roleplay-stage {
+    padding: 1rem;
+  }
+
+  .spanglish-meter-wrap {
+    width: 100%;
+  }
+
+  .spanglish-meter-track {
+    flex: 1;
+  }
+}

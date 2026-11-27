@@ -19,10 +19,19 @@
      Helpers: language, audio (speech synthesis), spelling
      ========================================================================== */
 
+  const LEVEL_ID = "a0";
   const lang = () => (document.documentElement.lang === "en" ? "en" : "es");
+  const L = (es, en) =>
+    window.LinguaSpanglish
+      ? window.LinguaSpanglish.pair(es, en, LEVEL_ID)
+      : lang() === "es"
+      ? es
+      : en;
   const t = (value) =>
-    value && typeof value === "object" && !Array.isArray(value) && "es" in value
-      ? value[lang()]
+    value && typeof value === "object" && !Array.isArray(value) && ("es" in value || "en" in value || "spanglish" in value)
+      ? window.LinguaSpanglish
+        ? window.LinguaSpanglish.resolve(value, LEVEL_ID)
+        : value[lang()]
       : value;
 
   const speechSupported = "speechSynthesis" in window;
@@ -311,8 +320,6 @@
      Rendering
      ========================================================================== */
 
-  const L = (es, en) => (lang() === "es" ? es : en);
-
   function renderRoutine() {
     return `<ul class="routine-strip">
       ${ROUTINE.map((r) => `<li><span class="routine-icon" aria-hidden="true">${r.icon}</span><span>${t(r.text)}</span></li>`).join("")}
@@ -331,6 +338,21 @@
         <span class="lesson-overview-num">02</span>
         <span class="lesson-overview-title">${L("Vocales cortas y largas", "Short & Long Vowels")}</span>
         <span class="lesson-overview-meta">${L("Discriminación auditiva · 8 ejercicios", "Listening discrimination · 8 exercises")}</span>
+      </a>
+      <a href="#level-sec-reading" class="lesson-overview-card">
+        <span class="lesson-overview-num">03</span>
+        <span class="lesson-overview-title">📰 ${L("Lectura y Mini-Noticia", "Reading & News Capsule")}</span>
+        <span class="lesson-overview-meta">${L("Estilo British Council / VOA · Audio + Quiz", "British Council / VOA style · Audio + Quiz")}</span>
+      </a>
+      <a href="#level-sec-expressions" class="lesson-overview-card">
+        <span class="lesson-overview-num">04</span>
+        <span class="lesson-overview-title">💡 ${L("Expressions y False Friends", "Expressions & False Friends")}</span>
+        <span class="lesson-overview-meta">${L("Estilo BBC / Busuu · Frases reales y trampas", "BBC / Busuu style · Idioms & L1 traps")}</span>
+      </a>
+      <a href="#level-sec-roleplay" class="lesson-overview-card">
+        <span class="lesson-overview-num">05</span>
+        <span class="lesson-overview-title">🎭 ${L("Roleplay Cotidiano", "Everyday Situational Roleplay")}</span>
+        <span class="lesson-overview-meta">${L("Estilo BBC English at Work · 3 turnos", "BBC English at Work style · 3 turns")}</span>
       </a>
       <a href="#lesson-resources" class="lesson-overview-card">
         <span class="lesson-overview-num">＋</span>
@@ -705,11 +727,19 @@
 
   function render() {
     const scrollY = window.scrollY;
+    const banner = window.LinguaSpanglish
+      ? window.LinguaSpanglish.renderBanner(LEVEL_ID, "lesson")
+      : "";
+    const extraSections = window.LinguaLevelSections
+      ? window.LinguaLevelSections.renderAll(LEVEL_ID)
+      : "";
     root.innerHTML = `
+      ${banner}
       ${renderRoutine()}
       ${renderOverview()}
       ${renderLesson1()}
       ${renderLesson2()}
+      ${extraSections}
       ${renderResources()}
       <div class="lesson-back-row">
         <a href="lessons.html" class="btn btn-dark">${L("← Volver a Lecciones", "← Back to Lessons")}</a>
@@ -734,6 +764,13 @@
   }
 
   root.addEventListener("click", (event) => {
+    if (
+      window.LinguaLevelSections &&
+      window.LinguaLevelSections.handleClick(event, LEVEL_ID, render)
+    ) {
+      return;
+    }
+
     const speakEl = event.target.closest("[data-speak]");
     if (speakEl) {
       speak(speakEl.dataset.speak, Number(speakEl.dataset.rate) || 0.85);
