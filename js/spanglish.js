@@ -241,6 +241,80 @@
         en: "Instructions (100% English): Process fast, idiomatic discourse for subtle implicature, register, and rhetorical intent before consulting the transcript.",
       },
     },
+    builder: {
+      a0: {
+        spanglish:
+          "Instrucciones: Arrastra (drag & drop) o haz click en cada word para armar la sentence real en orden. Luego llena el document real abajo.",
+        en: "Instructions: Drag and drop (or click) each word tile to assemble the real-life sentence in order, then complete the real document below.",
+      },
+      a1: {
+        spanglish:
+          "Instrucciones: Drag & drop o toca los bloques para construir mensajes reales de tu daily life, listen el audio y completa el form abajo.",
+        en: "Instructions: Drag and drop or tap the tiles to build everyday messages, listen to the audio, and fill in the live form below.",
+      },
+      a2: {
+        spanglish:
+          "Instructions (Spanglish 50/50): Drag & drop the tiles para armar real-life messages en orden natural; luego complete the real document con los chips correctos.",
+        en: "Instructions: Drag and drop the tiles to build natural real-life messages, then complete the realistic document with the right chips.",
+      },
+      b1: {
+        spanglish:
+          "Instructions (70% English): Assemble natural workplace & everyday messages arrastrando las clause tiles en orden, then fill in the live document below.",
+        en: "Instructions: Assemble natural workplace and everyday messages by dragging clause tiles into order, then complete the live document below.",
+      },
+      b2: {
+        spanglish:
+          "Instructions (85% English): Construct diplomatic emails and structured clauses via drag-and-drop (fíjate en el orden natural y hedging), then complete the project brief.",
+        en: "Instructions: Construct diplomatic emails and structured clauses via drag-and-drop, then complete the project brief below.",
+      },
+      c1: {
+        spanglish:
+          "Instructions (100% English): Assemble cohesive C1 clauses—including inversions, clefts, and hedging—via drag-and-drop, then finalize the executive incident memo.",
+        en: "Instructions (100% English): Assemble cohesive C1 clauses—including inversions, clefts, and hedging—via drag-and-drop, then finalize the executive incident memo.",
+      },
+      c2: {
+        spanglish:
+          "Instructions (100% English): Craft near-native prose with formal fronting, absolute phrases, and mandative subjunctive, then complete the board governance charter.",
+        en: "Instructions (100% English): Craft near-native prose with formal fronting, absolute phrases, and mandative subjunctive, then complete the board governance charter.",
+      },
+    },
+    realworld: {
+      a0: {
+        spanglish:
+          "Instrucciones: Lee el mensaje real, haz click en la word con error para corregirla y luego arrastra (drag & drop) cada frase a su zona de tono.",
+        en: "Instructions: Read the real message, click the mistaken word directly inside the text to fix it, and drag each phrase into the right tone zone.",
+      },
+      a1: {
+        spanglish:
+          "Instrucciones: Detecta el error haciendo click directo en el text real para repararlo; abajo, drag & drop cada frase según si es Casual, Workplace o Formal.",
+        en: "Instructions: Spot and click the mistake directly inside the real message to repair it; below, drag and drop each phrase into Casual, Workplace, or Formal.",
+      },
+      a2: {
+        spanglish:
+          "Instructions (Spanglish 50/50): Click the broken phrase inside the real message para repararla; luego sort the 6 phrases en el Tone & Register Board.",
+        en: "Instructions: Click the broken phrase inside the real message to repair it, then sort all 6 phrases on the Tone & Register Board.",
+      },
+      b1: {
+        spanglish:
+          "Instructions (70% English): Proofread real-world messages haciendo click directo en el error to fix it, then drag each expression into its appropriate social register.",
+        en: "Instructions: Proofread real-world messages by clicking the mistake directly to fix it, then drag each expression into its appropriate social register.",
+      },
+      b2: {
+        spanglish:
+          "Instructions (85% English): Audit realistic workplace chats and emails (detecta el fallo gramatical o de tono) and categorize phrases across casual, workplace, and formal registers.",
+        en: "Instructions: Audit realistic workplace chats and emails by clicking the flawed span to repair it, then categorize phrases across casual, workplace, and formal registers.",
+      },
+      c1: {
+        spanglish:
+          "Instructions (100% English): Identify and repair subtle C1 syntactic, collocational, or pragmatic flaws directly in authentic memos, then sort expressions by social register.",
+        en: "Instructions (100% English): Identify and repair subtle C1 syntactic, collocational, or pragmatic flaws directly in authentic memos, then sort expressions by social register.",
+      },
+      c2: {
+        spanglish:
+          "Instructions (100% English): Edit near-native correspondence for lexical precision, subjunctive control, and register coherence, then classify nuanced utterances by tone.",
+        en: "Instructions (100% English): Edit near-native correspondence for lexical precision, subjunctive control, and register coherence, then classify nuanced utterances by tone.",
+      },
+    },
   };
 
   /* Progressive UI labels for shared interactive widgets */

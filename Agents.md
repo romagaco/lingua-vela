@@ -34,16 +34,22 @@ Goal: make language learning accessible and easy to contribute to.
 │   ├── listening-extra.js        # Renderer for the 2 extra Listening sections
 │   ├── listening-extra-dictation.js # 70 Micro-Dictation & Connected Speech Cloze exercises
 │   ├── listening-extra-dialogue.js  # 70 Interactive Dialogue & Next-Reply exercises
+│   ├── practice-builder-data.js  # Data for Drag-and-Drop Builder & Live Document Lab (a0–c2)
+│   ├── practice-builder.js       # Interactive Drag-and-Drop Builder & Document Lab renderer
+│   ├── practice-realworld-data.js # Data for Click-to-Fix Error Detective & Register Sorter (a0–c2)
+│   ├── practice-realworld.js     # Interactive Proofreading & Tone/Register Sorter renderer
 │   └── vocabulary-animals.js # Animals flashcards (40 animals, click-to-reveal)
 ├── assets/                  # Images, icons, audio, etc.
 ├── pages/                   # Separate HTML pages (top nav: Port, Lessons, Practice, Books, My Ship)
 │   ├── lessons.html         # Lessons hub — categories & large icon menu of the 7 levels
 │   ├── lessons-vocabulary.html # Category under Lessons: Vocabulary & Animals flashcards
 │   ├── lesson-a0.html … lesson-c2.html  # One page per level (coming soon)
-│   ├── practice.html        # Practice hub — large icon menu (Grammar, Vocabulary, Listening)
+│   ├── practice.html        # Practice hub — large icon menu (Grammar, Vocabulary, Listening, Builder, Error Detective)
 │   ├── grammar.html         # Grammar Workshop (Pre A/A0 - C2)
 │   ├── vocabulary.html      # Vocabulary & Pronunciation (Pre A/A0 - C2)
 │   ├── listening.html       # Listening (Pre A/A0 - C2)
+│   ├── builder.html         # Real-World Message Builder (Drag & Drop) & Live Document Lab (Pre A/A0 - C2)
+│   ├── real-world.html      # Real-World Error Detective (Click-to-Fix) & Tone/Register Sorter (Pre A/A0 - C2)
 │   ├── books.html           # Extensive readings, not by level (coming soon)
 │   └── ship.html            # My Ship (User profile, Competences & Streaks)
 ├── AGENTS.md

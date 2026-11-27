@@ -4339,3 +4339,562 @@ a.social-collab-card:focus-visible {
     flex: 1;
   }
 }
+
+/* ==========================================================================
+   Real-World Practice Labs: Drag & Drop Builder, Live Docs, Proofread & Register
+   ========================================================================== */
+
+.dnd-dropzone {
+  min-height: 76px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 1rem 1.15rem;
+  border-radius: 14px;
+  background: var(--bg-surface);
+  border: 2px dashed var(--border-strong);
+  transition: border-color 0.18s ease, background 0.18s ease;
+}
+
+.dnd-dropzone.drag-over,
+.dnd-bank-wrap.drag-over,
+.doc-blank-slot.drag-over,
+.reg-zone-col.drag-over,
+.reg-tray-wrap.drag-over {
+  border-color: var(--accent-primary);
+  background: var(--bg-badge-teal);
+}
+
+.dnd-dropzone.is-solved {
+  border-style: solid;
+  border-color: var(--status-success);
+  background: var(--status-success-bg);
+}
+
+.dnd-placeholder {
+  font-size: 0.9rem;
+  font-style: italic;
+  color: var(--text-muted);
+}
+
+.dnd-bank-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  padding: 0.95rem 1.1rem;
+  border-radius: 14px;
+  background: var(--bg-pill);
+  border: 1.5px solid var(--border-subtle);
+}
+
+.dnd-tile-bank-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+}
+
+.dnd-tile {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.52rem 0.95rem;
+  border-radius: 12px;
+  background: var(--bg-surface);
+  border: 1.5px solid var(--border-strong);
+  color: var(--text-primary);
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: grab;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+  transition: transform 0.15s ease, border-color 0.15s ease, background 0.15s ease, opacity 0.15s ease;
+}
+
+.dnd-tile:hover:not(:disabled),
+.dnd-tile:focus-visible:not(:disabled) {
+  transform: translateY(-2px);
+  border-color: var(--accent-primary);
+}
+
+.dnd-tile:active:not(:disabled) {
+  cursor: grabbing;
+}
+
+.dnd-tile.is-dragging {
+  opacity: 0.45;
+}
+
+.dnd-tile.is-used {
+  opacity: 0.38;
+  cursor: default;
+  text-decoration: line-through;
+}
+
+.dnd-tile-placed {
+  background: var(--bg-badge-teal);
+  border-color: var(--accent-teal);
+}
+
+.dnd-tile.tile-correct {
+  background: var(--status-success-bg);
+  border-color: var(--status-success);
+  color: var(--status-success);
+}
+
+.dnd-tile.tile-wrong {
+  background: var(--status-error-bg);
+  border-color: var(--status-error);
+  color: var(--status-error);
+}
+
+.dnd-actions-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-top: 0.35rem;
+}
+
+/* Live Document & Form Lab */
+.doc-artifact-sheet {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  padding: 1.45rem 1.6rem;
+  border-radius: 16px;
+  background: var(--bg-surface);
+  border: 1.5px solid var(--border-strong);
+  border-top: 5px solid var(--accent-teal);
+  box-shadow: var(--shadow-card);
+}
+
+.doc-artifact-sheet.is-approved {
+  border-top-color: var(--status-success);
+}
+
+.doc-artifact-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  padding-bottom: 0.85rem;
+  border-bottom: 1.5px dashed var(--border-strong);
+}
+
+.doc-artifact-type {
+  display: block;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--accent-text);
+}
+
+.doc-artifact-title {
+  margin: 0.15rem 0 0;
+  font-family: "Newsreader", Georgia, serif;
+  font-size: 1.4rem;
+  color: var(--text-primary);
+}
+
+.doc-code-tag {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.78rem;
+  padding: 0.25rem 0.65rem;
+  border-radius: 8px;
+  background: var(--bg-pill);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-muted);
+}
+
+.doc-approved-stamp {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.82rem;
+  font-weight: 700;
+  padding: 0.3rem 0.75rem;
+  border-radius: 8px;
+  border: 2px solid var(--status-success);
+  color: var(--status-success);
+  background: var(--status-success-bg);
+  letter-spacing: 0.05em;
+}
+
+.doc-fields-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.doc-field-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding: 0.75rem 0.95rem;
+  border-radius: 12px;
+  background: var(--bg-pill);
+  border: 1px solid var(--border-subtle);
+}
+
+.doc-field-label {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.74rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+}
+
+.doc-field-line {
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--text-primary);
+}
+
+.doc-blank-slot {
+  display: inline-flex;
+  align-items: center;
+  min-width: 112px;
+  justify-content: center;
+  padding: 0.18rem 0.7rem;
+  margin: 0 0.25rem;
+  border-radius: 9px;
+  background: var(--bg-surface);
+  border: 2px dashed var(--accent-primary);
+  color: var(--accent-text);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.doc-blank-slot.is-filled {
+  border-style: solid;
+  background: var(--bg-badge-teal);
+}
+
+.doc-blank-slot.is-correct {
+  border-color: var(--status-success);
+  background: var(--status-success-bg);
+  color: var(--status-success);
+}
+
+.doc-blank-slot.is-wrong {
+  border-color: var(--status-error);
+  background: var(--status-error-bg);
+  color: var(--status-error);
+}
+
+/* Error Detective (Click-to-Fix Proofreading) */
+.proofread-message-card {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1.4rem 1.55rem;
+  border-radius: 16px;
+  background: var(--bg-surface);
+  border: 1.5px solid var(--border-strong);
+  box-shadow: var(--shadow-card);
+}
+
+.proofread-message-card.is-repaired {
+  border-color: var(--status-success);
+}
+
+.proofread-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.proofread-sender {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.proofread-prompt-hint {
+  margin: 0;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.proofread-prose {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.42rem;
+  padding: 1.1rem 1.2rem;
+  border-radius: 12px;
+  background: var(--bg-pill);
+  border: 1px solid var(--border-subtle);
+  line-height: 1.7;
+}
+
+.proofread-token {
+  padding: 0.28rem 0.55rem;
+  border-radius: 8px;
+  border: 1.5px solid transparent;
+  background: transparent;
+  color: var(--text-primary);
+  font-family: "Newsreader", Georgia, serif;
+  font-size: 1.22rem;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.proofread-token:hover,
+.proofread-token:focus-visible {
+  background: var(--bg-surface);
+  border-color: var(--border-strong);
+}
+
+.proofread-token.is-spotted {
+  background: var(--bg-badge-warm);
+  border-color: var(--accent-primary);
+  text-decoration: underline wavy var(--status-error);
+}
+
+.proofread-token.is-clean-ping {
+  background: var(--bg-surface);
+  border-color: var(--accent-teal);
+}
+
+.proofread-token.is-healed {
+  background: var(--status-success-bg);
+  border-color: var(--status-success);
+  cursor: default;
+}
+
+.proofread-old {
+  font-size: 0.95rem;
+  color: var(--status-error);
+  margin-right: 0.25rem;
+}
+
+.proofread-new {
+  font-weight: 700;
+  color: var(--status-success);
+}
+
+.proofread-repair-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  padding: 1rem 1.1rem;
+  border-radius: 12px;
+  background: var(--bg-badge-warm);
+  border: 1.5px solid var(--accent-primary);
+}
+
+.proofread-repair-label {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.proofread-fix-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+}
+
+.proofread-fix-btn {
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  background: var(--bg-surface);
+  border: 1.5px solid var(--border-strong);
+  color: var(--text-primary);
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 0.92rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.15s ease, border-color 0.15s ease;
+}
+
+.proofread-fix-btn:hover,
+.proofread-fix-btn:focus-visible {
+  transform: translateY(-2px);
+  border-color: var(--accent-primary);
+}
+
+.proofread-fix-btn.is-wrong {
+  border-color: var(--status-error);
+  background: var(--status-error-bg);
+  color: var(--status-error);
+}
+
+/* Tone & Register Sorter (3-Zone Drag-and-Drop Board) */
+.reg-tray-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  padding: 1rem 1.15rem;
+  border-radius: 14px;
+  background: var(--bg-pill);
+  border: 1.5px solid var(--border-subtle);
+}
+
+.reg-tray-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 0.65rem;
+}
+
+.reg-zones-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.reg-zone-col {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 1rem;
+  border-radius: 16px;
+  background: var(--bg-surface);
+  border: 2px dashed var(--border-strong);
+  min-height: 220px;
+  transition: border-color 0.18s ease, background 0.18s ease;
+}
+
+.reg-zone-col.is-targetable {
+  border-color: var(--accent-primary);
+  cursor: pointer;
+}
+
+.reg-zone-head {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  padding-bottom: 0.65rem;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.reg-zone-icon {
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.reg-zone-title {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.reg-zone-sub {
+  margin: 0.15rem 0 0;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.reg-zone-drop {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  flex: 1;
+}
+
+.reg-zone-empty {
+  margin: auto;
+  text-align: center;
+  font-size: 0.84rem;
+  font-style: italic;
+  color: var(--text-muted);
+  padding: 1rem 0.5rem;
+}
+
+.reg-phrase-card {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.7rem 0.85rem;
+  border-radius: 12px;
+  background: var(--bg-surface);
+  border: 1.5px solid var(--border-strong);
+  cursor: grab;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  transition: transform 0.15s ease, border-color 0.15s ease, background 0.15s ease;
+}
+
+.reg-phrase-card:hover,
+.reg-phrase-card:focus-visible {
+  transform: translateY(-2px);
+  border-color: var(--accent-primary);
+}
+
+.reg-phrase-card.is-selected {
+  border-color: var(--accent-primary);
+  background: var(--bg-badge-teal);
+  box-shadow: 0 0 0 2px var(--focus-ring);
+}
+
+.reg-phrase-card.is-correct {
+  border-color: var(--status-success);
+  background: var(--status-success-bg);
+}
+
+.reg-phrase-card.is-wrong {
+  border-color: var(--status-error);
+  background: var(--status-error-bg);
+}
+
+.reg-phrase-text {
+  font-size: 0.88rem;
+  line-height: 1.45;
+  color: var(--text-primary);
+}
+
+.reg-card-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  flex-shrink: 0;
+}
+
+.reg-speak-btn {
+  width: 30px;
+  height: 30px;
+  font-size: 0.82rem;
+}
+
+.reg-remove-btn {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 1px solid var(--border-strong);
+  background: var(--bg-pill);
+  color: var(--text-secondary);
+  font-size: 0.75rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.reg-remove-btn:hover {
+  border-color: var(--status-error);
+  color: var(--status-error);
+}
+
+@media (max-width: 900px) {
+  .reg-zones-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .reg-zone-col {
+    min-height: 140px;
+  }
+}
+
+@media (max-width: 640px) {
+  .doc-artifact-sheet,
+  .proofread-message-card {
+    padding: 1rem;
+  }
+}

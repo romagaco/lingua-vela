@@ -211,6 +211,10 @@ const UI_TEXT = {
     practiceGrammarDesc: "Estructuras gramaticales paso a paso con retroalimentación inmediata.",
     practiceVocabDesc: "Palabras clave, fonética estadounidense y pronunciación en contexto.",
     practiceListeningDesc: "Escucha audios reales y responde preguntas de comprensión.",
+    navBuilder: "Constructor y Documentos Reales",
+    practiceBuilderDesc: "Arrastra y suelta (drag & drop) bloques para armar mensajes reales y completa formularios, boletos, invitaciones y memos en vivo.",
+    navRealWorld: "Detective de Errores y Registro",
+    practiceRealWorldDesc: "Corrige mensajes reales haciendo clic directo en el error y clasifica frases por tono (Casual, Laboral y Formal) con drag & drop.",
     lessonsEyebrow: "LECCIONES • 7 RANGOS",
     lessonsTitle: "Lecciones",
     lessonsSubtitle: "Elige tu rango para estudiar la gramática y las lecciones de cada nivel.",
@@ -392,6 +396,14 @@ const UI_TEXT = {
     listeningPageTitle: "Comprensión Auditiva (Listening)",
     listeningPageSubtitle:
       "Reproduce el audio de cada rango a velocidad normal o lenta, revisa la transcripción y responde la pregunta.",
+    builderPageEyebrow: "APLICACIÓN REAL • DRAG & DROP + DOCUMENTOS EN VIVO",
+    builderPageTitle: "Constructor de Mensajes y Documentos Reales",
+    builderPageSubtitle:
+      "Arma oraciones y correos auténticos arrastrando bloques y completa documentos reales desde Pre-A1 hasta C2.",
+    realWorldPageEyebrow: "APLICACIÓN REAL • PROOFREADING + TONO Y REGISTRO",
+    realWorldPageTitle: "Detective de Errores y Laboratorio de Registro",
+    realWorldPageSubtitle:
+      "Repara mensajes reales haciendo clic directo en el error y clasifica frases en Casual, Workplace y Formal.",
     /* My Ship Page */
     shipPageEyebrow: "PERFIL DEL TRIPULANTE Y BITÁCORA DE NAVEGACIÓN",
     shipPageTitle: "Mi Barco — Bitácora del Aprendiz",
@@ -428,6 +440,10 @@ const UI_TEXT = {
     practiceGrammarDesc: "Step-by-step grammar structures with instant feedback.",
     practiceVocabDesc: "Key words, American English phonetics, and pronunciation in context.",
     practiceListeningDesc: "Listen to real audio and answer comprehension questions.",
+    navBuilder: "Real-World Builder & Forms",
+    practiceBuilderDesc: "Drag and drop tiles to build authentic messages and complete real-life forms, tickets, meeting invites, and memos.",
+    navRealWorld: "Error Detective & Register Lab",
+    practiceRealWorldDesc: "Click directly inside realistic messages to fix mistakes and drag-and-drop phrases into Casual, Workplace, and Formal tone zones.",
     lessonsEyebrow: "LESSONS • 7 RANKS",
     lessonsTitle: "Lessons",
     lessonsSubtitle: "Choose your rank to study the grammar and lessons for each level.",
@@ -609,6 +625,14 @@ const UI_TEXT = {
     listeningPageTitle: "Listening Comprehension",
     listeningPageSubtitle:
       "Play the audio broadcast for each rank at normal or slow speed, inspect the transcript, and answer the comprehension question.",
+    builderPageEyebrow: "REAL ENGLISH APPLICATION • DRAG & DROP + LIVE DOCUMENTS",
+    builderPageTitle: "Real-World Message Builder & Form Lab",
+    builderPageSubtitle:
+      "Drag and drop tiles to assemble authentic messages and complete realistic everyday and workplace documents from Pre-A1 to C2.",
+    realWorldPageEyebrow: "REAL ENGLISH APPLICATION • CLICK-TO-FIX + TONE SORTER",
+    realWorldPageTitle: "Real-World Error Detective & Register Lab",
+    realWorldPageSubtitle:
+      "Click directly on mistakes inside realistic chats and memos to repair them, then sort expressions by social register.",
     /* My Ship Page */
     shipPageEyebrow: "LEARNER PROFILE & NAVIGATION LOGBOOK",
     shipPageTitle: "My Ship — Learner Logbook",
