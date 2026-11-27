@@ -277,6 +277,12 @@ const UI_TEXT = {
       "Aprende inglés de forma abierta, sin necesidad de cuenta ni muros de pago. Explora nuestros rangos de tripulación, recursos de Adquisición de Segundas Lenguas (SLA) y laboratorios interactivos.",
     startExploringBtn: "Explorar Rangos de Tripulación ↓",
     openResourcesBtn: "Ver Recursos y Guía PDF →",
+    openUpdatesBtn: "Novedades y Commits",
+    portVisitsLabel: "visitas al puerto",
+    updatesPageEyebrow: "BITÁCORA DE DESARROLLO • NOVEDADES EN VIVO",
+    updatesPageTitle: "Novedades y Commits de LinguaVela",
+    updatesPageSubtitle:
+      "Cada nueva función, lección y mejora publicada en el proyecto aparece aquí automáticamente desde nuestro repositorio de GitHub.",
     ranksEyebrow: "SISTEMA DE RANGOS DE LA TRIPULACIÓN",
     ranksHeading: "De Terrícola a Capitán: ¿Qué puede hacer cada rango?",
     ranksMeta: "7 rangos náuticos progresivos con insignias propias",
@@ -506,6 +512,12 @@ const UI_TEXT = {
       "Learn English openly with no sign-in required and zero paywalls. Explore our nautical crew ranks, Second Language Acquisition (SLA) resources, and interactive laboratories.",
     startExploringBtn: "Explore Crew Ranks ↓",
     openResourcesBtn: "View Resources & PDF Blueprint →",
+    openUpdatesBtn: "Updates & Commits",
+    portVisitsLabel: "port visits",
+    updatesPageEyebrow: "DEVELOPMENT LOGBOOK • LIVE CHANGELOG",
+    updatesPageTitle: "LinguaVela Updates & Commits",
+    updatesPageSubtitle:
+      "Every new feature, lesson, and improvement shipped to the project appears here automatically from our GitHub repository.",
     ranksEyebrow: "CREW RANK SYSTEM",
     ranksHeading: "From Landlubber to Captain: What Each Rank Can Do",
     ranksMeta: "7 progressive nautical ranks with dedicated badges",
@@ -4733,8 +4745,81 @@ function initShipPage() {
    Port (index.html) Audio & Pronunciation Previews
    ========================================================================== */
 
+function initPortVisitsCounter() {
+  const countEl = document.getElementById("port-visits-count");
+  if (!countEl) return;
+
+  const LOCAL_KEY = "linguavela-port-visits-local";
+  const SESSION_KEY = "linguavela-port-visit-counted";
+  const COUNTER_API_BASE = "https://api.counterapi.dev/v1/linguavela-romagaco/port-visits";
+
+  const formatNum = (n) => {
+    try {
+      return Number(n).toLocaleString(currentLang === "es" ? "es-ES" : "en-US");
+    } catch {
+      return String(n);
+    }
+  };
+
+  let alreadyCounted = false;
+  try {
+    alreadyCounted = sessionStorage.getItem(SESSION_KEY) === "1";
+  } catch {
+    alreadyCounted = false;
+  }
+
+  // Local fallback counter (always kept up to date for offline / file:// use)
+  let localCount = 0;
+  try {
+    localCount = parseInt(localStorage.getItem(LOCAL_KEY) || "0", 10) || 0;
+    if (!alreadyCounted) {
+      localCount += 1;
+      localStorage.setItem(LOCAL_KEY, String(localCount));
+    }
+  } catch {
+    localCount = 1;
+  }
+
+  countEl.textContent = formatNum(localCount);
+
+  // When hosted over http/https, sync with global static-site counter API
+  if (
+    typeof fetch === "function" &&
+    (window.location.protocol === "https:" || window.location.protocol === "http:")
+  ) {
+    const endpoint = alreadyCounted ? COUNTER_API_BASE : `${COUNTER_API_BASE}/up`;
+    fetch(endpoint)
+      .then((res) => (res.ok ? res.json() : null))
+      .then((data) => {
+        if (data && typeof data.count === "number") {
+          countEl.textContent = formatNum(data.count);
+          try {
+            localStorage.setItem(LOCAL_KEY, String(data.count));
+            sessionStorage.setItem(SESSION_KEY, "1");
+          } catch {
+            // ignore
+          }
+        }
+      })
+      .catch(() => {
+        try {
+          sessionStorage.setItem(SESSION_KEY, "1");
+        } catch {
+          // ignore
+        }
+      });
+  } else {
+    try {
+      sessionStorage.setItem(SESSION_KEY, "1");
+    } catch {
+      // ignore
+    }
+  }
+}
+
 function initPortPreviews() {
   renderCrewRanksOnPort();
+  initPortVisitsCounter();
 
   const speakVocabBtn = document.getElementById("speak-vocab-btn");
   if (speakVocabBtn) {

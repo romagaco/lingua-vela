@@ -38,6 +38,7 @@ Goal: make language learning accessible and easy to contribute to.
 │   ├── practice-builder.js       # Interactive Drag-and-Drop Builder & Document Lab renderer
 │   ├── practice-realworld-data.js # Data for Click-to-Fix Error Detective & Register Sorter (a0–c2)
 │   ├── practice-realworld.js     # Interactive Proofreading & Tone/Register Sorter renderer
+│   ├── updates.js           # Live GitHub commits & modern changelog timeline renderer
 │   └── vocabulary-animals.js # Animals flashcards (40 animals, click-to-reveal)
 ├── assets/                  # Images, icons, audio, etc.
 ├── pages/                   # Separate HTML pages (top nav: Port, Lessons, Practice, Books, My Ship)
@@ -51,6 +52,7 @@ Goal: make language learning accessible and easy to contribute to.
 │   ├── builder.html         # Real-World Message Builder (Drag & Drop) & Live Document Lab (Pre A/A0 - C2)
 │   ├── real-world.html      # Real-World Error Detective (Click-to-Fix) & Tone/Register Sorter (Pre A/A0 - C2)
 │   ├── books.html           # Extensive readings, not by level (coming soon)
+│   ├── updates.html         # Live GitHub commits & feature changelog timeline
 │   └── ship.html            # My Ship (User profile, Competences & Streaks)
 ├── AGENTS.md
 ├── README.md
